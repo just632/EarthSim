@@ -1,0 +1,8 @@
+# ninja log v5
+1	4	0	clean	a31eedcededa8236
+2	574	1720458933317635784	CMakeFiles/earth_sim.dir/src/main.cpp.o	30e15204d48a4460
+2	146	1720459079760100746	CMakeFiles/earth_sim.dir/src/glad.c.o	d0212694ae4574dc
+1	5	0	clean	a31eedcededa8236
+2	98	1720459156427610157	CMakeFiles/earth_sim.dir/src/glad.c.o	d0212694ae4574dc
+2	476	1720459156804643784	CMakeFiles/earth_sim.dir/include/common/controls.cpp.o	6a046ef7385fdd17
+1	740	1720459157069667385	CMakeFiles/earth_sim.dir/src/main.cpp.o	30e15204d48a4460

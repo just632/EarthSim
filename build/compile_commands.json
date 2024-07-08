@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/src/main.cpp.o -c /home/m/Code/cpp/EarthSim/src/main.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/src/main.cpp",
+  "output": "CMakeFiles/earth_sim.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/cc -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/src/glad.c.o -c /home/m/Code/cpp/EarthSim/src/glad.c",
+  "file": "/home/m/Code/cpp/EarthSim/src/glad.c",
+  "output": "CMakeFiles/earth_sim.dir/src/glad.c.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/common/controls.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/controls.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/common/controls.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/common/controls.cpp.o"
+}
+]

@@ -1,0 +1,3 @@
+/home/m/Code/cpp/EarthSim/CMakeFiles/earth_sim.dir
+/home/m/Code/cpp/EarthSim/CMakeFiles/edit_cache.dir
+/home/m/Code/cpp/EarthSim/CMakeFiles/rebuild_cache.dir
