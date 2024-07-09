@@ -87,11 +87,12 @@ glm::mat4 computeViewMatrix(const glm::vec3& position, float horizontalAngle, fl
     // Right vector: cross product of forward and up
     right = glm::normalize(glm::cross(forward, up));
 
-    // Recompute the up vector to ensure orthogonality
-    up = glm::normalize(glm::cross(right, forward));
-
-    // Calculate the lookAt point
+	// Calculate the lookAt point
     glm::vec3 lookAt = position + forward;
+
+    // Recalculate forward vector to be tangent to the ellipsoid's surface
+    forward = glm::normalize(glm::cross(up, right));
+
 
     // Return the view matrix
     return glm::lookAt(position, lookAt, up);
