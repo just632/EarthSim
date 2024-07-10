@@ -1,4 +1,4 @@
-// Include GLFW
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 extern GLFWwindow* window; // The "extern" keyword here is to access the variable "window" declared in tutorialXXX.cpp. This is a hack to keep the tutorials simple. Please avoid this.
 
@@ -9,6 +9,7 @@ using namespace glm;
 
 #include "controls.hpp"
 #include "config.h"
+#include <string.h>
 
 // WGS84 Parameters
 const double a = 63.783880f; // Semi-major axis in meters
@@ -20,7 +21,7 @@ const double gamma_e = 9.7803253359; // Equatorial gravity in m/s^2
 const double k = 0.00193185265241; // Gravity constant
 
 // Initial position : on +Z
-glm::vec3 position = glm::vec3(0, b, 0);
+glm::vec3 position(0, b, 0);
 
 glm::vec3 up;
 glm::vec3 right;
@@ -35,6 +36,26 @@ float initialFoV = 45.0f;
 
 float speed = 3.0f; // 3 units / second
 float mouseSpeed = 0.002f;
+
+void output(int x, int y, float r, float g, float b, char *string)
+{
+  glColor3f( r, g, b );
+  glRasterPos2f(x, y);
+  int len, i;
+  len = (int)strlen(string);
+  for (i = 0; i < len; i++) {
+  }
+}
+
+bool consoleOpen = false;
+char console[1024];
+int consoleLen = 0;
+
+void pressKey(GLFWwindow* window,unsigned int key){
+	if(!consoleOpen)return;
+	console[consoleLen] = (char)key;
+	consoleLen++;
+}
 
 glm::mat4 ViewMatrix;
 glm::mat4 ProjectionMatrix = glm::perspective(glm::radians(initialFoV), 4.0f / 3.0f, 0.1f, 10000.0f);
@@ -93,7 +114,6 @@ glm::mat4 computeViewMatrix(const glm::vec3& position, float horizontalAngle, fl
     // Recalculate forward vector to be tangent to the ellipsoid's surface
     forward = glm::normalize(glm::cross(up, right));
 
-
     // Return the view matrix
     return glm::lookAt(position, lookAt, up);
 }
@@ -102,13 +122,21 @@ glm::mat4 computeViewMatrix(const glm::vec3& position, float horizontalAngle, fl
 void updateOrientation(float deltaX, float deltaY) {
     horizontalAngle += mouseSpeed * deltaX;
     verticalAngle += mouseSpeed * deltaY;
-
+/* 
     // Clamp vertical angle to avoid flipping
-    verticalAngle = glm::clamp(verticalAngle, -glm::half_pi<float>(), glm::half_pi<float>());
+    verticalAngle = glm::clamp(verticalAngle, -glm::half_pi<float>(), glm::half_pi<float>()); */
 }
 
 // Function to update the camera position based on keyboard input
 void updatePosition(float deltaTime) {
+	if (glfwGetKey(window, GLFW_KEY_SLASH) == GLFW_PRESS) {
+        consoleOpen=!consoleOpen;
+    };
+
+	if(consoleOpen){
+		output(0,10,.0,.0,.0,console);
+		return;
+	};
 
     // Move forward/backward relative to the camera's direction
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {

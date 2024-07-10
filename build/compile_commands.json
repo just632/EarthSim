@@ -7,14 +7,26 @@
 },
 {
   "directory": "/home/m/Code/cpp/EarthSim/build",
-  "command": "/usr/bin/cc -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/src/glad.c.o -c /home/m/Code/cpp/EarthSim/src/glad.c",
-  "file": "/home/m/Code/cpp/EarthSim/src/glad.c",
-  "output": "CMakeFiles/earth_sim.dir/src/glad.c.o"
-},
-{
-  "directory": "/home/m/Code/cpp/EarthSim/build",
   "command": "/usr/bin/c++ -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/common/controls.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/controls.cpp",
   "file": "/home/m/Code/cpp/EarthSim/include/common/controls.cpp",
   "output": "CMakeFiles/earth_sim.dir/include/common/controls.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/common/shader.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/shader.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/common/shader.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/common/shader.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/text2D.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/common/text2D.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/common/texture.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/texture.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/common/texture.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/common/texture.cpp.o"
 }
 ]

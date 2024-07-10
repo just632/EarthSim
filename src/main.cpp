@@ -1,4 +1,5 @@
-#include <glad/glad.h>
+// Include GLEW
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <cmath>
 #include <iostream>
@@ -8,30 +9,12 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <common/controls.hpp>
 #include <common/config.h>
+#include <common/shader.hpp>
 
 GLFWwindow* window;
 const float R0 = 63.783880f; // Equatorial radius
 const float Rp = 63.569120f; // Polar radius
 const float f = 1.0f - (Rp / R0); // Flattening
-
-const char* vertexShaderSource = R"glsl(
-#version 330 core
-layout (location = 0) in vec3 aPos;
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
-void main() {
-    gl_Position = projection * view * model * vec4(aPos, 1.0);
-}
-)glsl";
-
-const char* fragmentShaderSource = R"glsl(
-#version 330 core
-out vec4 FragColor;
-void main() {
-    FragColor = vec4(1.0, 0.5, 0.2, 1.0);
-}
-)glsl";
 
 void generateEllipsoid(std::vector<float>& vertices, int slices, int stacks) {
     for (int i = 0; i <= stacks; ++i) {
@@ -59,44 +42,6 @@ void generateEllipsoid(std::vector<float>& vertices, int slices, int stacks) {
     }
 }
 
-GLuint compileShader(GLenum type, const char* source) {
-    GLuint shader = glCreateShader(type);
-    glShaderSource(shader, 1, &source, NULL);
-    glCompileShader(shader);
-
-    int success;
-    char infoLog[512];
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(shader, 512, NULL, infoLog);
-        std::cerr << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
-    }
-
-    return shader;
-}
-
-GLuint createShaderProgram(const char* vertexSource, const char* fragmentSource) {
-    GLuint vertexShader = compileShader(GL_VERTEX_SHADER, vertexSource);
-    GLuint fragmentShader = compileShader(GL_FRAGMENT_SHADER, fragmentSource);
-
-    GLuint shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-
-    int success;
-    char infoLog[512];
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-    if (!success) {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-    }
-
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
-
-    return shaderProgram;
-}
 
 int main() {
     // Initialize GLFW
@@ -118,16 +63,19 @@ int main() {
         return -1;
     }
     glfwMakeContextCurrent(window);
+    
+
+    	if (glewInit() != GLEW_OK) {
+		fprintf(stderr, "Failed to initialize GLEW\n");
+		getchar();
+		glfwTerminate();
+		return -1;
+	}
 
     // Ensure we can capture the escape key being pressed below
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    // Load OpenGL functions using GLAD
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cerr << "Failed to initialize GLAD" << std::endl;
-        return -1;
-    }
 
     // Set viewport and callbacks
     glViewport(0, 0, WINDOW_W, WINDOW_H);
@@ -168,7 +116,7 @@ int main() {
     glBindVertexArray(0);
 
     // Create and compile shaders
-    GLuint shaderProgram = createShaderProgram(vertexShaderSource, fragmentShaderSource);
+    GLuint shaderProgram = LoadShaders("simple","simple");
 
     GLint modelLoc = glGetUniformLocation(shaderProgram, "model");
     GLint viewLoc = glGetUniformLocation(shaderProgram, "view");
@@ -176,6 +124,7 @@ int main() {
     
 
     glfwSetScrollCallback(window, scroll_callback);
+    glfwSetCharCallback(window, pressKey);
 
     // Main loop
     while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window)) {

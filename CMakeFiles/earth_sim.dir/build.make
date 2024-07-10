@@ -83,24 +83,10 @@ CMakeFiles/earth_sim.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/src/main.cpp -o CMakeFiles/earth_sim.dir/src/main.cpp.s
 
-CMakeFiles/earth_sim.dir/src/glad.c.o: CMakeFiles/earth_sim.dir/flags.make
-CMakeFiles/earth_sim.dir/src/glad.c.o: src/glad.c
-CMakeFiles/earth_sim.dir/src/glad.c.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/earth_sim.dir/src/glad.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/src/glad.c.o -MF CMakeFiles/earth_sim.dir/src/glad.c.o.d -o CMakeFiles/earth_sim.dir/src/glad.c.o -c /home/m/Code/cpp/EarthSim/src/glad.c
-
-CMakeFiles/earth_sim.dir/src/glad.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/earth_sim.dir/src/glad.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/m/Code/cpp/EarthSim/src/glad.c > CMakeFiles/earth_sim.dir/src/glad.c.i
-
-CMakeFiles/earth_sim.dir/src/glad.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/earth_sim.dir/src/glad.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/m/Code/cpp/EarthSim/src/glad.c -o CMakeFiles/earth_sim.dir/src/glad.c.s
-
 CMakeFiles/earth_sim.dir/include/common/controls.cpp.o: CMakeFiles/earth_sim.dir/flags.make
 CMakeFiles/earth_sim.dir/include/common/controls.cpp.o: include/common/controls.cpp
 CMakeFiles/earth_sim.dir/include/common/controls.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/earth_sim.dir/include/common/controls.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/earth_sim.dir/include/common/controls.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/common/controls.cpp.o -MF CMakeFiles/earth_sim.dir/include/common/controls.cpp.o.d -o CMakeFiles/earth_sim.dir/include/common/controls.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/controls.cpp
 
 CMakeFiles/earth_sim.dir/include/common/controls.cpp.i: cmake_force
@@ -111,23 +97,70 @@ CMakeFiles/earth_sim.dir/include/common/controls.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/common/controls.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/common/controls.cpp -o CMakeFiles/earth_sim.dir/include/common/controls.cpp.s
 
+CMakeFiles/earth_sim.dir/include/common/shader.cpp.o: CMakeFiles/earth_sim.dir/flags.make
+CMakeFiles/earth_sim.dir/include/common/shader.cpp.o: include/common/shader.cpp
+CMakeFiles/earth_sim.dir/include/common/shader.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/earth_sim.dir/include/common/shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/common/shader.cpp.o -MF CMakeFiles/earth_sim.dir/include/common/shader.cpp.o.d -o CMakeFiles/earth_sim.dir/include/common/shader.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/shader.cpp
+
+CMakeFiles/earth_sim.dir/include/common/shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/common/shader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/common/shader.cpp > CMakeFiles/earth_sim.dir/include/common/shader.cpp.i
+
+CMakeFiles/earth_sim.dir/include/common/shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/common/shader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/common/shader.cpp -o CMakeFiles/earth_sim.dir/include/common/shader.cpp.s
+
+CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o: CMakeFiles/earth_sim.dir/flags.make
+CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o: include/common/text2D.cpp
+CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o -MF CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o.d -o CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/text2D.cpp
+
+CMakeFiles/earth_sim.dir/include/common/text2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/common/text2D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/common/text2D.cpp > CMakeFiles/earth_sim.dir/include/common/text2D.cpp.i
+
+CMakeFiles/earth_sim.dir/include/common/text2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/common/text2D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/common/text2D.cpp -o CMakeFiles/earth_sim.dir/include/common/text2D.cpp.s
+
+CMakeFiles/earth_sim.dir/include/common/texture.cpp.o: CMakeFiles/earth_sim.dir/flags.make
+CMakeFiles/earth_sim.dir/include/common/texture.cpp.o: include/common/texture.cpp
+CMakeFiles/earth_sim.dir/include/common/texture.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/earth_sim.dir/include/common/texture.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/common/texture.cpp.o -MF CMakeFiles/earth_sim.dir/include/common/texture.cpp.o.d -o CMakeFiles/earth_sim.dir/include/common/texture.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/texture.cpp
+
+CMakeFiles/earth_sim.dir/include/common/texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/common/texture.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/common/texture.cpp > CMakeFiles/earth_sim.dir/include/common/texture.cpp.i
+
+CMakeFiles/earth_sim.dir/include/common/texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/common/texture.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/common/texture.cpp -o CMakeFiles/earth_sim.dir/include/common/texture.cpp.s
+
 # Object files for target earth_sim
 earth_sim_OBJECTS = \
 "CMakeFiles/earth_sim.dir/src/main.cpp.o" \
-"CMakeFiles/earth_sim.dir/src/glad.c.o" \
-"CMakeFiles/earth_sim.dir/include/common/controls.cpp.o"
+"CMakeFiles/earth_sim.dir/include/common/controls.cpp.o" \
+"CMakeFiles/earth_sim.dir/include/common/shader.cpp.o" \
+"CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o" \
+"CMakeFiles/earth_sim.dir/include/common/texture.cpp.o"
 
 # External object files for target earth_sim
 earth_sim_EXTERNAL_OBJECTS =
 
 earth_sim: CMakeFiles/earth_sim.dir/src/main.cpp.o
-earth_sim: CMakeFiles/earth_sim.dir/src/glad.c.o
 earth_sim: CMakeFiles/earth_sim.dir/include/common/controls.cpp.o
+earth_sim: CMakeFiles/earth_sim.dir/include/common/shader.cpp.o
+earth_sim: CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o
+earth_sim: CMakeFiles/earth_sim.dir/include/common/texture.cpp.o
 earth_sim: CMakeFiles/earth_sim.dir/build.make
+earth_sim: /usr/lib/x86_64-linux-gnu/libGLEW.so
 earth_sim: /usr/lib/x86_64-linux-gnu/libGLX.so
 earth_sim: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 earth_sim: CMakeFiles/earth_sim.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable earth_sim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable earth_sim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/earth_sim.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -153,29 +153,77 @@ include/common/controls.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/controls.cpp.s
 .PHONY : include/common/controls.cpp.s
 
-src/glad.o: src/glad.c.o
-.PHONY : src/glad.o
+include/common/shader.o: include/common/shader.cpp.o
+.PHONY : include/common/shader.o
 
 # target to build an object file
-src/glad.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/src/glad.c.o
-.PHONY : src/glad.c.o
+include/common/shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/shader.cpp.o
+.PHONY : include/common/shader.cpp.o
 
-src/glad.i: src/glad.c.i
-.PHONY : src/glad.i
+include/common/shader.i: include/common/shader.cpp.i
+.PHONY : include/common/shader.i
 
 # target to preprocess a source file
-src/glad.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/src/glad.c.i
-.PHONY : src/glad.c.i
+include/common/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/shader.cpp.i
+.PHONY : include/common/shader.cpp.i
 
-src/glad.s: src/glad.c.s
-.PHONY : src/glad.s
+include/common/shader.s: include/common/shader.cpp.s
+.PHONY : include/common/shader.s
 
 # target to generate assembly for a file
-src/glad.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/src/glad.c.s
-.PHONY : src/glad.c.s
+include/common/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/shader.cpp.s
+.PHONY : include/common/shader.cpp.s
+
+include/common/text2D.o: include/common/text2D.cpp.o
+.PHONY : include/common/text2D.o
+
+# target to build an object file
+include/common/text2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o
+.PHONY : include/common/text2D.cpp.o
+
+include/common/text2D.i: include/common/text2D.cpp.i
+.PHONY : include/common/text2D.i
+
+# target to preprocess a source file
+include/common/text2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/text2D.cpp.i
+.PHONY : include/common/text2D.cpp.i
+
+include/common/text2D.s: include/common/text2D.cpp.s
+.PHONY : include/common/text2D.s
+
+# target to generate assembly for a file
+include/common/text2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/text2D.cpp.s
+.PHONY : include/common/text2D.cpp.s
+
+include/common/texture.o: include/common/texture.cpp.o
+.PHONY : include/common/texture.o
+
+# target to build an object file
+include/common/texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/texture.cpp.o
+.PHONY : include/common/texture.cpp.o
+
+include/common/texture.i: include/common/texture.cpp.i
+.PHONY : include/common/texture.i
+
+# target to preprocess a source file
+include/common/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/texture.cpp.i
+.PHONY : include/common/texture.cpp.i
+
+include/common/texture.s: include/common/texture.cpp.s
+.PHONY : include/common/texture.s
+
+# target to generate assembly for a file
+include/common/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/texture.cpp.s
+.PHONY : include/common/texture.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -213,9 +261,15 @@ help:
 	@echo "... include/common/controls.o"
 	@echo "... include/common/controls.i"
 	@echo "... include/common/controls.s"
-	@echo "... src/glad.o"
-	@echo "... src/glad.i"
-	@echo "... src/glad.s"
+	@echo "... include/common/shader.o"
+	@echo "... include/common/shader.i"
+	@echo "... include/common/shader.s"
+	@echo "... include/common/text2D.o"
+	@echo "... include/common/text2D.i"
+	@echo "... include/common/text2D.s"
+	@echo "... include/common/texture.o"
+	@echo "... include/common/texture.i"
+	@echo "... include/common/texture.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
