@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
+#include <stdexcept>
 #include <map>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>

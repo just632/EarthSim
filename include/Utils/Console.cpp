@@ -1,65 +1,135 @@
 #include <Utils/Console.hpp>
 
 #define SCALE 0.4
+#define COMMAND (const std::string &args)
 
+using CommandHandler = std::function<std::string(const std::string &)>;
 
-class ConsoleBuffer {
+class ConsoleBuffer
+{
 public:
-
     bool isOpen = false;
 
-    ConsoleBuffer(int maxLine,float windowHight,float windowWidth) : maxLines(maxLines) {
+    ConsoleBuffer(int maxLine, float windowHight, float windowWidth) : maxLines(maxLines)
+    {
         projection = glm::ortho(0.0f, windowWidth, 0.0f, windowHight);
         initFreeType();
     }
 
-
-
-    void addInput(unsigned char c){
-        if (c == 10) {
-            addMessage(input);
-            isOpen=false;
+    void addInput(int c)
+    {
+        if (c > 64 && c < 91)
+            c += 32;
+        if (c == GLFW_KEY_ENTER)
+        {
+            addMessage(processCommand(input));
+            isOpen = false;
             input = "";
-        } else if (c == 8) {
-            if (!input.empty()) {
+        }
+        else if (c == GLFW_KEY_BACKSPACE)
+        {
+            if (!input.empty())
+            {
                 input.pop_back();
             }
-        } else {
+        }
+        else
+        {
             input += c;
         }
     }
 
-    void addMessage(const std::string& message) {
-        if (lines.size() >= maxLines) {
+    void addMessage(const std::string &message)
+    {
+        if (lines.size() >= maxLines)
+        {
             lines.erase(lines.begin());
         }
         lines.push_back(message);
     }
 
-    void render(int windowHight) {
+    void render(int windowHight)
+    {
         glUseProgram(shaderProgram);
         glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
-        
+
         glActiveTexture(GL_TEXTURE0);
         glBindVertexArray(VAO);
 
         float y = windowHight;
-        for (const auto& line : lines) {
-            y -= lineSize*SCALE;
+        for (const auto &line : lines)
+        {
+            y -= lineSize * SCALE;
             renderText(line, 1.0f, y, SCALE);
         }
 
-        if(isOpen){
-            renderText(input,lineSize*SCALE,lineSize*SCALE,SCALE);
+        if (isOpen)
+        {
+            renderText(input, lineSize * SCALE, lineSize * SCALE, SCALE);
         }
 
         glBindVertexArray(0);
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
-
-
 private:
+    std::map<std::string, CommandHandler> commands = {
+        {"ping", [] COMMAND
+         {
+             return "pong";
+         }},
+        {"add", [] COMMAND
+         {
+             std::istringstream iss(args);
+             std::string a_str, b_str;
+             char comma;
+             std::ostringstream oss;
+             if (std::getline(iss, a_str, ',') && std::getline(iss, b_str))
+             {
+                 try
+                 {
+                     float a = std::stof(a_str);
+                     float b = std::stof(b_str);
+                     oss << a + b;
+                 }
+                 catch (const std::invalid_argument &e)
+                 {
+                     oss << "Invalid number format. Use add(a,b) with valid numbers.";
+                 }
+                 catch (const std::out_of_range &e)
+                 {
+                     oss << "Number out of range. Use add(a,b) with valid numbers.";
+                 }
+             }
+             else
+             {
+                 oss << "Invalid format. Use add(a,b)";
+             }
+             return oss.str();
+         }}};
+
+    // Function to process user commands
+    std::string processCommand(const std::string &command)
+    {
+        std::istringstream iss(command);
+        std::string cmd;
+        iss >> cmd;
+
+        auto it = commands.find(cmd);
+        if (it != commands.end())
+        {
+            std::string args;
+            std::getline(iss, args);
+            // Remove leading spaces from args
+            args.erase(0, args.find_first_not_of(' '));
+            return cmd + " -> " + it->second(args);
+        }
+        else
+        {
+            return "Unknown command: " + cmd;
+        }
+    }
+
     std::vector<std::string> lines;
     std::string input;
     int maxLines;
@@ -69,25 +139,30 @@ private:
     glm::mat4 projection;
     float lineSize = 48.f;
 
-    void initFreeType() {
+    void initFreeType()
+    {
         FT_Library ft;
-        if (FT_Init_FreeType(&ft)) {
+        if (FT_Init_FreeType(&ft))
+        {
             std::cerr << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
             return;
         }
 
         FT_Face face;
-        if (FT_New_Face(ft, "fonts/JetBrainsMono-Light.ttf", 0, &face)) {
+        if (FT_New_Face(ft, "fonts/JetBrainsMono-Light.ttf", 0, &face))
+        {
             std::cerr << "ERROR::FREETYPE: Failed to load font" << std::endl;
             return;
         }
 
         FT_Set_Pixel_Sizes(face, 0, lineSize);
-        
+
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // Disable byte-alignment restriction
 
-        for (GLubyte c = 0; c < 128; c++) {
-            if (FT_Load_Char(face, c, FT_LOAD_RENDER)) {
+        for (GLubyte c = 0; c < 128; c++)
+        {
+            if (FT_Load_Char(face, c, FT_LOAD_RENDER))
+            {
                 std::cerr << "ERROR::FREETYPE: Failed to load Glyph" << std::endl;
                 continue;
             }
@@ -104,8 +179,7 @@ private:
                 0,
                 GL_RED,
                 GL_UNSIGNED_BYTE,
-                face->glyph->bitmap.buffer
-            );
+                face->glyph->bitmap.buffer);
 
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -116,8 +190,7 @@ private:
                 texture,
                 glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
                 glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-                static_cast<GLuint>(face->glyph->advance.x)
-            };
+                static_cast<GLuint>(face->glyph->advance.x)};
             Characters.insert(std::pair<GLchar, Character>(c, character));
         }
         FT_Done_Face(face);
@@ -135,7 +208,7 @@ private:
         glBindVertexArray(0);
 
         // Compile and setup the shader
-        const char* vertexShaderSource = R"(
+        const char *vertexShaderSource = R"(
 #version 330 core
 layout (location = 0) in vec4 vertex; // <vec2 pos, vec2 tex>
 out vec2 TexCoords;
@@ -147,8 +220,9 @@ void main()
     gl_Position = projection * vec4(vertex.xy, 0.0, 1.0);
     TexCoords = vertex.zw;
 }
-)";;
-        const char* fragmentShaderSource = R"(
+)";
+        ;
+        const char *fragmentShaderSource = R"(
 #version 330 core
 in vec2 TexCoords;
 out vec4 color;
@@ -180,13 +254,15 @@ void main()
         glDeleteShader(fragmentShader);
     }
 
-    void renderText(const std::string& text, float x, float y, float scale) {
+    void renderText(const std::string &text, float x, float y, float scale)
+    {
         glUniform3f(glGetUniformLocation(shaderProgram, "textColor"), 1.0f, 1.0f, 1.0f);
         glActiveTexture(GL_TEXTURE0);
         glBindVertexArray(VAO);
 
         std::string::const_iterator c;
-        for (c = text.begin(); c != text.end(); c++) {
+        for (c = text.begin(); c != text.end(); c++)
+        {
             Character ch = Characters[*c];
 
             GLfloat xpos = x + ch.Bearing.x * scale;
@@ -195,14 +271,13 @@ void main()
             GLfloat w = ch.Size.x * scale;
             GLfloat h = ch.Size.y * scale;
             GLfloat vertices[6][4] = {
-                { xpos,     ypos + h,   0.0f, 0.0f },
-                { xpos,     ypos,       0.0f, 1.0f },
-                { xpos + w, ypos,       1.0f, 1.0f },
+                {xpos, ypos + h, 0.0f, 0.0f},
+                {xpos, ypos, 0.0f, 1.0f},
+                {xpos + w, ypos, 1.0f, 1.0f},
 
-                { xpos,     ypos + h,   0.0f, 0.0f },
-                { xpos + w, ypos,       1.0f, 1.0f },
-                { xpos + w, ypos + h,   1.0f, 0.0f }
-            };
+                {xpos, ypos + h, 0.0f, 0.0f},
+                {xpos + w, ypos, 1.0f, 1.0f},
+                {xpos + w, ypos + h, 1.0f, 0.0f}};
 
             glBindTexture(GL_TEXTURE_2D, ch.TextureID);
             glBindBuffer(GL_ARRAY_BUFFER, VBO);

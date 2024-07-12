@@ -21,8 +21,10 @@ const float f = 1.0f - (Rp / R0); // Flattening
 void keyPressFunction(GLFWwindow* window,int key,int scancode, int action, int mods){
         ConsoleBuffer* console = static_cast<ConsoleBuffer*>(glfwGetWindowUserPointer(window));
 	    if(!console->isOpen)return;
-        std::cout<<key<<std::endl;
-	    console->addInput(key);
+        if(action == GLFW_PRESS){
+                
+	            console->addInput(key);
+        }
 };
 
 void generateEllipsoid(std::vector<float>& vertices, int slices, int stacks) {
