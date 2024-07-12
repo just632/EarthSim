@@ -16,10 +16,38 @@ public:
         initFreeType();
     }
 
-    void addInput(int c)
+    int addShiftInput(int c)
     {
-        if (c > 64 && c < 91)
-            c += 32;
+		switch (c)
+		{
+			case '`': return '~';
+			case '1': return '!';
+			case '2': return '@';
+			case '3': return '#';
+			case '4': return '$';
+			case '5': return '%';
+			case '6': return '^';
+			case '7': return '&';
+			case '8': return '*';
+			case '9': return '(';
+			case '0': return ')';
+			case '-': return '_';
+			case '=': return '+';
+			case '[': return '{';
+			case ']': return '}';
+			case '\\': return '|';
+			case ';': return ':';
+			case '\'': return '"';
+			case ',': return '<';
+			case '.': return '>';
+			case '/': return '?';
+			default: return c;
+		}
+    }
+
+    void addInput(int c,bool shift)
+    {
+        if (c > 64 && c < 91 && !shift)c += 32;
         if (c == GLFW_KEY_ENTER)
         {
             addMessage(processCommand(input));
@@ -35,7 +63,8 @@ public:
         }
         else
         {
-            input += c;
+			if(shift)input+=addShiftInput(c);
+            else input += c;
         }
     }
 
@@ -74,17 +103,17 @@ public:
 
 private:
     std::map<std::string, CommandHandler> commands = {
-        {"ping", [] COMMAND
+        {"ping", []COMMAND
          {
              return "pong";
          }},
-        {"add", [] COMMAND
+        {"add", []COMMAND
          {
              std::istringstream iss(args);
              std::string a_str, b_str;
              char comma;
              std::ostringstream oss;
-             if (std::getline(iss, a_str, ',') && std::getline(iss, b_str))
+             if (std::getline(iss, a_str, ',') && std::getline(iss, b_str,')'))
              {
                  try
                  {
@@ -94,7 +123,7 @@ private:
                  }
                  catch (const std::invalid_argument &e)
                  {
-                     oss << "Invalid number format. Use add(a,b) with valid numbers.";
+                     oss << "a: " << a_str << " b: " <<b_str << " Invalid number format. Use add(a,b) with valid numbers.";
                  }
                  catch (const std::out_of_range &e)
                  {
@@ -103,27 +132,54 @@ private:
              }
              else
              {
-                 oss << "Invalid format. Use add(a,b)";
+                 oss << "a: " << a_str << " b: " <<b_str << "Invalid format. Use add(a,b)";
              }
              return oss.str();
+         }},
+        {"echo", []COMMAND
+         {
+			std::ostringstream oss;
+			oss << args;
+            return oss.str();
          }}};
 
-    // Function to process user commands
+	// Utility function to trim leading and trailing white spaces
+	std::string trim(const std::string &str)
+	{
+		size_t first = str.find_first_not_of(' ');
+		if (first == std::string::npos)
+			return "";
+		size_t last = str.find_last_not_of(' ');
+		return str.substr(first, last - first + 1);
+	}
+
+	// Utility function to extract command string up to the '(' character
+	std::string extractCommand(const std::string &str)
+	{
+		size_t pos = str.find('(');
+		if (pos == std::string::npos)
+		{
+			return trim(str);
+		}
+		return trim(str.substr(0, pos));
+	}
+
+	// Function to process user commands
     std::string processCommand(const std::string &command)
     {
         std::istringstream iss(command);
         std::string cmd;
         iss >> cmd;
 
-        auto it = commands.find(cmd);
+        auto it = commands.find(extractCommand(cmd));
         if (it != commands.end())
         {
-            std::string args;
-            std::getline(iss, args);
-            // Remove leading spaces from args
-            args.erase(0, args.find_first_not_of(' '));
-            return cmd + " -> " + it->second(args);
-        }
+			size_t start = command.find('(') + 1;
+			size_t end = command.find_last_of(')');
+			std::string args = (start < end) ? command.substr(start, end - start) : "";
+			args = trim(args); // Trim leading and trailing white spaces from args
+			return it->second(args);
+		}
         else
         {
             return "Unknown command: " + cmd;

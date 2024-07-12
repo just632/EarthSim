@@ -12,6 +12,11 @@
 #include <common/shader.hpp>
 #include <Utils/Console.cpp>
 
+#define INPUT_SHIFT key == GLFW_KEY_LEFT_SHIFT || key == GLFW_KEY_RIGHT_SHIFT
+#define INPUT_SHIFT_DOWN action == GLFW_PRESS && (INPUT_SHIFT)
+#define INPUT_SHIFT_UP action == GLFW_RELEASE && (INPUT_SHIFT)
+#define INPUT_NOT_SHIFT action == GLFW_PRESS && !(INPUT_SHIFT)
+
 GLFWwindow* window;
 const float R0 = 63.783880f; // Equatorial radius
 const float Rp = 63.569120f; // Polar radius
@@ -19,12 +24,13 @@ const float f = 1.0f - (Rp / R0); // Flattening
 
 
 void keyPressFunction(GLFWwindow* window,int key,int scancode, int action, int mods){
+        static bool shift_down = false;
         ConsoleBuffer* console = static_cast<ConsoleBuffer*>(glfwGetWindowUserPointer(window));
 	    if(!console->isOpen)return;
-        if(action == GLFW_PRESS){
-                
-	            console->addInput(key);
-        }
+        if(INPUT_SHIFT_DOWN)shift_down=true;
+        if(INPUT_SHIFT_UP)shift_down=false;
+        if(INPUT_NOT_SHIFT)console->addInput(key,shift_down);
+        
 };
 
 void generateEllipsoid(std::vector<float>& vertices, int slices, int stacks) {
@@ -139,9 +145,6 @@ int main() {
     glfwSetWindowUserPointer(window, &console);
     glfwSetScrollCallback(window, scroll_callback);
     glfwSetKeyCallback(window,keyPressFunction);
-
-    console.addMessage("Test Message ...");
-    console.addMessage("Test Message Two ...");
 
     // Main loop
     while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window)) {
