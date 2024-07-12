@@ -37,32 +37,18 @@ float initialFoV = 45.0f;
 float speed = 3.0f; // 3 units / second
 float mouseSpeed = 0.002f;
 
-void output(int x, int y, float r, float g, float b, char *string)
-{
-  glColor3f( r, g, b );
-  glRasterPos2f(x, y);
-  int len, i;
-  len = (int)strlen(string);
-  for (i = 0; i < len; i++) {
-  }
-}
 
-bool consoleOpen = false;
-char console[1024];
-int consoleLen = 0;
-
-void pressKey(GLFWwindow* window,unsigned int key){
-	if(!consoleOpen)return;
-	console[consoleLen] = (char)key;
-	consoleLen++;
-}
 
 glm::mat4 ViewMatrix;
 glm::mat4 ProjectionMatrix = glm::perspective(glm::radians(initialFoV), 4.0f / 3.0f, 0.1f, 10000.0f);
-
+glm::mat4 ModleMatrix = glm::mat4(1.0f);
 // Get the view matrix
 glm::mat4 getViewMatrix() {
     return ViewMatrix;
+}
+
+glm::mat4 getModleMatrix(){
+    return ModleMatrix;
 }
 
 // Get the projection matrix
@@ -72,7 +58,8 @@ glm::mat4 getProjectionMatrix() {
 
 // Callback for scroll input to adjust speed
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
-    speed += yoffset;
+    if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)speed += yoffset;
+
 }
 
 // Function to calculate the prime vertical radius of curvature
@@ -129,14 +116,7 @@ void updateOrientation(float deltaX, float deltaY) {
 
 // Function to update the camera position based on keyboard input
 void updatePosition(float deltaTime) {
-	if (glfwGetKey(window, GLFW_KEY_SLASH) == GLFW_PRESS) {
-        consoleOpen=!consoleOpen;
-    };
 
-	if(consoleOpen){
-		output(0,10,.0,.0,.0,console);
-		return;
-	};
 
     // Move forward/backward relative to the camera's direction
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -158,7 +138,7 @@ void updatePosition(float deltaTime) {
     if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
         position += up * deltaTime * speed;
     }
-    if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
+    if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
         position -= up * deltaTime * speed;
     }
 }

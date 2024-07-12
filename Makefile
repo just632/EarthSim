@@ -129,6 +129,30 @@ earth_sim/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/build
 .PHONY : earth_sim/fast
 
+include/Utils/Console.o: include/Utils/Console.cpp.o
+.PHONY : include/Utils/Console.o
+
+# target to build an object file
+include/Utils/Console.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o
+.PHONY : include/Utils/Console.cpp.o
+
+include/Utils/Console.i: include/Utils/Console.cpp.i
+.PHONY : include/Utils/Console.i
+
+# target to preprocess a source file
+include/Utils/Console.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.i
+.PHONY : include/Utils/Console.cpp.i
+
+include/Utils/Console.s: include/Utils/Console.cpp.s
+.PHONY : include/Utils/Console.s
+
+# target to generate assembly for a file
+include/Utils/Console.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.s
+.PHONY : include/Utils/Console.cpp.s
+
 include/common/controls.o: include/common/controls.cpp.o
 .PHONY : include/common/controls.o
 
@@ -258,6 +282,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... earth_sim"
+	@echo "... include/Utils/Console.o"
+	@echo "... include/Utils/Console.i"
+	@echo "... include/Utils/Console.s"
 	@echo "... include/common/controls.o"
 	@echo "... include/common/controls.i"
 	@echo "... include/common/controls.s"

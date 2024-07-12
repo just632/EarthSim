@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o"
+  "CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o.d"
   "CMakeFiles/earth_sim.dir/include/common/controls.cpp.o"
   "CMakeFiles/earth_sim.dir/include/common/controls.cpp.o.d"
   "CMakeFiles/earth_sim.dir/include/common/shader.cpp.o"

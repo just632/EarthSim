@@ -10,11 +10,20 @@
 #include <common/controls.hpp>
 #include <common/config.h>
 #include <common/shader.hpp>
+#include <Utils/Console.cpp>
 
 GLFWwindow* window;
 const float R0 = 63.783880f; // Equatorial radius
 const float Rp = 63.569120f; // Polar radius
 const float f = 1.0f - (Rp / R0); // Flattening
+
+
+void keyPressFunction(GLFWwindow* window,int key,int scancode, int action, int mods){
+        ConsoleBuffer* console = static_cast<ConsoleBuffer*>(glfwGetWindowUserPointer(window));
+	    if(!console->isOpen)return;
+        std::cout<<key<<std::endl;
+	    console->addInput(key);
+};
 
 void generateEllipsoid(std::vector<float>& vertices, int slices, int stacks) {
     for (int i = 0; i <= stacks; ++i) {
@@ -81,7 +90,7 @@ int main() {
     glViewport(0, 0, WINDOW_W, WINDOW_H);
 
     // Dark blue background
-    glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+    glClearColor(0.1f, 0.1f, 0.4f, 0.0f);
 
     glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);
@@ -98,6 +107,8 @@ int main() {
     // Generate ellipsoid vertices
     std::vector<float> vertices;
     generateEllipsoid(vertices, 40, 40);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  
 
     // Create VAO, VBO
     GLuint VAO, VBO;
@@ -122,22 +133,29 @@ int main() {
     GLint viewLoc = glGetUniformLocation(shaderProgram, "view");
     GLint projectionLoc = glGetUniformLocation(shaderProgram, "projection");
     
-
+    ConsoleBuffer console(10,WINDOW_H,WINDOW_W);
+    glfwSetWindowUserPointer(window, &console);
     glfwSetScrollCallback(window, scroll_callback);
-    glfwSetCharCallback(window, pressKey);
+    glfwSetKeyCallback(window,keyPressFunction);
+
+    console.addMessage("Test Message ...");
+    console.addMessage("Test Message Two ...");
 
     // Main loop
     while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window)) {
+            if (glfwGetKey(window, GLFW_KEY_SLASH) == GLFW_PRESS&&!console.isOpen) {
+                console.isOpen=true;
+            };
         // Render
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glUseProgram(shaderProgram);
+        if(!console.isOpen){
 
-        		// Compute the MVP matrix from keyboard and mouse input
-		computeMatricesFromInputs();
+            computeMatricesFromInputs();
 		glm::mat4 ProjectionMatrix = getProjectionMatrix();
 		glm::mat4 ViewMatrix = getViewMatrix();
-		glm::mat4 ModelMatrix = glm::mat4(1.0);
+		glm::mat4 ModelMatrix = getModleMatrix();
 		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(ModelMatrix));
@@ -146,6 +164,12 @@ int main() {
 
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLE_STRIP, 0, vertices.size() / 3);
+        }
+        		// Compute the MVP matrix from keyboard and mouse input
+
+
+
+        console.render(WINDOW_H);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
