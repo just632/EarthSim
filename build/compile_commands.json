@@ -1,38 +1,62 @@
 [
 {
   "directory": "/home/m/Code/cpp/EarthSim/build",
-  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/src/main.cpp.o -c /home/m/Code/cpp/EarthSim/src/main.cpp",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/src/main.cpp.o -c /home/m/Code/cpp/EarthSim/src/main.cpp",
   "file": "/home/m/Code/cpp/EarthSim/src/main.cpp",
   "output": "CMakeFiles/earth_sim.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/m/Code/cpp/EarthSim/build",
-  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/Console.cpp",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Engine.cpp.o -c /home/m/Code/cpp/EarthSim/include/Engine.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/Engine.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/Engine.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Earth.cpp.o -c /home/m/Code/cpp/EarthSim/include/Earth.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/Earth.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/Earth.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/Shader.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/Utils/Shader.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/wgs84.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/Utils/wgs84.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.o -c /home/m/Code/cpp/EarthSim/include/FlyingObjects/Rock.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/FlyingObjects/Rock.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/Console.cpp",
   "file": "/home/m/Code/cpp/EarthSim/include/Utils/Console.cpp",
   "output": "CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o"
 },
 {
   "directory": "/home/m/Code/cpp/EarthSim/build",
-  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/common/controls.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/controls.cpp",
-  "file": "/home/m/Code/cpp/EarthSim/include/common/controls.cpp",
-  "output": "CMakeFiles/earth_sim.dir/include/common/controls.cpp.o"
+  "command": "/usr/bin/c++ -g -std=c++11 -o include/tinygltf/CMakeFiles/loader_example.dir/loader_example.cc.o -c /home/m/Code/cpp/EarthSim/include/tinygltf/loader_example.cc",
+  "file": "/home/m/Code/cpp/EarthSim/include/tinygltf/loader_example.cc",
+  "output": "include/tinygltf/CMakeFiles/loader_example.dir/loader_example.cc.o"
 },
 {
   "directory": "/home/m/Code/cpp/EarthSim/build",
-  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/common/shader.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/shader.cpp",
-  "file": "/home/m/Code/cpp/EarthSim/include/common/shader.cpp",
-  "output": "CMakeFiles/earth_sim.dir/include/common/shader.cpp.o"
-},
-{
-  "directory": "/home/m/Code/cpp/EarthSim/build",
-  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/text2D.cpp",
-  "file": "/home/m/Code/cpp/EarthSim/include/common/text2D.cpp",
-  "output": "CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o"
-},
-{
-  "directory": "/home/m/Code/cpp/EarthSim/build",
-  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -g -o CMakeFiles/earth_sim.dir/include/common/texture.cpp.o -c /home/m/Code/cpp/EarthSim/include/common/texture.cpp",
-  "file": "/home/m/Code/cpp/EarthSim/include/common/texture.cpp",
-  "output": "CMakeFiles/earth_sim.dir/include/common/texture.cpp.o"
+  "command": "/usr/bin/c++ -g -std=c++11 -o include/tinygltf/CMakeFiles/tinygltf.dir/tiny_gltf.cc.o -c /home/m/Code/cpp/EarthSim/include/tinygltf/tiny_gltf.cc",
+  "file": "/home/m/Code/cpp/EarthSim/include/tinygltf/tiny_gltf.cc",
+  "output": "include/tinygltf/CMakeFiles/tinygltf.dir/tiny_gltf.cc.o"
 }
 ]

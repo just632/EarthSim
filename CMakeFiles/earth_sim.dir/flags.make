@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include
+CXX_INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
 
 CXX_FLAGS = 
 

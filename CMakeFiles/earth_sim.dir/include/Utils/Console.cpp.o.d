@@ -412,4 +412,19 @@ CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o: \
  /usr/local/include/glm/ext/vector_int1_sized.hpp \
  /usr/local/include/glm/ext/vector_uint1.hpp \
  /usr/local/include/glm/ext/vector_uint1_sized.hpp \
- /usr/include/c++/13/cstring /usr/local/include/glm/gtc/type_ptr.inl
+ /usr/include/c++/13/cstring /usr/local/include/glm/gtc/type_ptr.inl \
+ /home/m/Code/cpp/EarthSim/include/FlyingObjects/Rock.hpp \
+ /home/m/Code/cpp/EarthSim/include/FlyingObjects/FlyingObject.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
+ /home/m/Code/cpp/EarthSim/include/Engine.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
+ /usr/include/c++/13/fstream /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc \
+ /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
+ /home/m/Code/cpp/EarthSim/include/FlyingObjects/Rock.hpp \
+ /home/m/Code/cpp/EarthSim/include/Earth.hpp \
+ /home/m/Code/cpp/EarthSim/include/tinygltf/tiny_gltf.h \
+ /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h

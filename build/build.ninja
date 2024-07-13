@@ -47,49 +47,63 @@ cmake_ninja_workdir = /home/m/Code/cpp/EarthSim/build/
 #############################################
 # Order-only phony target for earth_sim
 
-build cmake_object_order_depends_target_earth_sim: phony || CMakeFiles/earth_sim.dir
+build cmake_object_order_depends_target_earth_sim: phony || cmake_object_order_depends_target_tinygltf
 
 build CMakeFiles/earth_sim.dir/src/main.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/src/main.cpp || cmake_object_order_depends_target_earth_sim
   DEP_FILE = CMakeFiles/earth_sim.dir/src/main.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
   OBJECT_DIR = CMakeFiles/earth_sim.dir
   OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/src
+
+build CMakeFiles/earth_sim.dir/include/Engine.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Engine.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/Engine.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include
+
+build CMakeFiles/earth_sim.dir/include/Earth.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Earth.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/Earth.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include
+
+build CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Utils/Shader.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Utils
+
+build CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Utils/wgs84.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Utils
+
+build CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Utils
+
+build CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/FlyingObjects/Rock.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/FlyingObjects
 
 build CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Utils/Console.cpp || cmake_object_order_depends_target_earth_sim
   DEP_FILE = CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
   OBJECT_DIR = CMakeFiles/earth_sim.dir
   OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Utils
-
-build CMakeFiles/earth_sim.dir/include/common/controls.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/common/controls.cpp || cmake_object_order_depends_target_earth_sim
-  DEP_FILE = CMakeFiles/earth_sim.dir/include/common/controls.cpp.o.d
-  FLAGS = -g
-  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include
-  OBJECT_DIR = CMakeFiles/earth_sim.dir
-  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/common
-
-build CMakeFiles/earth_sim.dir/include/common/shader.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/common/shader.cpp || cmake_object_order_depends_target_earth_sim
-  DEP_FILE = CMakeFiles/earth_sim.dir/include/common/shader.cpp.o.d
-  FLAGS = -g
-  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include
-  OBJECT_DIR = CMakeFiles/earth_sim.dir
-  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/common
-
-build CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/common/text2D.cpp || cmake_object_order_depends_target_earth_sim
-  DEP_FILE = CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o.d
-  FLAGS = -g
-  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include
-  OBJECT_DIR = CMakeFiles/earth_sim.dir
-  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/common
-
-build CMakeFiles/earth_sim.dir/include/common/texture.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/common/texture.cpp || cmake_object_order_depends_target_earth_sim
-  DEP_FILE = CMakeFiles/earth_sim.dir/include/common/texture.cpp.o.d
-  FLAGS = -g
-  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include
-  OBJECT_DIR = CMakeFiles/earth_sim.dir
-  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/common
 
 
 # =============================================================================
@@ -99,9 +113,9 @@ build CMakeFiles/earth_sim.dir/include/common/texture.cpp.o: CXX_COMPILER__earth
 #############################################
 # Link the executable earth_sim
 
-build earth_sim: CXX_EXECUTABLE_LINKER__earth_sim_Debug CMakeFiles/earth_sim.dir/src/main.cpp.o CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o CMakeFiles/earth_sim.dir/include/common/controls.cpp.o CMakeFiles/earth_sim.dir/include/common/shader.cpp.o CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o CMakeFiles/earth_sim.dir/include/common/texture.cpp.o | /usr/lib/x86_64-linux-gnu/libGLEW.so /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so
+build earth_sim: CXX_EXECUTABLE_LINKER__earth_sim_Debug CMakeFiles/earth_sim.dir/src/main.cpp.o CMakeFiles/earth_sim.dir/include/Engine.cpp.o CMakeFiles/earth_sim.dir/include/Earth.cpp.o CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.o CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o | /usr/lib/x86_64-linux-gnu/libGLEW.so /usr/lib/x86_64-linux-gnu/libfreetype.so include/tinygltf/libtinygltf.a /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || include/tinygltf/libtinygltf.a
   FLAGS = -g
-  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libGLEW.so  /usr/lib/x86_64-linux-gnu/libfreetype.so  -lglfw3  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so
+  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libGLEW.so  /usr/lib/x86_64-linux-gnu/libfreetype.so  -lglfw3  include/tinygltf/libtinygltf.a  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so
   OBJECT_DIR = CMakeFiles/earth_sim.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -131,8 +145,188 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/m/Code/cpp/EarthSim/build && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/m/Code/cpp/EarthSim/build && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/m/Code/cpp/EarthSim/build && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/m/Code/cpp/EarthSim/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target loader_example
+
+
+#############################################
+# Order-only phony target for loader_example
+
+build cmake_object_order_depends_target_loader_example: phony || include/tinygltf/CMakeFiles/loader_example.dir
+
+build include/tinygltf/CMakeFiles/loader_example.dir/loader_example.cc.o: CXX_COMPILER__loader_example_unscanned_Debug /home/m/Code/cpp/EarthSim/include/tinygltf/loader_example.cc || cmake_object_order_depends_target_loader_example
+  DEP_FILE = include/tinygltf/CMakeFiles/loader_example.dir/loader_example.cc.o.d
+  FLAGS = -g -std=c++11
+  OBJECT_DIR = include/tinygltf/CMakeFiles/loader_example.dir
+  OBJECT_FILE_DIR = include/tinygltf/CMakeFiles/loader_example.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target loader_example
+
+
+#############################################
+# Link the executable include/tinygltf/loader_example
+
+build include/tinygltf/loader_example: CXX_EXECUTABLE_LINKER__loader_example_Debug include/tinygltf/CMakeFiles/loader_example.dir/loader_example.cc.o
+  FLAGS = -g
+  OBJECT_DIR = include/tinygltf/CMakeFiles/loader_example.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = include/tinygltf/loader_example
+  TARGET_PDB = loader_example.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target tinygltf
+
+
+#############################################
+# Order-only phony target for tinygltf
+
+build cmake_object_order_depends_target_tinygltf: phony || include/tinygltf/CMakeFiles/tinygltf.dir
+
+build include/tinygltf/CMakeFiles/tinygltf.dir/tiny_gltf.cc.o: CXX_COMPILER__tinygltf_unscanned_Debug /home/m/Code/cpp/EarthSim/include/tinygltf/tiny_gltf.cc || cmake_object_order_depends_target_tinygltf
+  DEP_FILE = include/tinygltf/CMakeFiles/tinygltf.dir/tiny_gltf.cc.o.d
+  FLAGS = -g -std=c++11
+  OBJECT_DIR = include/tinygltf/CMakeFiles/tinygltf.dir
+  OBJECT_FILE_DIR = include/tinygltf/CMakeFiles/tinygltf.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target tinygltf
+
+
+#############################################
+# Link the static library include/tinygltf/libtinygltf.a
+
+build include/tinygltf/libtinygltf.a: CXX_STATIC_LIBRARY_LINKER__tinygltf_Debug include/tinygltf/CMakeFiles/tinygltf.dir/tiny_gltf.cc.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = include/tinygltf/CMakeFiles/tinygltf.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = include/tinygltf/libtinygltf.a
+  TARGET_PDB = tinygltf.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build include/tinygltf/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/m/Code/cpp/EarthSim/build/include/tinygltf && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build include/tinygltf/edit_cache: phony include/tinygltf/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build include/tinygltf/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/m/Code/cpp/EarthSim/build/include/tinygltf && /usr/bin/cmake --regenerate-during-build -S/home/m/Code/cpp/EarthSim -B/home/m/Code/cpp/EarthSim/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build include/tinygltf/rebuild_cache: phony include/tinygltf/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build include/tinygltf/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build include/tinygltf/CMakeFiles/install.util: CUSTOM_COMMAND include/tinygltf/all
+  COMMAND = cd /home/m/Code/cpp/EarthSim/build/include/tinygltf && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build include/tinygltf/install: phony include/tinygltf/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build include/tinygltf/CMakeFiles/install/local.util: CUSTOM_COMMAND include/tinygltf/all
+  COMMAND = cd /home/m/Code/cpp/EarthSim/build/include/tinygltf && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build include/tinygltf/install/local: phony include/tinygltf/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build include/tinygltf/CMakeFiles/install/strip.util: CUSTOM_COMMAND include/tinygltf/all
+  COMMAND = cd /home/m/Code/cpp/EarthSim/build/include/tinygltf && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build include/tinygltf/install/strip: phony include/tinygltf/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Target aliases.
+
+build libtinygltf.a: phony include/tinygltf/libtinygltf.a
+
+build loader_example: phony include/tinygltf/loader_example
+
+build tinygltf: phony include/tinygltf/libtinygltf.a
 
 # =============================================================================
 # Folder targets.
@@ -142,7 +336,14 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/m/Code/cpp/EarthSim/build
 
-build all: phony earth_sim
+build all: phony earth_sim include/tinygltf/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/m/Code/cpp/EarthSim/build/include/tinygltf
+
+build include/tinygltf/all: phony include/tinygltf/loader_example include/tinygltf/libtinygltf.a
 
 # =============================================================================
 # Built-in targets
@@ -151,14 +352,14 @@ build all: phony earth_sim
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/m/Code/cpp/EarthSim/CMakeLists.txt /usr/local/share/glm/glmConfig-noconfig.cmake /usr/local/share/glm/glmConfig.cmake /usr/local/share/glm/glmConfigVersion.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindFreetype.cmake /usr/share/cmake-3.28/Modules/FindGLEW.cmake /usr/share/cmake-3.28/Modules/FindOpenGL.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/m/Code/cpp/EarthSim/CMakeLists.txt /home/m/Code/cpp/EarthSim/include/tinygltf/CMakeLists.txt /home/m/Code/cpp/EarthSim/include/tinygltf/cmake/TinyGLTFConfig.cmake.in /usr/local/share/glm/glmConfig-noconfig.cmake /usr/local/share/glm/glmConfig.cmake /usr/local/share/glm/glmConfigVersion.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindFreetype.cmake /usr/share/cmake-3.28/Modules/FindGLEW.cmake /usr/share/cmake-3.28/Modules/FindOpenGL.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/m/Code/cpp/EarthSim/CMakeLists.txt /usr/local/share/glm/glmConfig-noconfig.cmake /usr/local/share/glm/glmConfig.cmake /usr/local/share/glm/glmConfigVersion.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindFreetype.cmake /usr/share/cmake-3.28/Modules/FindGLEW.cmake /usr/share/cmake-3.28/Modules/FindOpenGL.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
+build /home/m/Code/cpp/EarthSim/CMakeLists.txt /home/m/Code/cpp/EarthSim/include/tinygltf/CMakeLists.txt /home/m/Code/cpp/EarthSim/include/tinygltf/cmake/TinyGLTFConfig.cmake.in /usr/local/share/glm/glmConfig-noconfig.cmake /usr/local/share/glm/glmConfig.cmake /usr/local/share/glm/glmConfigVersion.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindFreetype.cmake /usr/share/cmake-3.28/Modules/FindGLEW.cmake /usr/share/cmake-3.28/Modules/FindOpenGL.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
 
 
 #############################################

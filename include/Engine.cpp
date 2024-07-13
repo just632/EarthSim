@@ -1,108 +1,183 @@
 #include "Engine.hpp"
+#include "Utils/FirstPersonCamera.hpp"
 
 
-Engine::Engine() : windowWidth(800), windowHeight(600) {
+
+
+Engine::Engine() : windowWidth(800), windowHight(600), earth(Earth::getInstance()),console(*this,10)
+{
+    std::cout<<"Engine Created"<<std::endl;
     initWindow();
     initOpenGL();
-    earth = Earth::getInstance();
+    previousTime = glfwGetTime();
+    cameraViews.push_back(FirstPersonCamera(*this));
+    earth.load();
+    console.load();
 }
 
-Engine::~Engine() {
-    for (auto& shader : shaders) {
-        delete shader.second;
-    }
+Engine::~Engine()
+{
     cleanup();
 }
 
-void Engine::run() {
-    mainLoop();
+void Engine::run()
+{
+    std::cout<<"Engine::run called"<<std::endl;
+    try
+    {
+        mainLoop();
+    }
+    catch (const std::exception &e)
+    {
+        std::cout << "A RunTime Exeption has occured " << std::endl;
+        std::cerr << e.what() << std::endl;
+        std::cout << "PRESS ENTER TO CLOSE" << std::endl;
+        std::cin.get();
+    }
 }
 
-void Engine::initWindow() {
-    if (!glfwInit()) {
+void Engine::initWindow()
+{
+    std::cout<<"Engine::initWindow"<<std::endl;
+    if (!glfwInit())
+    {
         std::cerr << "Failed to initialize GLFW" << std::endl;
         exit(EXIT_FAILURE);
     }
-
-    window = glfwCreateWindow(windowWidth, windowHeight, "Earth Simulation", nullptr, nullptr);
-    if (!window) {
+    std::cout<<"Engine::initWindow::glfwInit Done"<<std::endl;
+    window = glfwCreateWindow(windowWidth, windowHight, "Earth Simulation", nullptr, nullptr);
+    if (!window)
+    {
         std::cerr << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
-
+    std::cout<<"Engine::initWindow::glfwCreateWindow Done"<<std::endl;
     glfwMakeContextCurrent(window);
     glfwSetWindowUserPointer(window, this);
+    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        // Set viewport and callbacks
+    glViewport(0, 0, windowWidth, windowHight);
+
+    // Dark blue background
+    glClearColor(0.1f, 0.1f, 0.4f, 0.0f);
     glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
+
 }
 
-void Engine::initOpenGL() {
-    if (glewInit() != GLEW_OK) {
+void Engine::initOpenGL()
+{
+    glewExperimental = GL_TRUE; 
+    if (glewInit() != GLEW_OK)
+    {
         std::cerr << "Failed to initialize GLEW" << std::endl;
         exit(EXIT_FAILURE);
     }
 
     glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
-void Engine::mainLoop() {
-    while (!glfwWindowShouldClose(window)) {
+void Engine::mainLoop()
+{
+    std::cout<<"Engine::mainLoop called"<<std::endl;
+
+    while (!glfwWindowShouldClose(window))
+    {
+        if (glfwGetKey(window, GLFW_KEY_SLASH) == GLFW_PRESS&&!console.isOpen) {
+                console.isOpen=true;
+        };
+        updateDeltaTime();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Update and draw all flying objects
-        for (auto obj : flyingObjects) {
-            obj->update();
-            obj->draw();
+        for (auto obj : flyingObjects)
+        {
+            obj.update();
+            obj.draw();
         }
 
+        if(!console.isOpen){
+
         // Update and apply camera views
-        cameraViews[currentCameraViewIndex]->update();
-        cameraViews[currentCameraViewIndex]->applyView();
-        
-        // Draw the earth
-        earth->draw();
+        getCurrentCamera().update();
+        getCurrentCamera().apply();
+        }
+
+        earth.render();
+        console.render();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 }
 
-void Engine::framebufferSizeCallback(GLFWwindow* window, int width, int height) {
+void Engine::framebufferSizeCallback(GLFWwindow *window, int width, int height)
+{
     glViewport(0, 0, width, height);
-    Engine* engine = static_cast<Engine*>(glfwGetWindowUserPointer(window));
+    Engine *engine = static_cast<Engine *>(glfwGetWindowUserPointer(window));
     engine->windowWidth = width;
-    engine->windowHeight = height;
+    engine->windowHight = height;
+    engine->WindoAspectRatio = width / height;
 }
 
-void Engine::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    if (action == GLFW_PRESS) {
-        Engine* engine = static_cast<Engine*>(glfwGetWindowUserPointer(window));
+void Engine::keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
+{
+    if (action == GLFW_PRESS)
+    {
+        Engine *engine = static_cast<Engine *>(glfwGetWindowUserPointer(window));
 
-        switch (key) {
-            case GLFW_KEY_1:
-                engine->switchCameraView(0);
-                break;
-            case GLFW_KEY_2:
-                engine->switchCameraView(1);
-                break;
-            // Add more cases for additional views as needed
-            default:
-                break;
+        switch (key)
+        {
+        case GLFW_KEY_1:
+            engine->switchCameraView(0);
+            break;
+        case GLFW_KEY_2:
+            engine->switchCameraView(1);
+            break;
+        // Add more cases for additional views as needed
+        default:
+            break;
         }
     }
 }
 
-void Engine::switchCameraView(int viewIndex) {
-    if (viewIndex >= 0 && viewIndex < cameraViews.size()) {
+void Engine::switchCameraView(int viewIndex)
+{
+    if (viewIndex >= 0 && viewIndex < cameraViews.size())
+    {
         currentCameraViewIndex = viewIndex;
     }
 }
 
-void Engine::passInputToView(char input){
-    cameraViews[currentCameraViewIndex]->handleInput(input);
+void Engine::passInputToView(char input)
+{
 }
 
-void Engine::cleanup() {
+void Engine::cleanup()
+{
     glfwDestroyWindow(window);
     glfwTerminate();
+}
+
+Shader& Engine::getShader(const std::string &name)
+{
+    // Check if the shader is already loaded
+    auto it = shaders.find(name);
+    if (it != shaders.end())
+    {
+        return it->second;
+    }
+
+    // Create and load the shader
+    Shader shader(name, name);
+
+    // Store the shader in the map and return it
+    shaders[name] = shader;
+    return shaders[name];
 }

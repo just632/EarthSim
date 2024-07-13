@@ -1,20 +1,24 @@
 #ifndef FIRSTPERSONCAMERA_H
 #define FIRSTPERSONCAMERA_H
 
-#include "Camera.hpp"
+#include "Utils/Camera.hpp"
 
 class FirstPersonCamera : public Camera {
 public:
-    FirstPersonCamera(glm::vec3 startPosition, float fov, float movementSpeed, float mouseSensitivity);
+    FirstPersonCamera(Engine& engine);
+    FirstPersonCamera(Engine& engine,glm::vec3 startPosition, float fov, float movementSpeed, float mouseSensitivity);
 
-    void update() override;
-    void apply() override;
-    void handleKeyPress(char key) override;
+    void update();
+    void apply();
+    void hangleUserInputs();
+    void handleMouseMovement();
 
 private:
     void computeMatrices();
 
-    float height;
+
+        // UNSAFE AS F*CK
+    Engine &engine; // DO NOT MODIFY!!! , ONLY USE AS A READ REFRENCE!!!
 };
 
 #endif // FIRSTPERSONCAMERA_H

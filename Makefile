@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/m/Code/cpp/EarthSim/CMakeFiles /home/m/Code/cpp/EarthSim//CMakeFiles/progress.marks
@@ -129,6 +174,104 @@ earth_sim/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/build
 .PHONY : earth_sim/fast
 
+#=============================================================================
+# Target rules for targets named loader_example
+
+# Build rule for target.
+loader_example: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 loader_example
+.PHONY : loader_example
+
+# fast build rule for target.
+loader_example/fast:
+	$(MAKE) $(MAKESILENT) -f include/tinygltf/CMakeFiles/loader_example.dir/build.make include/tinygltf/CMakeFiles/loader_example.dir/build
+.PHONY : loader_example/fast
+
+#=============================================================================
+# Target rules for targets named tinygltf
+
+# Build rule for target.
+tinygltf: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tinygltf
+.PHONY : tinygltf
+
+# fast build rule for target.
+tinygltf/fast:
+	$(MAKE) $(MAKESILENT) -f include/tinygltf/CMakeFiles/tinygltf.dir/build.make include/tinygltf/CMakeFiles/tinygltf.dir/build
+.PHONY : tinygltf/fast
+
+include/Earth.o: include/Earth.cpp.o
+.PHONY : include/Earth.o
+
+# target to build an object file
+include/Earth.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Earth.cpp.o
+.PHONY : include/Earth.cpp.o
+
+include/Earth.i: include/Earth.cpp.i
+.PHONY : include/Earth.i
+
+# target to preprocess a source file
+include/Earth.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Earth.cpp.i
+.PHONY : include/Earth.cpp.i
+
+include/Earth.s: include/Earth.cpp.s
+.PHONY : include/Earth.s
+
+# target to generate assembly for a file
+include/Earth.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Earth.cpp.s
+.PHONY : include/Earth.cpp.s
+
+include/Engine.o: include/Engine.cpp.o
+.PHONY : include/Engine.o
+
+# target to build an object file
+include/Engine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Engine.cpp.o
+.PHONY : include/Engine.cpp.o
+
+include/Engine.i: include/Engine.cpp.i
+.PHONY : include/Engine.i
+
+# target to preprocess a source file
+include/Engine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Engine.cpp.i
+.PHONY : include/Engine.cpp.i
+
+include/Engine.s: include/Engine.cpp.s
+.PHONY : include/Engine.s
+
+# target to generate assembly for a file
+include/Engine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Engine.cpp.s
+.PHONY : include/Engine.cpp.s
+
+include/FlyingObjects/Rock.o: include/FlyingObjects/Rock.cpp.o
+.PHONY : include/FlyingObjects/Rock.o
+
+# target to build an object file
+include/FlyingObjects/Rock.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.o
+.PHONY : include/FlyingObjects/Rock.cpp.o
+
+include/FlyingObjects/Rock.i: include/FlyingObjects/Rock.cpp.i
+.PHONY : include/FlyingObjects/Rock.i
+
+# target to preprocess a source file
+include/FlyingObjects/Rock.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.i
+.PHONY : include/FlyingObjects/Rock.cpp.i
+
+include/FlyingObjects/Rock.s: include/FlyingObjects/Rock.cpp.s
+.PHONY : include/FlyingObjects/Rock.s
+
+# target to generate assembly for a file
+include/FlyingObjects/Rock.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.s
+.PHONY : include/FlyingObjects/Rock.cpp.s
+
 include/Utils/Console.o: include/Utils/Console.cpp.o
 .PHONY : include/Utils/Console.o
 
@@ -153,101 +296,77 @@ include/Utils/Console.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.s
 .PHONY : include/Utils/Console.cpp.s
 
-include/common/controls.o: include/common/controls.cpp.o
-.PHONY : include/common/controls.o
+include/Utils/FirstPersonCamera.o: include/Utils/FirstPersonCamera.cpp.o
+.PHONY : include/Utils/FirstPersonCamera.o
 
 # target to build an object file
-include/common/controls.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/controls.cpp.o
-.PHONY : include/common/controls.cpp.o
+include/Utils/FirstPersonCamera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o
+.PHONY : include/Utils/FirstPersonCamera.cpp.o
 
-include/common/controls.i: include/common/controls.cpp.i
-.PHONY : include/common/controls.i
+include/Utils/FirstPersonCamera.i: include/Utils/FirstPersonCamera.cpp.i
+.PHONY : include/Utils/FirstPersonCamera.i
 
 # target to preprocess a source file
-include/common/controls.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/controls.cpp.i
-.PHONY : include/common/controls.cpp.i
+include/Utils/FirstPersonCamera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.i
+.PHONY : include/Utils/FirstPersonCamera.cpp.i
 
-include/common/controls.s: include/common/controls.cpp.s
-.PHONY : include/common/controls.s
+include/Utils/FirstPersonCamera.s: include/Utils/FirstPersonCamera.cpp.s
+.PHONY : include/Utils/FirstPersonCamera.s
 
 # target to generate assembly for a file
-include/common/controls.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/controls.cpp.s
-.PHONY : include/common/controls.cpp.s
+include/Utils/FirstPersonCamera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.s
+.PHONY : include/Utils/FirstPersonCamera.cpp.s
 
-include/common/shader.o: include/common/shader.cpp.o
-.PHONY : include/common/shader.o
+include/Utils/Shader.o: include/Utils/Shader.cpp.o
+.PHONY : include/Utils/Shader.o
 
 # target to build an object file
-include/common/shader.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/shader.cpp.o
-.PHONY : include/common/shader.cpp.o
+include/Utils/Shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o
+.PHONY : include/Utils/Shader.cpp.o
 
-include/common/shader.i: include/common/shader.cpp.i
-.PHONY : include/common/shader.i
+include/Utils/Shader.i: include/Utils/Shader.cpp.i
+.PHONY : include/Utils/Shader.i
 
 # target to preprocess a source file
-include/common/shader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/shader.cpp.i
-.PHONY : include/common/shader.cpp.i
+include/Utils/Shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.i
+.PHONY : include/Utils/Shader.cpp.i
 
-include/common/shader.s: include/common/shader.cpp.s
-.PHONY : include/common/shader.s
+include/Utils/Shader.s: include/Utils/Shader.cpp.s
+.PHONY : include/Utils/Shader.s
 
 # target to generate assembly for a file
-include/common/shader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/shader.cpp.s
-.PHONY : include/common/shader.cpp.s
+include/Utils/Shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.s
+.PHONY : include/Utils/Shader.cpp.s
 
-include/common/text2D.o: include/common/text2D.cpp.o
-.PHONY : include/common/text2D.o
+include/Utils/wgs84.o: include/Utils/wgs84.cpp.o
+.PHONY : include/Utils/wgs84.o
 
 # target to build an object file
-include/common/text2D.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/text2D.cpp.o
-.PHONY : include/common/text2D.cpp.o
+include/Utils/wgs84.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o
+.PHONY : include/Utils/wgs84.cpp.o
 
-include/common/text2D.i: include/common/text2D.cpp.i
-.PHONY : include/common/text2D.i
-
-# target to preprocess a source file
-include/common/text2D.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/text2D.cpp.i
-.PHONY : include/common/text2D.cpp.i
-
-include/common/text2D.s: include/common/text2D.cpp.s
-.PHONY : include/common/text2D.s
-
-# target to generate assembly for a file
-include/common/text2D.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/text2D.cpp.s
-.PHONY : include/common/text2D.cpp.s
-
-include/common/texture.o: include/common/texture.cpp.o
-.PHONY : include/common/texture.o
-
-# target to build an object file
-include/common/texture.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/texture.cpp.o
-.PHONY : include/common/texture.cpp.o
-
-include/common/texture.i: include/common/texture.cpp.i
-.PHONY : include/common/texture.i
+include/Utils/wgs84.i: include/Utils/wgs84.cpp.i
+.PHONY : include/Utils/wgs84.i
 
 # target to preprocess a source file
-include/common/texture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/texture.cpp.i
-.PHONY : include/common/texture.cpp.i
+include/Utils/wgs84.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.i
+.PHONY : include/Utils/wgs84.cpp.i
 
-include/common/texture.s: include/common/texture.cpp.s
-.PHONY : include/common/texture.s
+include/Utils/wgs84.s: include/Utils/wgs84.cpp.s
+.PHONY : include/Utils/wgs84.s
 
 # target to generate assembly for a file
-include/common/texture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/common/texture.cpp.s
-.PHONY : include/common/texture.cpp.s
+include/Utils/wgs84.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.s
+.PHONY : include/Utils/wgs84.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -280,23 +399,35 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... earth_sim"
+	@echo "... loader_example"
+	@echo "... tinygltf"
+	@echo "... include/Earth.o"
+	@echo "... include/Earth.i"
+	@echo "... include/Earth.s"
+	@echo "... include/Engine.o"
+	@echo "... include/Engine.i"
+	@echo "... include/Engine.s"
+	@echo "... include/FlyingObjects/Rock.o"
+	@echo "... include/FlyingObjects/Rock.i"
+	@echo "... include/FlyingObjects/Rock.s"
 	@echo "... include/Utils/Console.o"
 	@echo "... include/Utils/Console.i"
 	@echo "... include/Utils/Console.s"
-	@echo "... include/common/controls.o"
-	@echo "... include/common/controls.i"
-	@echo "... include/common/controls.s"
-	@echo "... include/common/shader.o"
-	@echo "... include/common/shader.i"
-	@echo "... include/common/shader.s"
-	@echo "... include/common/text2D.o"
-	@echo "... include/common/text2D.i"
-	@echo "... include/common/text2D.s"
-	@echo "... include/common/texture.o"
-	@echo "... include/common/texture.i"
-	@echo "... include/common/texture.s"
+	@echo "... include/Utils/FirstPersonCamera.o"
+	@echo "... include/Utils/FirstPersonCamera.i"
+	@echo "... include/Utils/FirstPersonCamera.s"
+	@echo "... include/Utils/Shader.o"
+	@echo "... include/Utils/Shader.i"
+	@echo "... include/Utils/Shader.s"
+	@echo "... include/Utils/wgs84.o"
+	@echo "... include/Utils/wgs84.i"
+	@echo "... include/Utils/wgs84.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
