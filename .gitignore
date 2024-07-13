@@ -4,3 +4,84 @@ cmake_install.cmake
 CMakeCache.txt
 compile_commands.json
 earth_sim
+
+
+# CMake
+include/tinygltf/CMakeCache.txt
+include/tinygltf/CMakeFiles
+include/tinygltf/CMakeScripts
+include/tinygltf/Testing
+include/tinygltf/Makefile
+include/tinygltf/cmake_install.cmake
+include/tinygltf/install_manifest.txt
+include/tinygltf/compile_commands.json
+include/tinygltf/CTestTestfile.cmake
+
+#Files created by the CI scripts (downloading and installing premake)
+include/tinygltf/premake5
+include/tinygltf/premake5.tar.gz
+
+#built examples
+include/tinygltf/examples/raytrace/bin/
+
+#visual studio files
+*.sln
+*.vcxproj*
+.vs
+
+#binary directories
+include/tinygltf/bin/
+include/tinygltf/obj/
+include/tinygltf/out/
+
+#runtime gui config
+include/tinygltf/imgui.ini
+
+#visual stuido code
+include/tinygltf/.vscode
+
+# Prerequisites
+include/tinygltf/*.d
+
+# Compiled Object files
+include/tinygltf/*.slo
+include/tinygltf/*.lo
+include/tinygltf/*.o
+include/tinygltf/*.obj
+
+# Precompiled Headers
+include/tinygltf/*.gch
+include/tinygltf/*.pch
+
+# Compiled Dynamic libraries
+include/tinygltf/*.so
+include/tinygltf/*.dylib
+include/tinygltf/*.dll
+
+# Fortran module files
+include/tinygltf/*.mod
+include/tinygltf/*.smod
+
+# Compiled Static libraries
+include/tinygltf/*.lai
+include/tinygltf/*.la
+include/tinygltf/*.a
+include/tinygltf/*.lib
+
+# Executables
+include/tinygltf/*.exe
+include/tinygltf/*.out
+include/tinygltf/*.app
+
+include/tinygltf/loader_example
+include/tinygltf/tests/tester
+include/tinygltf/tests/tester_noexcept
+include/tinygltf/tests/issue-97.gltf
+include/tinygltf/tests/issue-261.gltf
+
+# unignore
+include/tinygltf/!Makefile
+include/tinygltf/!examples/build-gltf/Makefile
+include/tinygltf/!examples/raytrace/cornellbox_suzanne.obj
+include/tinygltf/!tests/Makefile
+include/tinygltf/!tools/windows/premake5.exe
