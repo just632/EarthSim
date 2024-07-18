@@ -4,7 +4,7 @@
 
 
 FirstPersonCamera::FirstPersonCamera(Engine& engine):engine(engine){
-    glm::vec3 startPosition(0.f,0.f,WGS84::A+1000.f);
+    glm::vec3 startPosition = WGS84::toGeodetic(glm::vec3(0.f,WGS84::B,0.f));
     float fov;
     float movementSpeed;
     float mouseSensitivity;
@@ -49,18 +49,9 @@ void FirstPersonCamera::handleMouseMovement() {
 }
 
 void FirstPersonCamera::hangleUserInputs() {
+    handleMouseMovement();
     // Movement speed factor
     float moveStep = engine.deltaTime * speed;
-
-    // Calculate forward vector based on yaw and pitch
-    forward = glm::normalize(glm::vec3(
-        cos(glm::radians(pitch)) * cos(glm::radians(yaw)),
-        sin(glm::radians(pitch)),
-        cos(glm::radians(pitch)) * sin(glm::radians(yaw))
-    ));
-
-    // Calculate right vector as the cross product of forward and up
-    right = glm::normalize(glm::cross(forward, up));
 
     // Adjust longitude and latitude based on movement
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -89,13 +80,28 @@ void FirstPersonCamera::hangleUserInputs() {
     if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
         height -= moveStep;
     }
-
-    // Update the position based on the new longitude, latitude, and height
-    position = WGS84::toCartesian(longitude, latitude, height);
 }
 
 void FirstPersonCamera::update() {
-    computeMatrices();
+    hangleUserInputs();
+        // Calculate the new position based on longitude and latitude
+    position = WGS84::toCartesian(longitude, latitude, height);
+
+    // Get the surface normal at the current location
+    up = WGS84::surfaceNormal(longitude, latitude);
+
+    // Calculate forward vector based on yaw and pitch
+    forward = glm::normalize(glm::vec3(
+        cos(glm::radians(pitch)) * cos(glm::radians(yaw)),
+        sin(glm::radians(pitch)),
+        cos(glm::radians(pitch)) * sin(glm::radians(yaw))
+    ));
+
+    // Calculate right vector as the cross product of forward and up
+    right = glm::normalize(glm::cross(forward, up));
+
+    // Calculate the view matrix
+    viewMatrix = glm::lookAt(position, position + forward, up);
 }
 
 void FirstPersonCamera::apply() {
@@ -105,13 +111,11 @@ void FirstPersonCamera::apply() {
     // Use the shader program
     shader.use();
 
-    // Set the view matrix
-    GLint viewMatrixLocation = shader.getUniformLocation("viewMatrix");
-    glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, &viewMatrix[0][0]);
+    glUniformMatrix4fv(shader.getUniformLocation("view"), 1, GL_FALSE, glm::value_ptr(viewMatrix));
 
-    // Set the projection matrix
-    GLint projectionMatrixLocation = shader.getUniformLocation("projectionMatrix");
-    glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, &projectionMatrix[0][0]);
+    glUniformMatrix4fv(shader.getUniformLocation("projection"), 1, GL_FALSE, glm::value_ptr(projectionMatrix));
+
+    glUniformMatrix4fv(shader.getUniformLocation("modle"), 1, GL_FALSE, glm::value_ptr(modleMatrix));
 }
 
 void FirstPersonCamera::computeMatrices() {

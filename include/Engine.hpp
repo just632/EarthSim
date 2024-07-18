@@ -22,7 +22,9 @@
 
     #define COMMAND (const std::string &args)
     #define COMMAND_MAP std::map<std::string, std::function<std::string(const std::string &)>> 
-    
+
+
+
 class Engine {
 public:
     static Engine& getInctance()
@@ -75,8 +77,37 @@ private:
 
     double previousTime;
     double currentTime;
+    std::vector<float> ElipsoideVertices;
+    GLuint ElipsoideVAO, ElipsoideVBO;
+    
 
     Engine();
+
+    void generateEllipsoid(std::vector<float>& vertices, int slices, int stacks) {
+    for (int i = 0; i <= stacks; ++i) {
+        float theta = i * M_PI / stacks;
+        float sinTheta = sin(theta);
+        float cosTheta = cos(theta);
+
+        for (int j = 0; j <= slices; ++j) {
+            float phi = j * 2 * M_PI / slices;
+            float sinPhi = sin(phi);
+            float cosPhi = cos(phi);
+
+            float x = cosPhi * sinTheta;
+            float y = sinPhi * sinTheta;
+            float z = cosTheta;
+
+            float xr = WGS84::A * x;
+            float yr = WGS84::A * y;
+            float zr = WGS84::B * z;
+
+            vertices.push_back(xr);
+            vertices.push_back(yr);
+            vertices.push_back(zr);
+        }
+    }
+}
 
     void updateDeltaTime()
     {
@@ -165,6 +196,15 @@ private:
             oss << e.what() << '\n';
         }
         return oss.str();
+     }},
+     {"help", [] COMMAND
+     {
+         std::ostringstream oss;
+         oss << "ping -> returns pong\n";
+         oss << "add(a,b) -> adds two floats\n";
+         oss << "echo(msg) -> returns msg\n";
+         oss << "rock -> spawns rock at current position\n";
+         return oss.str();
      }}
      };
 };

@@ -11,7 +11,7 @@ Engine::Engine() : windowWidth(800), windowHight(600), earth(Earth::getInstance(
     initOpenGL();
     previousTime = glfwGetTime();
     cameraViews.push_back(FirstPersonCamera(*this));
-    earth.load();
+    //earth.load();
     console.load();
 }
 
@@ -64,6 +64,7 @@ void Engine::initWindow()
     // Dark blue background
     glClearColor(0.1f, 0.1f, 0.4f, 0.0f);
     glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
+    glfwSetKeyCallback(window,keyCallback);
 
 }
 
@@ -79,37 +80,58 @@ void Engine::initOpenGL()
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
     glEnable(GL_CULL_FACE);
+    generateEllipsoid(ElipsoideVertices, 100, 100);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glGenVertexArrays(1, &ElipsoideVAO);
+    glGenBuffers(1, &ElipsoideVBO);
+
+    glBindVertexArray(ElipsoideVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, ElipsoideVBO);
+    glBufferData(GL_ARRAY_BUFFER, ElipsoideVertices.size() * sizeof(float), ElipsoideVertices.data(), GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
 }
 
 void Engine::mainLoop()
 {
     std::cout<<"Engine::mainLoop called"<<std::endl;
 
-    while (!glfwWindowShouldClose(window))
+    while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(window))
     {
         if (glfwGetKey(window, GLFW_KEY_SLASH) == GLFW_PRESS&&!console.isOpen) {
+                std::cout<<"Engine::console.isOpen"<<std::endl;
                 console.isOpen=true;
         };
         updateDeltaTime();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Update and draw all flying objects
+        if(!flyingObjects.empty()){
         for (auto obj : flyingObjects)
         {
             obj.update();
             obj.draw();
         }
+        }
+
 
         if(!console.isOpen){
 
         // Update and apply camera views
         getCurrentCamera().update();
-        getCurrentCamera().apply();
         }
+        getCurrentCamera().apply();
 
-        earth.render();
+        glBindVertexArray(ElipsoideVAO);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, ElipsoideVertices.size() / 3);
+
+        //earth.render();
         console.render();
 
         glfwSwapBuffers(window);
@@ -126,11 +148,18 @@ void Engine::framebufferSizeCallback(GLFWwindow *window, int width, int height)
     engine->WindoAspectRatio = width / height;
 }
 
+#define INPUT_SHIFT key == GLFW_KEY_LEFT_SHIFT || key == GLFW_KEY_RIGHT_SHIFT
+#define INPUT_SHIFT_DOWN action == GLFW_PRESS && (INPUT_SHIFT)
+#define INPUT_SHIFT_UP action == GLFW_RELEASE && (INPUT_SHIFT)
+#define INPUT_NOT_SHIFT action == GLFW_PRESS && !(INPUT_SHIFT)
+
 void Engine::keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
 {
+    static bool shift_down = false;
+    Engine *engine = static_cast<Engine *>(glfwGetWindowUserPointer(window));
+    ConsoleBuffer &console = engine->console;
     if (action == GLFW_PRESS)
     {
-        Engine *engine = static_cast<Engine *>(glfwGetWindowUserPointer(window));
 
         switch (key)
         {
@@ -145,6 +174,11 @@ void Engine::keyCallback(GLFWwindow *window, int key, int scancode, int action, 
             break;
         }
     }
+
+    if(!console.isOpen)return;
+    if(INPUT_SHIFT_DOWN)shift_down=true;
+    if(INPUT_SHIFT_UP)shift_down=false;
+    if(INPUT_NOT_SHIFT)console.addInput(key,shift_down);
 }
 
 void Engine::switchCameraView(int viewIndex)

@@ -4,12 +4,19 @@
 #include "Engine.hpp"  // Adjust path as necessary
 
 ConsoleBuffer::ConsoleBuffer(Engine& engine, int maxLines) : engine(engine), maxLines(maxLines) {
-    commands = engine.getCommands();
+
 }
 
 void ConsoleBuffer::load(){
     projection = glm::ortho(0.0f, float(engine.windowWidth), 0.0f, float(engine.windowHight));
     initFreeType();
+    commands = engine.getCommands();
+    std::cout << "ConsoleBuffer recived commands : START" << std::endl;
+    for(auto cmd : commands){
+
+        std::cout << cmd.first << std::endl;
+    }
+    std::cout << "ConsoleBuffer recived commands : END" << std::endl;
 }
 
 int ConsoleBuffer::addShiftInput(int c) {
@@ -56,6 +63,9 @@ void ConsoleBuffer::addInput(int c, bool shift) {
 }
 
 void ConsoleBuffer::addMessage(const std::string &message) {
+    if(message.find('\n') != std::string::npos){
+        
+    }
     if (lines.size() >= maxLines) {
         lines.erase(lines.begin());
     }
