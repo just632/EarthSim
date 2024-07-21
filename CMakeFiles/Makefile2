@@ -100,12 +100,12 @@ include/tinygltf/clean: include/tinygltf/CMakeFiles/tinygltf.dir/clean
 CMakeFiles/earth_sim.dir/all: include/tinygltf/CMakeFiles/tinygltf.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target earth_sim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target earth_sim"
 .PHONY : CMakeFiles/earth_sim.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/earth_sim.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/m/Code/cpp/EarthSim/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/m/Code/cpp/EarthSim/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/earth_sim.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/m/Code/cpp/EarthSim/CMakeFiles 0
 .PHONY : CMakeFiles/earth_sim.dir/rule
@@ -126,7 +126,7 @@ CMakeFiles/earth_sim.dir/clean:
 include/tinygltf/CMakeFiles/loader_example.dir/all:
 	$(MAKE) $(MAKESILENT) -f include/tinygltf/CMakeFiles/loader_example.dir/build.make include/tinygltf/CMakeFiles/loader_example.dir/depend
 	$(MAKE) $(MAKESILENT) -f include/tinygltf/CMakeFiles/loader_example.dir/build.make include/tinygltf/CMakeFiles/loader_example.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=10,11 "Built target loader_example"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=8,9 "Built target loader_example"
 .PHONY : include/tinygltf/CMakeFiles/loader_example.dir/all
 
 # Build rule for subdir invocation for target.
@@ -152,7 +152,7 @@ include/tinygltf/CMakeFiles/loader_example.dir/clean:
 include/tinygltf/CMakeFiles/tinygltf.dir/all:
 	$(MAKE) $(MAKESILENT) -f include/tinygltf/CMakeFiles/tinygltf.dir/build.make include/tinygltf/CMakeFiles/tinygltf.dir/depend
 	$(MAKE) $(MAKESILENT) -f include/tinygltf/CMakeFiles/tinygltf.dir/build.make include/tinygltf/CMakeFiles/tinygltf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=12,13 "Built target tinygltf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=10,11 "Built target tinygltf"
 .PHONY : include/tinygltf/CMakeFiles/tinygltf.dir/all
 
 # Build rule for subdir invocation for target.

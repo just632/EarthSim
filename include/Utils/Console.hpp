@@ -18,10 +18,11 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/ext/matrix_clip_space.hpp>
-#include <FlyingObjects/Rock.hpp>
 #include <glm/gtc/quaternion.hpp> 
 #include "Utils/Camera.hpp"
+#include "Utils/Shader.hpp"
 class Engine;
+
 
 struct Character {
     GLuint TextureID;
@@ -31,22 +32,25 @@ struct Character {
 };
 
 class ConsoleBuffer {
+
 public:
-    ConsoleBuffer(Engine& engine, int maxLines);
+    ConsoleBuffer(Engine* engine, int maxLines);
 
     void addInput(int c, bool shift);
     void render();
     void load();
 
-    bool isOpen = false;
+
+    bool isOpen;
+    bool debugInfo;
 private:
     std::map<std::string, std::function<std::string(const std::string &)>> commands;
-    Engine& engine;
+    Engine* engine;
     std::vector<std::string> lines;
     std::string input;
     int maxLines;
     GLuint VAO, VBO;
-    GLuint shaderProgram;
+    Shader shaderProgram = Shader("console","console");
     glm::mat4 projection;
     float lineSize = 48.f;
     std::map<GLchar, Character> Characters;

@@ -1,10 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/earth_sim.dir/include/Earth.cpp.o"
-  "CMakeFiles/earth_sim.dir/include/Earth.cpp.o.d"
   "CMakeFiles/earth_sim.dir/include/Engine.cpp.o"
   "CMakeFiles/earth_sim.dir/include/Engine.cpp.o.d"
-  "CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.o"
-  "CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.o.d"
   "CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o"
   "CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o.d"
   "CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o"

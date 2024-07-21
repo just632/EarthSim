@@ -3,20 +3,22 @@
 #include <sstream>
 #include "Engine.hpp"  // Adjust path as necessary
 
-ConsoleBuffer::ConsoleBuffer(Engine& engine, int maxLines) : engine(engine), maxLines(maxLines) {
 
+ConsoleBuffer::ConsoleBuffer(Engine* engine, int maxLines) : engine(engine), maxLines(maxLines),isOpen(false),debugInfo(false) {
 }
 
 void ConsoleBuffer::load(){
-    projection = glm::ortho(0.0f, float(engine.windowWidth), 0.0f, float(engine.windowHight));
+    projection = glm::ortho(0.0f, float(engine->windowWidth), 0.0f, float(engine->windowHight));
     initFreeType();
-    commands = engine.getCommands();
+    commands = engine->getCommands();
     std::cout << "ConsoleBuffer recived commands : START" << std::endl;
     for(auto cmd : commands){
 
         std::cout << cmd.first << std::endl;
     }
     std::cout << "ConsoleBuffer recived commands : END" << std::endl;
+
+    
 }
 
 int ConsoleBuffer::addShiftInput(int c) {
@@ -47,6 +49,8 @@ int ConsoleBuffer::addShiftInput(int c) {
 }
 
 void ConsoleBuffer::addInput(int c, bool shift) {
+    if(!isOpen) return;
+    
     if (c > 64 && c < 91 && !shift) c += 32;
     if (c == GLFW_KEY_ENTER) {
         addMessage(processCommand(input));
@@ -63,22 +67,27 @@ void ConsoleBuffer::addInput(int c, bool shift) {
 }
 
 void ConsoleBuffer::addMessage(const std::string &message) {
-    if(message.find('\n') != std::string::npos){
-        
+    std::istringstream stream(message);
+    std::string line;
+    while (std::getline(stream, line)) {
+        if (lines.size() >= maxLines) {
+            lines.erase(lines.begin());
+        }
+        lines.push_back(line);
     }
-    if (lines.size() >= maxLines) {
-        lines.erase(lines.begin());
-    }
-    lines.push_back(message);
 }
 
+
 void ConsoleBuffer::render() {
-    int windowHeight = engine.windowHight;
-    glUseProgram(shaderProgram);
-    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+    
+    glDisable(GL_DEPTH_TEST);
+
+    int windowHeight = engine->windowHight;
+    shaderProgram.use();
+    glBindVertexArray(VAO);
+    shaderProgram.setMat4( "projection",projection);
 
     glActiveTexture(GL_TEXTURE0);
-    glBindVertexArray(VAO);
 
     float y = windowHeight;
     for (const auto &line : lines) {
@@ -90,8 +99,21 @@ void ConsoleBuffer::render() {
         renderText(input, lineSize * SCALE, lineSize * SCALE, SCALE);
     }
 
+    if (debugInfo) {
+
+        renderText(engine->currentCameraPos(), engine->windowWidth-12*lineSize*SCALE, windowHeight-lineSize * SCALE, SCALE);
+        
+    
+        renderText(engine->currentCameraOrent(), engine->windowWidth-12*lineSize*SCALE, windowHeight-2*lineSize * SCALE, SCALE);
+
+        renderText(engine->currentObjectCount(), engine->windowWidth-12*lineSize*SCALE, windowHeight-4*lineSize * SCALE, SCALE);
+
+    }
+
     glBindVertexArray(0);
     glBindTexture(GL_TEXTURE_2D, 0);
+    glEnable(GL_DEPTH_TEST);
+
 }
 
 // Other member functions...
@@ -159,48 +181,13 @@ void ConsoleBuffer::initFreeType() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
-    const char *vertexShaderSource = R"(
-        #version 330 core
-        layout (location = 0) in vec4 vertex;
-        out vec2 TexCoords;
-        uniform mat4 projection;
-        void main() {
-            gl_Position = projection * vec4(vertex.xy, 0.0, 1.0);
-            TexCoords = vertex.zw;
-        }
-    )";
+
     
-    const char *fragmentShaderSource = R"(
-        #version 330 core
-        in vec2 TexCoords;
-        out vec4 color;
-        uniform sampler2D text;
-        uniform vec3 textColor;
-        void main() {    
-            vec4 sampled = vec4(1.0, 1.0, 1.0, texture(text, TexCoords).r);
-            color = vec4(textColor, 1.0) * sampled;
-        }
-    )";
-
-    GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-
-    GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
-
-    shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
+    shaderProgram.load();
 }
 
 void ConsoleBuffer::renderText(const std::string &text, float x, float y, float scale) {
-    glUniform3f(glGetUniformLocation(shaderProgram, "textColor"), 1.0f, 1.0f, 1.0f);
+    shaderProgram.setVec3("textColor", 1.0f, 1.0f, 1.0f);
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(VAO);
 

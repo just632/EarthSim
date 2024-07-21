@@ -200,30 +200,6 @@ tinygltf/fast:
 	$(MAKE) $(MAKESILENT) -f include/tinygltf/CMakeFiles/tinygltf.dir/build.make include/tinygltf/CMakeFiles/tinygltf.dir/build
 .PHONY : tinygltf/fast
 
-include/Earth.o: include/Earth.cpp.o
-.PHONY : include/Earth.o
-
-# target to build an object file
-include/Earth.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Earth.cpp.o
-.PHONY : include/Earth.cpp.o
-
-include/Earth.i: include/Earth.cpp.i
-.PHONY : include/Earth.i
-
-# target to preprocess a source file
-include/Earth.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Earth.cpp.i
-.PHONY : include/Earth.cpp.i
-
-include/Earth.s: include/Earth.cpp.s
-.PHONY : include/Earth.s
-
-# target to generate assembly for a file
-include/Earth.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Earth.cpp.s
-.PHONY : include/Earth.cpp.s
-
 include/Engine.o: include/Engine.cpp.o
 .PHONY : include/Engine.o
 
@@ -247,30 +223,6 @@ include/Engine.s: include/Engine.cpp.s
 include/Engine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Engine.cpp.s
 .PHONY : include/Engine.cpp.s
-
-include/FlyingObjects/Rock.o: include/FlyingObjects/Rock.cpp.o
-.PHONY : include/FlyingObjects/Rock.o
-
-# target to build an object file
-include/FlyingObjects/Rock.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.o
-.PHONY : include/FlyingObjects/Rock.cpp.o
-
-include/FlyingObjects/Rock.i: include/FlyingObjects/Rock.cpp.i
-.PHONY : include/FlyingObjects/Rock.i
-
-# target to preprocess a source file
-include/FlyingObjects/Rock.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.i
-.PHONY : include/FlyingObjects/Rock.cpp.i
-
-include/FlyingObjects/Rock.s: include/FlyingObjects/Rock.cpp.s
-.PHONY : include/FlyingObjects/Rock.s
-
-# target to generate assembly for a file
-include/FlyingObjects/Rock.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/FlyingObjects/Rock.cpp.s
-.PHONY : include/FlyingObjects/Rock.cpp.s
 
 include/Utils/Console.o: include/Utils/Console.cpp.o
 .PHONY : include/Utils/Console.o
@@ -407,15 +359,9 @@ help:
 	@echo "... earth_sim"
 	@echo "... loader_example"
 	@echo "... tinygltf"
-	@echo "... include/Earth.o"
-	@echo "... include/Earth.i"
-	@echo "... include/Earth.s"
 	@echo "... include/Engine.o"
 	@echo "... include/Engine.i"
 	@echo "... include/Engine.s"
-	@echo "... include/FlyingObjects/Rock.o"
-	@echo "... include/FlyingObjects/Rock.i"
-	@echo "... include/FlyingObjects/Rock.s"
 	@echo "... include/Utils/Console.o"
 	@echo "... include/Utils/Console.i"
 	@echo "... include/Utils/Console.s"

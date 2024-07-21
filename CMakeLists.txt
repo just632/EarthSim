@@ -19,24 +19,31 @@ add_executable(earth_sim
     src/main.cpp
     include/Engine.cpp
     include/Engine.cpp
-    include/Earth.cpp
-    include/Earth.cpp
+    # include/Earth.cpp
+    # include/Earth.cpp
     include/Utils/Shader.cpp
     include/Utils/Shader.hpp
     include/Utils/wgs84.cpp
     include/Utils/wgs84.hpp
-    include/Utils/Camera.hpp
+    include/Utils/Camera.hpp  
     include/Utils/FirstPersonCamera.hpp
     include/Utils/FirstPersonCamera.cpp
-    include/FlyingObjects/FlyingObject.hpp
-    include/FlyingObjects/Rock.hpp
-    include/FlyingObjects/Rock.cpp
+    # include/Utils/GeoCentricCamera.hpp
+    # # include/Utils/GeoCentricCamera.cpp
+     include/Objects/Object.hpp
+     include/Objects/Ellipsoid.hpp
+    # #include/Objects/Rock.hpp
+    # include/Objects/Cube.hpp
     include/Utils/Console.cpp
     include/Utils/Console.hpp
-    # include/common/controls.hpp
-    # include/common/controls.cpp
-    # include/common/shader.hpp
-    # include/common/shader.cpp
+    #     include/common/Console.cpp
+    # include/common/Console.hpp
+    #  include/common/controls.hpp
+    #  include/common/controls.cpp
+# 
+     include/common/config.h
+    #  include/common/shader.hpp
+    #  include/common/shader.cpp
     # include/common/text2D.hpp
     # include/common/text2D.cpp
     # include/common/texture.hpp

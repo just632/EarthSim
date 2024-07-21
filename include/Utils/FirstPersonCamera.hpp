@@ -5,20 +5,21 @@
 
 class FirstPersonCamera : public Camera {
 public:
-    FirstPersonCamera(Engine& engine);
-    FirstPersonCamera(Engine& engine,glm::vec3 startPosition, float fov, float movementSpeed, float mouseSensitivity);
+    FirstPersonCamera(Engine* engine);
+    FirstPersonCamera(Engine* engine,glm::vec3 startPosition, float fov, float movementSpeed, float mouseSensitivity);
 
-    void update();
-    void apply();
-    void hangleUserInputs();
-    void handleMouseMovement();
+    void update() override;
+    void apply() override;
+    void handleUserInputs() override;
+    void handleMouseMovement() override;
 
 private:
     void computeMatrices();
 
-
+    glm::mat4 modleMatrix = glm::mat4(1.0f);
         // UNSAFE AS F*CK
-    Engine &engine; // DO NOT MODIFY!!! , ONLY USE AS A READ REFRENCE!!!
+    Engine *engine; // DO NOT MODIFY!!! , ONLY USE AS A READ REFRENCE!!!
+    GLFWwindow* window;
 };
 
 #endif // FIRSTPERSONCAMERA_H

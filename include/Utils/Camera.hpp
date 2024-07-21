@@ -7,57 +7,68 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <string>
+
 class Engine;
+
 class Camera {
 public:
-    ~Camera() {}
+    virtual ~Camera() = default;  // Virtual destructor
 
-    void update(){};
-    void apply(){};
-    void hangleUserInputs(){};
-    void handleMouseMovement(){};
+    virtual void update() = 0;
+    virtual void apply() = 0;
+    virtual void handleUserInputs() = 0;  // Corrected typo
+    virtual void handleMouseMovement() = 0;
 
-
-    float getLatitude()
+    float getLatitude() const
     {
         return latitude;
     }
 
-    float getLongtitude()
+    float getLongitude() const 
     {
         return longitude;
     }
 
-    float getHeight()
+    float getHeight() const
     {
         return height;
     }
 
+    const glm::vec3& getPosition() const 
+    {
+        return position;
+    }
+
+    float getYaw() const 
+    {
+        return yaw;
+    }
+
+    float getPitch() const 
+    {
+        return pitch;
+    }
 
 protected:
     glm::vec3 position;
     glm::vec3 up;
     glm::vec3 right;
     glm::vec3 forward;
+    glm::vec3 WorldUp;
 
     glm::mat4 viewMatrix;
     glm::mat4 projectionMatrix;
-    glm::mat4 modleMatrix = glm::mat4(1.0f);
 
     float yaw;
     float pitch;
     float MouseLastX;
     float MouseLastY;
     float height;
-    float longitude;
+    float longitude; 
     float latitude;
     float fieldOfView;
     float speed;
     float mouseSpeed;
-    GLFWwindow *window;
-    
-
-    
 };
 
 #endif // CAMERA_H

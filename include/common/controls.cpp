@@ -5,7 +5,6 @@ extern GLFWwindow* window; // The "extern" keyword here is to access the variabl
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-using namespace glm;
 
 #include "controls.hpp"
 #include "config.h"
@@ -26,11 +25,12 @@ glm::vec3 position(0, b, 0);
 glm::vec3 up;
 glm::vec3 right;
 glm::vec3 forward;
+glm::vec3 WorldUp(0.f,1.f,0.f);
 
 // Initial horizontal angle : toward -Z
-float horizontalAngle = 3.14f;
+float yaw = 3.14f;
 // Initial vertical angle : none
-float verticalAngle = 0.0f;
+float pitch = 0.0f;
 // Initial Field of View
 float initialFoV = 45.0f;
 
@@ -39,21 +39,21 @@ float mouseSpeed = 0.002f;
 
 
 
-glm::mat4 ViewMatrix;
-glm::mat4 ProjectionMatrix = glm::perspective(glm::radians(initialFoV), 4.0f / 3.0f, 0.1f, 10000.0f);
-glm::mat4 ModleMatrix = glm::mat4(1.0f);
+glm::mat4 viewMatrix;
+glm::mat4 projectionMatrix = glm::perspective(glm::radians(initialFoV), 4.0f / 3.0f, 0.1f, 10000.0f);
+glm::mat4 modleMatrix = glm::mat4(1.0f);
 // Get the view matrix
 glm::mat4 getViewMatrix() {
-    return ViewMatrix;
+    return viewMatrix;
 }
 
 glm::mat4 getModleMatrix(){
-    return ModleMatrix;
+    return modleMatrix;
 }
 
 // Get the projection matrix
 glm::mat4 getProjectionMatrix() {
-    return ProjectionMatrix;
+    return projectionMatrix;
 }
 
 // Callback for scroll input to adjust speed
@@ -81,12 +81,12 @@ double normalGravity(double phi) {
 }
 
 // Function to compute the new orientation of the camera
-glm::mat4 computeViewMatrix(const glm::vec3& position, float horizontalAngle, float verticalAngle) {
+void computeViewMatrix() {
     // Calculate the forward vector
     forward = glm::vec3(
-        cos(verticalAngle) * sin(horizontalAngle),
-        sin(verticalAngle),
-        cos(verticalAngle) * cos(horizontalAngle)
+        cos(pitch) * sin(yaw),
+        sin(pitch),
+        cos(pitch) * cos(yaw)
     );
 
     // Normalize the position to get the up vector
@@ -102,21 +102,29 @@ glm::mat4 computeViewMatrix(const glm::vec3& position, float horizontalAngle, fl
     forward = glm::normalize(glm::cross(up, right));
 
     // Return the view matrix
-    return glm::lookAt(position, lookAt, up);
+    viewMatrix = glm::lookAt(position, lookAt, up);
 }
 
+
 // Function to update the camera orientation based on mouse input
-void updateOrientation(float deltaX, float deltaY) {
-    horizontalAngle += mouseSpeed * deltaX;
-    verticalAngle += mouseSpeed * deltaY;
+void handleMouseMovement() {
+    static double lastX = WINDOW_W / 2, lastY = WINDOW_H / 2;
+    double xpos, ypos;
+    glfwGetCursorPos(window, &xpos, &ypos);
+
+    yaw += mouseSpeed * float(lastX - xpos);
+    pitch += mouseSpeed * float(lastY - ypos);
+    // Update last mouse position
+    lastX = xpos;
+    lastY = ypos;
+
 /* 
     // Clamp vertical angle to avoid flipping
     verticalAngle = glm::clamp(verticalAngle, -glm::half_pi<float>(), glm::half_pi<float>()); */
 }
 
 // Function to update the camera position based on keyboard input
-void updatePosition(float deltaTime) {
-
+void handleUserInputs(float deltaTime) {
 
     // Move forward/backward relative to the camera's direction
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -143,35 +151,25 @@ void updatePosition(float deltaTime) {
     }
 }
 
-// Main function to compute matrices from inputs
-void computeMatricesFromInputs() {
-    // Static variables for time and mouse position
-    static double lastTime = glfwGetTime();
-    static double lastX = WINDOW_W / 2, lastY = WINDOW_H / 2;
 
-    // Compute time difference between current and last frame
+
+void controlsUpdate(){
+    static double lastTime = glfwGetTime();
+
     double currentTime = glfwGetTime();
     float deltaTime = float(currentTime - lastTime);
 
-    // Get mouse position
-    double xpos, ypos;
-    glfwGetCursorPos(window, &xpos, &ypos);
+    handleMouseMovement();
 
-    // Calculate mouse delta
-    float deltaX = float(lastX - xpos);
-    float deltaY = float(lastY - ypos); // Reversed since y-coordinates go from bottom to top
+    handleUserInputs(deltaTime);
 
-    // Update last mouse position
-    lastX = xpos;
-    lastY = ypos;
-
-    // Update orientation and position
-    updateOrientation(deltaX, deltaY);
-    updatePosition(deltaTime);
-
-    // Update view matrix
-    ViewMatrix = computeViewMatrix(position, horizontalAngle, verticalAngle);
-
-    // For the next frame, the "last time" will be "now"
+    computeViewMatrix();
     lastTime = currentTime;
+}
+
+void controlsApply(Shader* shader){
+
+        shader->setMat4("view", getViewMatrix());
+        shader->setMat4("projection", getProjectionMatrix());
+        shader->setMat4("model", getModleMatrix());
 }

@@ -413,18 +413,29 @@ CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o: \
  /usr/local/include/glm/ext/vector_uint1.hpp \
  /usr/local/include/glm/ext/vector_uint1_sized.hpp \
  /usr/include/c++/13/cstring /usr/local/include/glm/gtc/type_ptr.inl \
- /home/m/Code/cpp/EarthSim/include/FlyingObjects/Rock.hpp \
- /home/m/Code/cpp/EarthSim/include/FlyingObjects/FlyingObject.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
- /home/m/Code/cpp/EarthSim/include/Engine.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
  /usr/include/c++/13/fstream /usr/include/c++/13/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc \
+ /home/m/Code/cpp/EarthSim/include/Engine.hpp /usr/include/c++/13/memory \
+ /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr_base.h \
+ /usr/include/c++/13/bits/allocated_ptr.h \
+ /usr/include/c++/13/ext/concurrence.h \
+ /usr/include/c++/13/bits/shared_ptr_atomic.h \
+ /usr/include/c++/13/bits/atomic_base.h \
+ /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/13/backward/auto_ptr.h \
+ /usr/include/c++/13/pstl/glue_memory_defs.h \
+ /usr/include/c++/13/pstl/execution_defs.h \
+ /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
- /home/m/Code/cpp/EarthSim/include/FlyingObjects/Rock.hpp \
- /home/m/Code/cpp/EarthSim/include/Earth.hpp \
- /home/m/Code/cpp/EarthSim/include/tinygltf/tiny_gltf.h \
- /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h
+ /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp

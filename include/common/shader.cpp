@@ -18,8 +18,8 @@ GLuint LoadShaders(const char * vertex_file_name,const char * fragment_file_name
 
 	char vertex_file_path[256];
 	char fragment_file_path[256];
-	sprintf(vertex_file_path,"shaders/%s.vertex.shader", vertex_file_name );
-	sprintf(fragment_file_path,"shaders/%s.fragment.shader", fragment_file_name );
+	sprintf(vertex_file_path,"shaders/%s.vs", vertex_file_name );
+	sprintf(fragment_file_path,"shaders/%s.fs", fragment_file_name );
 	// Create the shaders
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);

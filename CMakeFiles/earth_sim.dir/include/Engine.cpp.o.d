@@ -159,15 +159,28 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc /usr/include/GL/glew.h \
- /usr/include/c++/13/cstdint \
+ /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/memory \
+ /usr/include/c++/13/bits/stl_tempbuf.h \
+ /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13/bits/align.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/GL/glu.h \
- /usr/include/GL/gl.h /usr/local/include/GLFW/glfw3.h \
- /usr/local/include/glm/glm.hpp /usr/local/include/glm/detail/_fixes.hpp \
- /usr/include/c++/13/cmath /usr/include/math.h \
- /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+ /usr/include/c++/13/bits/unique_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr_base.h \
+ /usr/include/c++/13/bits/allocated_ptr.h \
+ /usr/include/c++/13/ext/concurrence.h \
+ /usr/include/c++/13/bits/shared_ptr_atomic.h \
+ /usr/include/c++/13/bits/atomic_base.h \
+ /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/13/backward/auto_ptr.h \
+ /usr/include/c++/13/pstl/glue_memory_defs.h \
+ /usr/include/c++/13/pstl/execution_defs.h /usr/include/GL/glew.h \
+ /usr/include/c++/13/cstdint /usr/include/GL/glu.h /usr/include/GL/gl.h \
+ /usr/local/include/GLFW/glfw3.h /usr/local/include/glm/glm.hpp \
+ /usr/local/include/glm/detail/_fixes.hpp /usr/include/c++/13/cmath \
+ /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
@@ -236,7 +249,6 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h \
  /usr/local/include/glm/detail/_vectorize.hpp \
  /usr/local/include/glm/ext/vector_bool3_precision.hpp \
  /usr/local/include/glm/ext/vector_float3.hpp \
@@ -380,33 +392,6 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/local/include/glm/detail/setup.hpp \
  /usr/local/include/glm/gtc/epsilon.inl \
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
- /usr/include/c++/13/fstream /usr/include/c++/13/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
- /usr/include/c++/13/bits/sstream.tcc \
- /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
- /home/m/Code/cpp/EarthSim/include/FlyingObjects/FlyingObject.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
- /home/m/Code/cpp/EarthSim/include/FlyingObjects/Rock.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/Console.hpp \
- /usr/include/freetype2/ft2build.h \
- /usr/include/freetype2/freetype/config/ftheader.h \
- /usr/include/freetype2/freetype/freetype.h \
- /usr/include/freetype2/freetype/config/ftconfig.h \
- /usr/include/freetype2/freetype/config/ftoption.h \
- /usr/include/freetype2/freetype/config/ftstdlib.h /usr/include/string.h \
- /usr/include/strings.h /usr/include/c++/13/stdlib.h \
- /usr/include/setjmp.h \
- /usr/include/freetype2/freetype/config/integer-types.h \
- /usr/include/freetype2/freetype/config/public-macros.h \
- /usr/include/freetype2/freetype/config/mac-support.h \
- /usr/include/freetype2/freetype/fttypes.h \
- /usr/include/freetype2/freetype/ftsystem.h \
- /usr/include/freetype2/freetype/ftimage.h \
- /usr/include/freetype2/freetype/fterrors.h \
- /usr/include/freetype2/freetype/ftmoderr.h \
- /usr/include/freetype2/freetype/fterrdef.h \
  /usr/local/include/glm/gtc/type_ptr.hpp \
  /usr/local/include/glm/gtc/vec1.hpp \
  /usr/local/include/glm/ext/vector_bool1.hpp \
@@ -419,10 +404,36 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/local/include/glm/ext/vector_int1_sized.hpp \
  /usr/local/include/glm/ext/vector_uint1.hpp \
  /usr/local/include/glm/ext/vector_uint1_sized.hpp \
- /usr/include/c++/13/cstring /usr/local/include/glm/gtc/type_ptr.inl \
- /home/m/Code/cpp/EarthSim/include/FlyingObjects/Rock.hpp \
+ /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
+ /usr/local/include/glm/gtc/type_ptr.inl /usr/include/c++/13/fstream \
+ /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
+ /usr/include/c++/13/bits/sstream.tcc \
  /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
- /home/m/Code/cpp/EarthSim/include/Earth.hpp \
- /home/m/Code/cpp/EarthSim/include/tinygltf/tiny_gltf.h \
- /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
+ /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Console.hpp \
+ /usr/include/freetype2/ft2build.h \
+ /usr/include/freetype2/freetype/config/ftheader.h \
+ /usr/include/freetype2/freetype/freetype.h \
+ /usr/include/freetype2/freetype/config/ftconfig.h \
+ /usr/include/freetype2/freetype/config/ftoption.h \
+ /usr/include/freetype2/freetype/config/ftstdlib.h \
+ /usr/include/c++/13/stdlib.h /usr/include/setjmp.h \
+ /usr/include/freetype2/freetype/config/integer-types.h \
+ /usr/include/freetype2/freetype/config/public-macros.h \
+ /usr/include/freetype2/freetype/config/mac-support.h \
+ /usr/include/freetype2/freetype/fttypes.h \
+ /usr/include/freetype2/freetype/ftsystem.h \
+ /usr/include/freetype2/freetype/ftimage.h \
+ /usr/include/freetype2/freetype/fterrors.h \
+ /usr/include/freetype2/freetype/ftmoderr.h \
+ /usr/include/freetype2/freetype/fterrdef.h \
+ /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.hpp
