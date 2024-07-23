@@ -395,28 +395,6 @@ CMakeFiles/earth_sim.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc \
- /home/m/Code/cpp/EarthSim/include/Engine.hpp /usr/include/c++/13/map \
- /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/memory \
- /usr/include/c++/13/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
- /usr/include/c++/13/bits/shared_ptr.h \
- /usr/include/c++/13/bits/shared_ptr_base.h \
- /usr/include/c++/13/bits/allocated_ptr.h \
- /usr/include/c++/13/ext/concurrence.h \
- /usr/include/c++/13/bits/shared_ptr_atomic.h \
- /usr/include/c++/13/bits/atomic_base.h \
- /usr/include/c++/13/bits/atomic_lockfree_defines.h \
- /usr/include/c++/13/backward/auto_ptr.h \
- /usr/include/c++/13/pstl/glue_memory_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h \
- /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
- /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
- /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp \
- /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Console.hpp \
  /usr/include/freetype2/ft2build.h \
  /usr/include/freetype2/freetype/config/ftheader.h \
@@ -433,6 +411,29 @@ CMakeFiles/earth_sim.dir/src/main.cpp.o: \
  /usr/include/freetype2/freetype/ftimage.h \
  /usr/include/freetype2/freetype/fterrors.h \
  /usr/include/freetype2/freetype/ftmoderr.h \
- /usr/include/freetype2/freetype/fterrdef.h \
- /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
- /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp
+ /usr/include/freetype2/freetype/fterrdef.h /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /home/m/Code/cpp/EarthSim/include/Utils/Window.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Timer.hpp \
+ /home/m/Code/cpp/EarthSim/include/Engine.hpp /usr/include/c++/13/memory \
+ /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr_base.h \
+ /usr/include/c++/13/bits/allocated_ptr.h \
+ /usr/include/c++/13/ext/concurrence.h \
+ /usr/include/c++/13/bits/shared_ptr_atomic.h \
+ /usr/include/c++/13/bits/atomic_base.h \
+ /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/13/backward/auto_ptr.h \
+ /usr/include/c++/13/pstl/glue_memory_defs.h \
+ /usr/include/c++/13/pstl/execution_defs.h \
+ /home/m/Code/cpp/EarthSim/include/Cameras/Camera.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
+ /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp \
+ /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Triangle.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp

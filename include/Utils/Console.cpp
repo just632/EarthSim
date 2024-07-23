@@ -1,72 +1,41 @@
 #include "Console.hpp"
-#include <iostream>
-#include <sstream>
-#include "Engine.hpp"  // Adjust path as necessary
 
 
-ConsoleBuffer::ConsoleBuffer(Engine* engine, int maxLines) : engine(engine), maxLines(maxLines),isOpen(false),debugInfo(false) {
-}
 
-void ConsoleBuffer::load(){
-    projection = glm::ortho(0.0f, float(engine->windowWidth), 0.0f, float(engine->windowHight));
+Console *Console::instance = nullptr;
+
+Console::Console() {}
+
+void Console::init(){
+    projection = glm::ortho(0.0f,window->getWidth(), 0.0f, window->getHight());
     initFreeType();
-    commands = engine->getCommands();
-    std::cout << "ConsoleBuffer recived commands : START" << std::endl;
-    for(auto cmd : commands){
-
-        std::cout << cmd.first << std::endl;
-    }
-    std::cout << "ConsoleBuffer recived commands : END" << std::endl;
-
-    
 }
 
-int ConsoleBuffer::addShiftInput(int c) {
-    switch (c) {
-        case '`': return '~';
-        case '1': return '!';
-        case '2': return '@';
-        case '3': return '#';
-        case '4': return '$';
-        case '5': return '%';
-        case '6': return '^';
-        case '7': return '&';
-        case '8': return '*';
-        case '9': return '(';
-        case '0': return ')';
-        case '-': return '_';
-        case '=': return '+';
-        case '[': return '{';
-        case ']': return '}';
-        case '\\': return '|';
-        case ';': return ':';
-        case '\'': return '"';
-        case ',': return '<';
-        case '.': return '>';
-        case '/': return '?';
-        default: return c;
-    }
-}
 
-void ConsoleBuffer::addInput(int c, bool shift) {
+void Console::handleChar(int c, bool shift) {
     if(!isOpen) return;
     
     if (c > 64 && c < 91 && !shift) c += 32;
-    if (c == GLFW_KEY_ENTER) {
+    switch (c)
+    {
+    case GLFW_KEY_ENTER:
         addMessage(processCommand(input));
         isOpen = false;
         input = "";
-    } else if (c == GLFW_KEY_BACKSPACE) {
+        break;
+    case GLFW_KEY_BACKSPACE:
         if (!input.empty()) {
             input.pop_back();
         }
-    } else {
-        if (shift) input += addShiftInput(c);
+        break;
+    default:
+        if (shift) input += ShiftChar(c);
         else input += c;
+        break;
     }
 }
 
-void ConsoleBuffer::addMessage(const std::string &message) {
+void Console::addMessage(const std::string &message) {
     std::istringstream stream(message);
     std::string line;
     while (std::getline(stream, line)) {
@@ -78,35 +47,39 @@ void ConsoleBuffer::addMessage(const std::string &message) {
 }
 
 
-void ConsoleBuffer::render() {
+void Console::render() {
     
     glDisable(GL_DEPTH_TEST);
 
-    int windowHeight = engine->windowHight;
+    int windowHeight = window->getHight();
+    int windowWidth = window->getWidth();
     shaderProgram.use();
     glBindVertexArray(VAO);
-    shaderProgram.setMat4( "projection",projection);
+    shaderProgram.setMat4("projection",projection);
 
     glActiveTexture(GL_TEXTURE0);
 
     float y = windowHeight;
     for (const auto &line : lines) {
-        y -= lineSize * SCALE;
-        renderText(line, 1.0f, y, SCALE);
+        y -= lineSize * scale;
+        renderText(line, 1.0f, y, scale);
     }
 
     if (isOpen) {
-        renderText(input, lineSize * SCALE, lineSize * SCALE, SCALE);
+        renderText(input, lineSize * scale, lineSize * scale, scale);
     }
 
     if (debugInfo) {
 
-        renderText(engine->currentCameraPos(), engine->windowWidth-12*lineSize*SCALE, windowHeight-lineSize * SCALE, SCALE);
+        renderText(currentCameraPos(), windowWidth-12*lineSize*scale, windowHeight-lineSize * scale, scale);
         
     
-        renderText(engine->currentCameraOrent(), engine->windowWidth-12*lineSize*SCALE, windowHeight-2*lineSize * SCALE, SCALE);
+        renderText(currentCameraOrent(), windowWidth-12*lineSize*scale, windowHeight-2*lineSize * scale, scale);
 
-        renderText(engine->currentObjectCount(), engine->windowWidth-12*lineSize*SCALE, windowHeight-4*lineSize * SCALE, SCALE);
+        renderText(currentObjectCount(), windowWidth-12*lineSize*scale, windowHeight-4*lineSize * scale, scale);
+
+
+        renderText(currentTime(), windowWidth-12*lineSize*scale, windowHeight-6*lineSize * scale, scale);
 
     }
 
@@ -118,7 +91,7 @@ void ConsoleBuffer::render() {
 
 // Other member functions...
 
-void ConsoleBuffer::initFreeType() {
+void Console::initFreeType() {
     FT_Library ft;
     if (FT_Init_FreeType(&ft)) {
         std::cerr << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
@@ -186,7 +159,7 @@ void ConsoleBuffer::initFreeType() {
     shaderProgram.load();
 }
 
-void ConsoleBuffer::renderText(const std::string &text, float x, float y, float scale) {
+void Console::renderText(const std::string &text, float x, float y, float scale) {
     shaderProgram.setVec3("textColor", 1.0f, 1.0f, 1.0f);
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(VAO);
@@ -222,7 +195,7 @@ void ConsoleBuffer::renderText(const std::string &text, float x, float y, float 
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-std::string ConsoleBuffer::processCommand(const std::string &command) {
+std::string Console::processCommand(const std::string &command) {
     std::istringstream iss(command);
     std::string cmd;
     iss >> cmd;
@@ -239,14 +212,14 @@ std::string ConsoleBuffer::processCommand(const std::string &command) {
     }
 }
 
-std::string ConsoleBuffer::trim(const std::string &str) {
+std::string Console::trim(const std::string &str) {
     size_t first = str.find_first_not_of(' ');
     if (first == std::string::npos) return "";
     size_t last = str.find_last_not_of(' ');
     return str.substr(first, last - first + 1);
 }
 
-std::string ConsoleBuffer::extractCommand(const std::string &str) {
+std::string Console::extractCommand(const std::string &str) {
     size_t pos = str.find('(');
     if (pos == std::string::npos) {
         return trim(str);

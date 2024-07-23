@@ -19,21 +19,39 @@
 },
 {
   "directory": "/home/m/Code/cpp/EarthSim/build",
-  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/wgs84.cpp",
-  "file": "/home/m/Code/cpp/EarthSim/include/Utils/wgs84.cpp",
-  "output": "CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o"
-},
-{
-  "directory": "/home/m/Code/cpp/EarthSim/build",
-  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.cpp",
-  "file": "/home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.cpp",
-  "output": "CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o"
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/Timer.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/Utils/Timer.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o"
 },
 {
   "directory": "/home/m/Code/cpp/EarthSim/build",
   "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/Console.cpp",
   "file": "/home/m/Code/cpp/EarthSim/include/Utils/Console.cpp",
   "output": "CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/Window.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/Utils/Window.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o -c /home/m/Code/cpp/EarthSim/include/static/wgs84.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/static/wgs84.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o -c /home/m/Code/cpp/EarthSim/include/Cameras/FirstPersonCamera.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/Cameras/FirstPersonCamera.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o -c /home/m/Code/cpp/EarthSim/include/Objects/Object.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/Objects/Object.cpp",
+  "output": "CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o"
 },
 {
   "directory": "/home/m/Code/cpp/EarthSim/build",

@@ -200,6 +200,30 @@ tinygltf/fast:
 	$(MAKE) $(MAKESILENT) -f include/tinygltf/CMakeFiles/tinygltf.dir/build.make include/tinygltf/CMakeFiles/tinygltf.dir/build
 .PHONY : tinygltf/fast
 
+include/Cameras/FirstPersonCamera.o: include/Cameras/FirstPersonCamera.cpp.o
+.PHONY : include/Cameras/FirstPersonCamera.o
+
+# target to build an object file
+include/Cameras/FirstPersonCamera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o
+.PHONY : include/Cameras/FirstPersonCamera.cpp.o
+
+include/Cameras/FirstPersonCamera.i: include/Cameras/FirstPersonCamera.cpp.i
+.PHONY : include/Cameras/FirstPersonCamera.i
+
+# target to preprocess a source file
+include/Cameras/FirstPersonCamera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.i
+.PHONY : include/Cameras/FirstPersonCamera.cpp.i
+
+include/Cameras/FirstPersonCamera.s: include/Cameras/FirstPersonCamera.cpp.s
+.PHONY : include/Cameras/FirstPersonCamera.s
+
+# target to generate assembly for a file
+include/Cameras/FirstPersonCamera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.s
+.PHONY : include/Cameras/FirstPersonCamera.cpp.s
+
 include/Engine.o: include/Engine.cpp.o
 .PHONY : include/Engine.o
 
@@ -223,6 +247,30 @@ include/Engine.s: include/Engine.cpp.s
 include/Engine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Engine.cpp.s
 .PHONY : include/Engine.cpp.s
+
+include/Objects/Object.o: include/Objects/Object.cpp.o
+.PHONY : include/Objects/Object.o
+
+# target to build an object file
+include/Objects/Object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o
+.PHONY : include/Objects/Object.cpp.o
+
+include/Objects/Object.i: include/Objects/Object.cpp.i
+.PHONY : include/Objects/Object.i
+
+# target to preprocess a source file
+include/Objects/Object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.i
+.PHONY : include/Objects/Object.cpp.i
+
+include/Objects/Object.s: include/Objects/Object.cpp.s
+.PHONY : include/Objects/Object.s
+
+# target to generate assembly for a file
+include/Objects/Object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.s
+.PHONY : include/Objects/Object.cpp.s
 
 include/Utils/Console.o: include/Utils/Console.cpp.o
 .PHONY : include/Utils/Console.o
@@ -248,30 +296,6 @@ include/Utils/Console.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.s
 .PHONY : include/Utils/Console.cpp.s
 
-include/Utils/FirstPersonCamera.o: include/Utils/FirstPersonCamera.cpp.o
-.PHONY : include/Utils/FirstPersonCamera.o
-
-# target to build an object file
-include/Utils/FirstPersonCamera.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o
-.PHONY : include/Utils/FirstPersonCamera.cpp.o
-
-include/Utils/FirstPersonCamera.i: include/Utils/FirstPersonCamera.cpp.i
-.PHONY : include/Utils/FirstPersonCamera.i
-
-# target to preprocess a source file
-include/Utils/FirstPersonCamera.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.i
-.PHONY : include/Utils/FirstPersonCamera.cpp.i
-
-include/Utils/FirstPersonCamera.s: include/Utils/FirstPersonCamera.cpp.s
-.PHONY : include/Utils/FirstPersonCamera.s
-
-# target to generate assembly for a file
-include/Utils/FirstPersonCamera.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.s
-.PHONY : include/Utils/FirstPersonCamera.cpp.s
-
 include/Utils/Shader.o: include/Utils/Shader.cpp.o
 .PHONY : include/Utils/Shader.o
 
@@ -296,29 +320,77 @@ include/Utils/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.s
 .PHONY : include/Utils/Shader.cpp.s
 
-include/Utils/wgs84.o: include/Utils/wgs84.cpp.o
-.PHONY : include/Utils/wgs84.o
+include/Utils/Timer.o: include/Utils/Timer.cpp.o
+.PHONY : include/Utils/Timer.o
 
 # target to build an object file
-include/Utils/wgs84.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o
-.PHONY : include/Utils/wgs84.cpp.o
+include/Utils/Timer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o
+.PHONY : include/Utils/Timer.cpp.o
 
-include/Utils/wgs84.i: include/Utils/wgs84.cpp.i
-.PHONY : include/Utils/wgs84.i
+include/Utils/Timer.i: include/Utils/Timer.cpp.i
+.PHONY : include/Utils/Timer.i
 
 # target to preprocess a source file
-include/Utils/wgs84.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.i
-.PHONY : include/Utils/wgs84.cpp.i
+include/Utils/Timer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.i
+.PHONY : include/Utils/Timer.cpp.i
 
-include/Utils/wgs84.s: include/Utils/wgs84.cpp.s
-.PHONY : include/Utils/wgs84.s
+include/Utils/Timer.s: include/Utils/Timer.cpp.s
+.PHONY : include/Utils/Timer.s
 
 # target to generate assembly for a file
-include/Utils/wgs84.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.s
-.PHONY : include/Utils/wgs84.cpp.s
+include/Utils/Timer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.s
+.PHONY : include/Utils/Timer.cpp.s
+
+include/Utils/Window.o: include/Utils/Window.cpp.o
+.PHONY : include/Utils/Window.o
+
+# target to build an object file
+include/Utils/Window.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o
+.PHONY : include/Utils/Window.cpp.o
+
+include/Utils/Window.i: include/Utils/Window.cpp.i
+.PHONY : include/Utils/Window.i
+
+# target to preprocess a source file
+include/Utils/Window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.i
+.PHONY : include/Utils/Window.cpp.i
+
+include/Utils/Window.s: include/Utils/Window.cpp.s
+.PHONY : include/Utils/Window.s
+
+# target to generate assembly for a file
+include/Utils/Window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.s
+.PHONY : include/Utils/Window.cpp.s
+
+include/static/wgs84.o: include/static/wgs84.cpp.o
+.PHONY : include/static/wgs84.o
+
+# target to build an object file
+include/static/wgs84.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o
+.PHONY : include/static/wgs84.cpp.o
+
+include/static/wgs84.i: include/static/wgs84.cpp.i
+.PHONY : include/static/wgs84.i
+
+# target to preprocess a source file
+include/static/wgs84.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.i
+.PHONY : include/static/wgs84.cpp.i
+
+include/static/wgs84.s: include/static/wgs84.cpp.s
+.PHONY : include/static/wgs84.s
+
+# target to generate assembly for a file
+include/static/wgs84.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.s
+.PHONY : include/static/wgs84.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -359,21 +431,30 @@ help:
 	@echo "... earth_sim"
 	@echo "... loader_example"
 	@echo "... tinygltf"
+	@echo "... include/Cameras/FirstPersonCamera.o"
+	@echo "... include/Cameras/FirstPersonCamera.i"
+	@echo "... include/Cameras/FirstPersonCamera.s"
 	@echo "... include/Engine.o"
 	@echo "... include/Engine.i"
 	@echo "... include/Engine.s"
+	@echo "... include/Objects/Object.o"
+	@echo "... include/Objects/Object.i"
+	@echo "... include/Objects/Object.s"
 	@echo "... include/Utils/Console.o"
 	@echo "... include/Utils/Console.i"
 	@echo "... include/Utils/Console.s"
-	@echo "... include/Utils/FirstPersonCamera.o"
-	@echo "... include/Utils/FirstPersonCamera.i"
-	@echo "... include/Utils/FirstPersonCamera.s"
 	@echo "... include/Utils/Shader.o"
 	@echo "... include/Utils/Shader.i"
 	@echo "... include/Utils/Shader.s"
-	@echo "... include/Utils/wgs84.o"
-	@echo "... include/Utils/wgs84.i"
-	@echo "... include/Utils/wgs84.s"
+	@echo "... include/Utils/Timer.o"
+	@echo "... include/Utils/Timer.i"
+	@echo "... include/Utils/Timer.s"
+	@echo "... include/Utils/Window.o"
+	@echo "... include/Utils/Window.i"
+	@echo "... include/Utils/Window.s"
+	@echo "... include/static/wgs84.o"
+	@echo "... include/static/wgs84.i"
+	@echo "... include/static/wgs84.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

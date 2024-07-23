@@ -70,15 +70,8 @@ build CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o: CXX_COMPILER__earth_s
   OBJECT_DIR = CMakeFiles/earth_sim.dir
   OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Utils
 
-build CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Utils/wgs84.cpp || cmake_object_order_depends_target_earth_sim
-  DEP_FILE = CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o.d
-  FLAGS = -g
-  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
-  OBJECT_DIR = CMakeFiles/earth_sim.dir
-  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Utils
-
-build CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.cpp || cmake_object_order_depends_target_earth_sim
-  DEP_FILE = CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o.d
+build CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Utils/Timer.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o.d
   FLAGS = -g
   INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
   OBJECT_DIR = CMakeFiles/earth_sim.dir
@@ -91,6 +84,34 @@ build CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o: CXX_COMPILER__earth_
   OBJECT_DIR = CMakeFiles/earth_sim.dir
   OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Utils
 
+build CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Utils/Window.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Utils
+
+build CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/static/wgs84.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/static
+
+build CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Cameras/FirstPersonCamera.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Cameras
+
+build CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o: CXX_COMPILER__earth_sim_unscanned_Debug /home/m/Code/cpp/EarthSim/include/Objects/Object.cpp || cmake_object_order_depends_target_earth_sim
+  DEP_FILE = CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/earth_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/earth_sim.dir/include/Objects
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target earth_sim
@@ -99,7 +120,7 @@ build CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o: CXX_COMPILER__earth_
 #############################################
 # Link the executable earth_sim
 
-build earth_sim: CXX_EXECUTABLE_LINKER__earth_sim_Debug CMakeFiles/earth_sim.dir/src/main.cpp.o CMakeFiles/earth_sim.dir/include/Engine.cpp.o CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o | /usr/lib/x86_64-linux-gnu/libGLEW.so /usr/lib/x86_64-linux-gnu/libfreetype.so include/tinygltf/libtinygltf.a /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || include/tinygltf/libtinygltf.a
+build earth_sim: CXX_EXECUTABLE_LINKER__earth_sim_Debug CMakeFiles/earth_sim.dir/src/main.cpp.o CMakeFiles/earth_sim.dir/include/Engine.cpp.o CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o | /usr/lib/x86_64-linux-gnu/libGLEW.so /usr/lib/x86_64-linux-gnu/libfreetype.so include/tinygltf/libtinygltf.a /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || include/tinygltf/libtinygltf.a
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libGLEW.so  /usr/lib/x86_64-linux-gnu/libfreetype.so  -lglfw3  include/tinygltf/libtinygltf.a  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so
   OBJECT_DIR = CMakeFiles/earth_sim.dir

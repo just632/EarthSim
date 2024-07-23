@@ -19,35 +19,24 @@ add_executable(earth_sim
     src/main.cpp
     include/Engine.cpp
     include/Engine.cpp
-    # include/Earth.cpp
-    # include/Earth.cpp
     include/Utils/Shader.cpp
     include/Utils/Shader.hpp
-    include/Utils/wgs84.cpp
-    include/Utils/wgs84.hpp
-    include/Utils/Camera.hpp  
-    include/Utils/FirstPersonCamera.hpp
-    include/Utils/FirstPersonCamera.cpp
-    # include/Utils/GeoCentricCamera.hpp
-    # # include/Utils/GeoCentricCamera.cpp
-     include/Objects/Object.hpp
-     include/Objects/Ellipsoid.hpp
-    # #include/Objects/Rock.hpp
-    # include/Objects/Cube.hpp
+
+    include/Utils/Timer.hpp
+    include/Utils/Timer.cpp
     include/Utils/Console.cpp
     include/Utils/Console.hpp
-    #     include/common/Console.cpp
-    # include/common/Console.hpp
-    #  include/common/controls.hpp
-    #  include/common/controls.cpp
-# 
-     include/common/config.h
-    #  include/common/shader.hpp
-    #  include/common/shader.cpp
-    # include/common/text2D.hpp
-    # include/common/text2D.cpp
-    # include/common/texture.hpp
-    # include/common/texture.cpp
+    include/Utils/Window.cpp
+    include/Utils/Window.hpp
+    include/static/wgs84.cpp
+    include/static/wgs84.hpp
+    include/Cameras/Camera.hpp  
+    include/Cameras/FirstPersonCamera.hpp
+    include/Cameras/FirstPersonCamera.cpp
+     include/Objects/Object.hpp
+     include/Objects/Object.cpp
+     include/Objects/Ellipsoid.hpp
+    include/common/config.h
     include/tinygltf/json.hpp
     include/tinygltf/stb_image_write.h
     include/tinygltf/stb_image.h

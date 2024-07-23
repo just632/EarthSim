@@ -111,38 +111,24 @@ CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/Utils/Shader.cpp -o CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.s
 
-CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o: CMakeFiles/earth_sim.dir/flags.make
-CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o: include/Utils/wgs84.cpp
-CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o -MF CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o.d -o CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/wgs84.cpp
+CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o: CMakeFiles/earth_sim.dir/flags.make
+CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o: include/Utils/Timer.cpp
+CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o -MF CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o.d -o CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/Timer.cpp
 
-CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/Utils/wgs84.cpp > CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.i
+CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/Utils/Timer.cpp > CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.i
 
-CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/Utils/wgs84.cpp -o CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.s
-
-CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o: CMakeFiles/earth_sim.dir/flags.make
-CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o: include/Utils/FirstPersonCamera.cpp
-CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o -MF CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o.d -o CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.cpp
-
-CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.cpp > CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.i
-
-CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.cpp -o CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.s
+CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/Utils/Timer.cpp -o CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.s
 
 CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o: CMakeFiles/earth_sim.dir/flags.make
 CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o: include/Utils/Console.cpp
 CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o -MF CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o.d -o CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/Console.cpp
 
 CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.i: cmake_force
@@ -153,14 +139,73 @@ CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/Utils/Console.cpp -o CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.s
 
+CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o: CMakeFiles/earth_sim.dir/flags.make
+CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o: include/Utils/Window.cpp
+CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o -MF CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o.d -o CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o -c /home/m/Code/cpp/EarthSim/include/Utils/Window.cpp
+
+CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/Utils/Window.cpp > CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.i
+
+CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/Utils/Window.cpp -o CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.s
+
+CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o: CMakeFiles/earth_sim.dir/flags.make
+CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o: include/static/wgs84.cpp
+CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o -MF CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o.d -o CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o -c /home/m/Code/cpp/EarthSim/include/static/wgs84.cpp
+
+CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/static/wgs84.cpp > CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.i
+
+CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/static/wgs84.cpp -o CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.s
+
+CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o: CMakeFiles/earth_sim.dir/flags.make
+CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o: include/Cameras/FirstPersonCamera.cpp
+CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o -MF CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o.d -o CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o -c /home/m/Code/cpp/EarthSim/include/Cameras/FirstPersonCamera.cpp
+
+CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/Cameras/FirstPersonCamera.cpp > CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.i
+
+CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/Cameras/FirstPersonCamera.cpp -o CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.s
+
+CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o: CMakeFiles/earth_sim.dir/flags.make
+CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o: include/Objects/Object.cpp
+CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o: CMakeFiles/earth_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o -MF CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o.d -o CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o -c /home/m/Code/cpp/EarthSim/include/Objects/Object.cpp
+
+CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/Code/cpp/EarthSim/include/Objects/Object.cpp > CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.i
+
+CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/Code/cpp/EarthSim/include/Objects/Object.cpp -o CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.s
+
 # Object files for target earth_sim
 earth_sim_OBJECTS = \
 "CMakeFiles/earth_sim.dir/src/main.cpp.o" \
 "CMakeFiles/earth_sim.dir/include/Engine.cpp.o" \
 "CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o" \
-"CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o" \
-"CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o" \
-"CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o"
+"CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o" \
+"CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o" \
+"CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o" \
+"CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o" \
+"CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o" \
+"CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o"
 
 # External object files for target earth_sim
 earth_sim_EXTERNAL_OBJECTS =
@@ -168,9 +213,12 @@ earth_sim_EXTERNAL_OBJECTS =
 earth_sim: CMakeFiles/earth_sim.dir/src/main.cpp.o
 earth_sim: CMakeFiles/earth_sim.dir/include/Engine.cpp.o
 earth_sim: CMakeFiles/earth_sim.dir/include/Utils/Shader.cpp.o
-earth_sim: CMakeFiles/earth_sim.dir/include/Utils/wgs84.cpp.o
-earth_sim: CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o
+earth_sim: CMakeFiles/earth_sim.dir/include/Utils/Timer.cpp.o
 earth_sim: CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o
+earth_sim: CMakeFiles/earth_sim.dir/include/Utils/Window.cpp.o
+earth_sim: CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o
+earth_sim: CMakeFiles/earth_sim.dir/include/Cameras/FirstPersonCamera.cpp.o
+earth_sim: CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o
 earth_sim: CMakeFiles/earth_sim.dir/build.make
 earth_sim: /usr/lib/x86_64-linux-gnu/libGLEW.so
 earth_sim: /usr/lib/x86_64-linux-gnu/libfreetype.so
@@ -178,7 +226,7 @@ earth_sim: include/tinygltf/libtinygltf.a
 earth_sim: /usr/lib/x86_64-linux-gnu/libGLX.so
 earth_sim: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 earth_sim: CMakeFiles/earth_sim.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable earth_sim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/m/Code/cpp/EarthSim/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable earth_sim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/earth_sim.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,17 +1,10 @@
 #pragma once
-#ifndef CONSOLE_HPP
-#define CONSOLE_HPP
-
-#define SCALE 0.4
-
-
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
-#include <stdexcept>
 #include <map>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -19,9 +12,10 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/gtc/quaternion.hpp> 
-#include "Utils/Camera.hpp"
 #include "Utils/Shader.hpp"
-class Engine;
+#include "Utils/Window.hpp"
+#include "Utils/Timer.hpp"
+#define COMMAND std::function<std::string (const std::string &)>
 
 
 struct Character {
@@ -31,37 +25,135 @@ struct Character {
     GLuint Advance;
 };
 
-class ConsoleBuffer {
+class Console {
 
 public:
-    ConsoleBuffer(Engine* engine, int maxLines);
+        Console(const Console &obj) = delete;
+        static Console *getInstance()
+        {
+            if (instance != nullptr)
+            {
+                return instance;
+            }
+            instance = new Console();
+            return instance;
+        }
 
-    void addInput(int c, bool shift);
+    ~Console() = default;
+
+    void init();
     void render();
-    void load();
+    void handleChar(int c, bool shift);
 
+    void addCommand(std::string name,COMMAND handle){commands[name] = handle;}
+    void updateObjectCount(int count){objectsCount=count;}
+    void updateCameraYaw(float yaw){cameraYaw=yaw;}
+    void updateCameraPitch(float pitch){cameraPitch=pitch;}
+    void updateCameraPos(glm::vec3 pos){cameraPosition=pos;}
 
-    bool isOpen;
-    bool debugInfo;
+    bool isOpen=false;
+    bool debugInfo=false;
 private:
-    std::map<std::string, std::function<std::string(const std::string &)>> commands;
-    Engine* engine;
+    static Console *instance;
+    Console();
+
+    const int maxLines = 10;
+    const float lineSize = 48.f;
+    const float scale = 0.4;
+
+
+    int objectsCount=0;
+    float cameraYaw=0;
+    float cameraPitch=0;
+    glm::vec3 cameraPosition=glm::vec3(0.f);
+
+    std::map<std::string, COMMAND> commands;
+    
+    Shader shaderProgram = Shader("console","console");
+    Window* window = Window::getInstance();
+    Utils::Timer* timer = Utils::Timer::getInstance(); 
     std::vector<std::string> lines;
     std::string input;
-    int maxLines;
+
     GLuint VAO, VBO;
-    Shader shaderProgram = Shader("console","console");
     glm::mat4 projection;
-    float lineSize = 48.f;
     std::map<GLchar, Character> Characters;
 
     void initFreeType();
-    int addShiftInput(int c);
     void addMessage(const std::string &message);
     std::string processCommand(const std::string &command);
     std::string trim(const std::string &str);
     std::string extractCommand(const std::string &str);
     void renderText(const std::string &text, float x, float y, float scale);
-};
 
-#endif // CONSOLE_HPP
+
+
+    std::string currentCameraPos()
+    {
+        std::ostringstream oss;
+        oss << "x:" << roundToOneDecimal(cameraPosition.x)
+            << "|y:" << roundToOneDecimal(cameraPosition.y)
+            << "|z:" << roundToOneDecimal(cameraPosition.z);
+        return oss.str();
+    }
+
+    std::string currentCameraOrent()
+    {
+        std::ostringstream oss;
+        oss << "yaw:" << roundToOneDecimal(cameraYaw)
+            << "|pitch:" << roundToOneDecimal(cameraPitch);
+
+        return oss.str();
+    }
+
+    std::string currentObjectCount()
+    {
+        std::ostringstream oss;
+
+        oss << "obj:" << objectsCount;
+
+        return oss.str();
+    }
+
+        std::string currentTime()
+    {
+        std::ostringstream oss;
+
+        oss << "time:" << roundToOneDecimal(timer->getTime());
+
+        return oss.str();
+    }
+
+    int ShiftChar(int c) {
+    switch (c) {
+        case '`': return '~';
+        case '1': return '!';
+        case '2': return '@';
+        case '3': return '#';
+        case '4': return '$';
+        case '5': return '%';
+        case '6': return '^';
+        case '7': return '&';
+        case '8': return '*';
+        case '9': return '(';
+        case '0': return ')';
+        case '-': return '_';
+        case '=': return '+';
+        case '[': return '{';
+        case ']': return '}';
+        case '\\': return '|';
+        case ';': return ':';
+        case '\'': return '"';
+        case ',': return '<';
+        case '.': return '>';
+        case '/': return '?';
+        default: return c;
+    }
+}
+
+    float roundToOneDecimal(const float number)
+    {
+        return std::round(number * 10) / 10;
+    }
+
+};

@@ -351,7 +351,6 @@ CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Engine.hpp /usr/include/c++/13/map \
  /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
  /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/memory \
@@ -391,6 +390,7 @@ CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o: \
  /usr/local/include/glm/gtc/epsilon.hpp \
  /usr/local/include/glm/detail/setup.hpp \
  /usr/local/include/glm/gtc/epsilon.inl \
+ /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
  /usr/local/include/glm/gtc/type_ptr.hpp \
  /usr/local/include/glm/gtc/vec1.hpp \
@@ -411,9 +411,9 @@ CMakeFiles/earth_sim.dir/include/Utils/FirstPersonCamera.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc \
- /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Console.hpp \

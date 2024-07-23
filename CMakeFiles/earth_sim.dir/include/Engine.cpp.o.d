@@ -391,6 +391,9 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/local/include/glm/gtc/epsilon.hpp \
  /usr/local/include/glm/detail/setup.hpp \
  /usr/local/include/glm/gtc/epsilon.inl \
+ /home/m/Code/cpp/EarthSim/include/Cameras/Camera.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Timer.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Window.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
  /usr/local/include/glm/gtc/type_ptr.hpp \
  /usr/local/include/glm/gtc/vec1.hpp \
@@ -411,11 +414,12 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc \
- /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp \
+ /home/m/Code/cpp/EarthSim/include/Objects/Triangle.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Console.hpp \
  /usr/include/freetype2/ft2build.h \
@@ -434,6 +438,4 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/include/freetype2/freetype/fterrors.h \
  /usr/include/freetype2/freetype/ftmoderr.h \
  /usr/include/freetype2/freetype/fterrdef.h \
- /home/m/Code/cpp/EarthSim/include/Utils/Camera.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
- /home/m/Code/cpp/EarthSim/include/Utils/FirstPersonCamera.hpp
+ /home/m/Code/cpp/EarthSim/include/Cameras/FirstPersonCamera.hpp

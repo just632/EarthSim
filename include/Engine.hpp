@@ -7,103 +7,41 @@
 #include <vector>
 #include <iostream>
 #include <memory>
-
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
-
+#include "Cameras/Camera.hpp"
 #include "Utils/Shader.hpp"
-#include "Utils/Camera.hpp"
-#include "Utils/wgs84.hpp"
+#include "static/wgs84.hpp"
 #include "Objects/Object.hpp"
 #include "Objects/Ellipsoid.hpp"
+
+#include "Objects/Triangle.hpp"
 #include "Objects/Cube.hpp"
-// #include "Objects/Rock.hpp"
 #include "Utils/Console.hpp"
-// #include "Earth.hpp"
-
-#define COMMAND (const std::string &args)
-#define COMMAND_MAP std::map<std::string, std::function<std::string(const std::string &)>>
-
-/* NOTE: why comented code dosnt work
-
-class Timer {
-public:
-    Timer() : deltaTime(0.0f), previousTime(glfwGetTime()), currentTime(0.0f) {}
-
-    float getDeltaTime() {
-        return deltaTime;
-    }
-
-    void updateDeltaTime() {
-        currentTime = glfwGetTime();
-        deltaTime = currentTime - previousTime;
-        previousTime = currentTime;
-        std::cout << "Update DeltaTime: " << deltaTime << std::endl;
-    }
-
-private:
-    float deltaTime;
-    float previousTime;
-    float currentTime;
-};
-*/
-
-class Timer
-{
-public:
-    static Timer &getInstance()
-    {
-        static Timer instance;
-        return instance;
-    }
-
-    Timer(const Timer &) = delete;
-    void operator=(const Timer &) = delete;
-
-    float getDeltaTime()
-    {
-        return deltaTime;
-    }
-
-    void updateDeltaTime()
-    {
-        currentTime = glfwGetTime();
-        deltaTime = currentTime - previousTime;
-        previousTime = currentTime;
-    }
-
-private:
-    Timer() : deltaTime(0.0f), previousTime(glfwGetTime()), currentTime(0.0f) {}
-
-    float deltaTime;
-    float previousTime;
-    float currentTime;
-};
+#include "Utils/Window.hpp"
+#include "Utils/Timer.hpp"
+#define COMMAND_ARGS (const std::string &args)
+using namespace Utils;
 
 class Engine
 {
 public:
-    static Engine &getInctance()
-    {
-        static Engine INSTANCE;
-        return INSTANCE;
-    }
+        Engine(const Engine &obj) = delete;
+        static Engine *getInstance()
+        {
+            if (instance != nullptr)
+            {
+                return instance;
+            }
+            instance = new Engine();
+            return instance;
+        }
     ~Engine();
     void run();
     void switchCameraView(int viewIndex);
     void passInputToView(char input);
-
-    GLFWwindow *getWindow()
-    {
-        return window;
-    }
-
-    std::shared_ptr<ConsoleBuffer> getConsole()
-    {
-        return console;
-    }
 
     void drawObjects()
     {
@@ -117,18 +55,20 @@ public:
 
     void drawConsole()
     {
-        if (glfwGetKey(window, GLFW_KEY_SLASH) == GLFW_PRESS && !console->isOpen)
+        if (window->keyPressed( GLFW_KEY_SLASH) == GLFW_PRESS && !console->isOpen)
             console->isOpen = true;
-
+        auto cam = getCurrentCamera();
+        console->updateObjectCount(Objects.size());
+        console->updateCameraYaw(cam->getYaw());
+        console->updateCameraPitch(cam->getPitch());
+        console->updateCameraPos(cam->getPosition());
         console->render();
     }
-    void drawCamera()
+    void updateCamera()
     {
         if (!console->isOpen)
             // Update and apply camera views
             getCurrentCamera()->update();
-
-        getCurrentCamera()->apply();
     }
 
     bool isConsoleOpen()
@@ -153,128 +93,46 @@ public:
         return cameraViews[currentCameraViewIndex];
     };
 
-    std::string currentCameraPos()
-    {
-        std::ostringstream oss;
-        auto cam = getCurrentCamera();
-        auto pos = cam->getPosition();
-        oss << "x:" << roundToOneDecimal(pos.x)
-            << "|y:" << roundToOneDecimal(pos.y)
-            << "|z:" << roundToOneDecimal(pos.z);
-        return oss.str();
-    }
-
-    std::string currentCameraOrent()
-    {
-        std::ostringstream oss;
-        auto cam = getCurrentCamera();
-
-        oss << "yaw:" << roundToOneDecimal(cam->getYaw())
-            << "|pitch:" << roundToOneDecimal(cam->getPitch());
-
-        return oss.str();
-    }
-
-    std::string currentObjectCount()
-    {
-        std::ostringstream oss;
-
-        oss << "obj:" << roundToOneDecimal(Objects.size());
-
-        return oss.str();
-    }
-
-    // void addObject(std::shared_ptr<Object> obj)
-    // {
-    //     Objects.push_back(obj);
-    // }
-
-    float WindoAspectRatio;
-    float windowWidth;
-    float windowHight;
-
-    COMMAND_MAP getCommands()
-    {
-        return commands;
-    }
-
-    std::vector<float> ElipsoideVertices;
-    GLuint ElipsoideVAO, ElipsoideVBO;
-
-    float getDeltaTime()
-    {
-        return timer.getDeltaTime();
-    }
-
-    void updateDeltaTime()
-    {
-        timer.updateDeltaTime();
-    }
-
     void addObject(std::shared_ptr<Object> object)
     {
         Objects.push_back(object);
     }
 
 private:
-    Timer &timer = Timer::getInstance();
 
-    Engine();
-
-    void generateEllipsoid(int slices, int stacks)
-    {
-        for (int i = 0; i <= stacks; ++i)
-        {
-            float theta = i * M_PI / stacks;
-            float sinTheta = sin(theta);
-            float cosTheta = cos(theta);
-
-            for (int j = 0; j <= slices; ++j)
-            {
-                float phi = j * 2 * M_PI / slices;
-                float sinPhi = sin(phi);
-                float cosPhi = cos(phi);
-
-                float x = cosPhi * sinTheta;
-                float y = sinPhi * sinTheta;
-                float z = cosTheta;
-
-                float xr = WGS84::A * x;
-                float yr = WGS84::A * y;
-                float zr = WGS84::B * z;
-
-                ElipsoideVertices.push_back(xr);
-                ElipsoideVertices.push_back(yr);
-                ElipsoideVertices.push_back(zr);
-            }
-        }
-        std::cout << std::endl;
-    }
-
-    void initWindow();
-    void initOpenGL();
-    void mainLoop();
-    void cleanup();
-    static void framebufferSizeCallback(GLFWwindow *window, int width, int height);
-    static void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
-
-    GLFWwindow *window;
-
-    std::shared_ptr<ConsoleBuffer> console;
+    static Engine *instance;
+    Timer* timer = Timer::getInstance(); 
+    Window* window = Window::getInstance();
+    Console* console = Console::getInstance();
 
     std::map<std::string, std::shared_ptr<Shader>> shaders;
     std::vector<std::shared_ptr<Object>> Objects;
     std::vector<std::shared_ptr<Camera>> cameraViews;
     int currentCameraViewIndex = 0;
 
-    // Earth& earth;
+    Engine();
 
-    COMMAND_MAP commands = {
-        {"ping", [] COMMAND
+
+    void setGlfwCallbacks()
+    {
+        glfwSetFramebufferSizeCallback(window->getWindow_ptr(), framebufferSizeCallback);
+        glfwSetKeyCallback(window->getWindow_ptr(),keyCallback);
+    }
+    
+    void mainLoop();
+    void cleanup();
+    static void framebufferSizeCallback(GLFWwindow *window, int width, int height);
+    static void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
+
+
+    void loadCommands()
+    {
+        console->addCommand("ping",[]COMMAND_ARGS
          {
              return "pong";
-         }},
-        {"add", [] COMMAND
+         });
+
+        console->addCommand("add", []COMMAND_ARGS
          {
              std::istringstream iss(args);
              std::string a_str, b_str;
@@ -302,29 +160,32 @@ private:
                  oss << "a: " << a_str << " b: " << b_str << "Invalid format. Use add(a,b)";
              }
              return oss.str();
-         }},
-        {"echo", [] COMMAND
+         });
+         console->addCommand("echo", []COMMAND_ARGS
          {
              std::ostringstream oss;
              oss << args;
              return oss.str();
-         }},
-        {"cube", [] COMMAND
+         });
+         console->addCommand("cube", []COMMAND_ARGS
          {
              std::ostringstream oss;
              try
              {
-                 Engine &engine = Engine::getInctance();
-                 std::shared_ptr<Camera> currentCamera = engine.getCurrentCamera();
-                 engine.addObject(std::make_shared<Cube>(&engine,glm::vec3(0.f,70.f,0.f)));
+                 Engine *engine = Engine::getInstance();
+                 std::shared_ptr<Camera> currentCamera = engine->getCurrentCamera();
+                 auto pos = currentCamera->getPosition();
+                 pos.z -= 5;
+                 engine->addObject(std::make_shared<Cube>(pos));
+                 oss << "created cube at (x:"<<pos.x<<",y:"<<pos.y<<",z:"<<pos.z;
              }
              catch (const std::exception &e)
              {
                  oss << e.what() << '\n';
              }
              return oss.str();
-         }},
-        {"help", [] COMMAND
+         });
+         console->addCommand("help", []COMMAND_ARGS
          {
              std::ostringstream oss;
              oss << "ping -> returns pong\n";
@@ -332,12 +193,10 @@ private:
              oss << "echo(msg) -> returns msg\n";
              oss << "rock -> spawns rock at current position\n";
              return oss.str();
-         }}};
-
-    float roundToOneDecimal(const float number)
-    {
-        return std::round(number * 10) / 10;
+         });
     }
+
+
 };
 
 #endif // ENGINE_H
