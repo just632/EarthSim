@@ -22,7 +22,7 @@
 #include "Utils/Console.hpp"
 #include "Utils/Window.hpp"
 #include "Utils/Timer.hpp"
-#define COMMAND_ARGS (const std::string &args)
+#define COMMAND_ARGS (const std::vector<std::string> &args)
 using namespace Utils;
 
 class Engine
@@ -127,44 +127,35 @@ private:
 
     void loadCommands()
     {
-        console->addCommand("ping",[]COMMAND_ARGS
+        console->addCommand("add",[]COMMAND_ARGS
          {
-             return "pong";
-         });
+            std::ostringstream oss;
 
-        console->addCommand("add", []COMMAND_ARGS
-         {
-             std::istringstream iss(args);
-             std::string a_str, b_str;
-             char comma;
-             std::ostringstream oss;
-             if (std::getline(iss, a_str, ',') && std::getline(iss, b_str, ')'))
-             {
+            if(args.size()<2){
+                oss<< "add requiers 2 or more args";
+
+             return oss.str();}
+            float result=0.0f;
+            
+            for(auto arg : args){
                  try
                  {
-                     float a = std::stof(a_str);
-                     float b = std::stof(b_str);
-                     oss << a + b;
-                 }
-                 catch (const std::invalid_argument &e)
-                 {
-                     oss << "a: " << a_str << " b: " << b_str << " Invalid number format. Use add(a,b) with valid numbers.";
+                    result+=std::stof(arg);
                  }
                  catch (const std::out_of_range &e)
                  {
-                     oss << "Number out of range. Use add(a,b) with valid numbers.";
+                     oss << "Invalid number : "<<arg<<" at add command";
+                     break;
                  }
-             }
-             else
-             {
-                 oss << "a: " << a_str << " b: " << b_str << "Invalid format. Use add(a,b)";
-             }
+                 oss<<"add -> "<<result;
+            }
+             
              return oss.str();
          });
          console->addCommand("echo", []COMMAND_ARGS
          {
              std::ostringstream oss;
-             oss << args;
+             for(auto arg:args)oss << arg;
              return oss.str();
          });
          console->addCommand("cube", []COMMAND_ARGS
@@ -188,11 +179,16 @@ private:
          console->addCommand("help", []COMMAND_ARGS
          {
              std::ostringstream oss;
-             oss << "ping -> returns pong\n";
-             oss << "add(a,b) -> adds two floats\n";
+             oss << "add(a,b) -> adds two or more floats\n";
              oss << "echo(msg) -> returns msg\n";
-             oss << "rock -> spawns rock at current position\n";
+             oss << "cube -> spawns cube at current position\n";
              return oss.str();
+         });
+         console->addCommand("q",[]COMMAND_ARGS{
+            std::ostringstream oss;
+            glfwSetWindowShouldClose(Window::getInstance()->getWindow_ptr(),true);
+            oss << "exiting...\n";
+            return oss.str();
          });
     }
 

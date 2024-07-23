@@ -13,7 +13,7 @@ void Console::init(){
 
 void Console::handleChar(int c, bool shift) {
     if (!isOpen) return;
-    
+
     // Convert uppercase to lowercase if shift is not pressed
     if (c > 64 && c < 91 && !shift) c += 32;
 
@@ -21,7 +21,7 @@ void Console::handleChar(int c, bool shift) {
     case GLFW_KEY_ENTER:
         // Process the command and add it to history if not empty
         if (!input.empty()) {
-        addMessage(processCommand(input));
+            addMessage(processCommand(input));
             history.push_back(input);
         }
         // Reset input and history position
@@ -259,45 +259,44 @@ float Console::renderCharacter(char c,float x,float y,float scale,float shiftLef
 {
     Character ch = Characters[c];
     GLfloat xpos = x + (ch.Bearing.x * scale) - (ch.Size.x * scale * shiftLeft);
-        GLfloat ypos = y - (ch.Size.y - ch.Bearing.y) * scale;
-        GLfloat w = ch.Size.x * scale;
-        GLfloat h = ch.Size.y * scale;
+    GLfloat ypos = y - (ch.Size.y - ch.Bearing.y) * scale;
+    GLfloat w = ch.Size.x * scale;
+    GLfloat h = ch.Size.y * scale;
 
-        GLfloat vertices[6][4] = {
-            { xpos,     ypos + h,   0.0, 0.0 },
-            { xpos,     ypos,       0.0, 1.0 },
-            { xpos + w, ypos,       1.0, 1.0 },
+    GLfloat vertices[6][4] = {
+        { xpos,     ypos + h,   0.0, 0.0 },
+        { xpos,     ypos,       0.0, 1.0 },
+        { xpos + w, ypos,       1.0, 1.0 },
 
-            { xpos,     ypos + h,   0.0, 0.0 },
-            { xpos + w, ypos,       1.0, 1.0 },
-            { xpos + w, ypos + h,   1.0, 0.0 }
-        };
+        { xpos,     ypos + h,   0.0, 0.0 },
+        { xpos + w, ypos,       1.0, 1.0 },
+        { xpos + w, ypos + h,   1.0, 0.0 }
+    };
 
-        glBindTexture(GL_TEXTURE_2D, ch.TextureID);
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindTexture(GL_TEXTURE_2D, ch.TextureID);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
     return x + (ch.Advance >> 6) * scale;
 }
 
-std::string Console::processCommand(const std::string &command) {
-    std::istringstream iss(command);
-    std::string cmd;
-    iss >> cmd;
+    std::string Console::processCommand(const std::string &command) {
+        std::istringstream iss(command);
+        std::string cmd;
+        iss >> cmd;
 
-    auto it = commands.find(extractCommand(cmd));
-    if (it != commands.end()) {
-        size_t start = command.find('(') + 1;
-        size_t end = command.find_last_of(')');
-        std::string args = (start < end) ? command.substr(start, end - start) : "";
-        args = trim(args);
-        return it->second(args);
-    } else {
-        return "Unknown command: " + cmd;
+        auto it = commands.find(cmd);
+        if (it != commands.end()) {
+            std::string argsStr = command.substr(command.find(cmd) + cmd.length());
+            argsStr = trim(argsStr);
+            std::vector<std::string> args = splitArgs(argsStr);
+            return it->second(args);
+        } else {
+            return "Unknown command: " + cmd;
+        }
     }
-}
 
 std::string Console::trim(const std::string &str) {
     size_t first = str.find_first_not_of(' ');
@@ -306,10 +305,19 @@ std::string Console::trim(const std::string &str) {
     return str.substr(first, last - first + 1);
 }
 
-std::string Console::extractCommand(const std::string &str) {
-    size_t pos = str.find('(');
-    if (pos == std::string::npos) {
-        return trim(str);
+std::vector<std::string> Console::splitArgs(const std::string &args) {
+    std::vector<std::string> result;
+    std::regex re(R"((\"[^\"]*\")|(\S+))");
+    std::sregex_iterator it(args.begin(), args.end(), re);
+    std::sregex_iterator end;
+    while (it != end) {
+        std::smatch match = *it;
+        if (match[1].matched) {
+            result.push_back(match[1].str().substr(1, match[1].str().length() - 2)); // Remove quotes
+        } else {
+            result.push_back(match[2].str());
+        }
+        ++it;
     }
-    return trim(str.substr(0, pos));
+    return result;
 }

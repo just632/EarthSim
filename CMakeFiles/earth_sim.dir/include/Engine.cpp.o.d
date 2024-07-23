@@ -394,6 +394,7 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /home/m/Code/cpp/EarthSim/include/Cameras/Camera.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Timer.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Window.hpp \
+ /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
  /usr/local/include/glm/gtc/type_ptr.hpp \
  /usr/local/include/glm/gtc/vec1.hpp \
@@ -416,7 +417,6 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/include/c++/13/bits/sstream.tcc \
  /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp \
- /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Triangle.hpp \
@@ -437,5 +437,24 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/include/freetype2/freetype/ftimage.h \
  /usr/include/freetype2/freetype/fterrors.h \
  /usr/include/freetype2/freetype/ftmoderr.h \
- /usr/include/freetype2/freetype/fterrdef.h \
+ /usr/include/freetype2/freetype/fterrdef.h /usr/include/c++/13/regex \
+ /usr/include/c++/13/bitset /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h /usr/include/c++/13/stack \
+ /usr/include/c++/13/deque /usr/include/c++/13/bits/stl_deque.h \
+ /usr/include/c++/13/bits/deque.tcc /usr/include/c++/13/bits/stl_stack.h \
+ /usr/include/c++/13/bits/regex_constants.h \
+ /usr/include/c++/13/bits/regex_error.h \
+ /usr/include/c++/13/bits/regex_automaton.h \
+ /usr/include/c++/13/bits/regex_automaton.tcc \
+ /usr/include/c++/13/bits/regex_scanner.h \
+ /usr/include/c++/13/bits/regex_scanner.tcc \
+ /usr/include/c++/13/bits/regex_compiler.h \
+ /usr/include/c++/13/bits/regex_compiler.tcc \
+ /usr/include/c++/13/bits/regex.h /usr/include/c++/13/bits/regex.tcc \
+ /usr/include/c++/13/bits/regex_executor.h \
+ /usr/include/c++/13/bits/regex_executor.tcc \
  /home/m/Code/cpp/EarthSim/include/Cameras/FirstPersonCamera.hpp

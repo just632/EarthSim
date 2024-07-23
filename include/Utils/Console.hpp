@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <map>
+#include <regex>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -15,7 +16,7 @@
 #include "Utils/Shader.hpp"
 #include "Utils/Window.hpp"
 #include "Utils/Timer.hpp"
-#define COMMAND std::function<std::string (const std::string &)>
+#define COMMAND_FUNC std::function<std::string(const std::vector<std::string> &)>
 
 
 struct Character {
@@ -45,7 +46,7 @@ public:
     void render();
     void handleChar(int c, bool shift);
 
-    void addCommand(std::string name,COMMAND handle){commands[name] = handle;}
+    void addCommand(std::string name,COMMAND_FUNC handle){commands[name] = handle;}
     void updateObjectCount(int count){objectsCount=count;}
     void updateCameraYaw(float yaw){cameraYaw=yaw;}
     void updateCameraPitch(float pitch){cameraPitch=pitch;}
@@ -70,8 +71,8 @@ private:
     float cameraYaw=0;
     float cameraPitch=0;
     glm::vec3 cameraPosition=glm::vec3(0.f);
-
-    std::map<std::string, COMMAND> commands;
+    // unorderd map brakes engine
+    std::map<std::string, COMMAND_FUNC> commands;
     
     Shader shaderProgram = Shader("console","console");
     Window* window = Window::getInstance();
@@ -92,7 +93,7 @@ private:
     void addInput(int c,bool shift);
     std::string processCommand(const std::string &command);
     std::string trim(const std::string &str);
-    std::string extractCommand(const std::string &str);
+    std::vector<std::string> splitArgs(const std::string &args);
     void renderText(const std::string &text, float x, float y, float scale);
     float renderCharacter(char c, float x, float y, float scale);
     float renderCharacter(char c, float x, float y, float scale,float shiftLeft);

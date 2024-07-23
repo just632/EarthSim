@@ -86,7 +86,11 @@ include/tinygltf/!examples/raytrace/cornellbox_suzanne.obj
 include/tinygltf/!tests/Makefile
 include/tinygltf/!tools/windows/premake5.exe
 CMakeFiles/earth_sim.dir/src/main.cpp.o.d
+CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o.d
 CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o
 CMakeFiles/earth_sim.dir/include/Engine.cpp.o.d
 CMakeFiles/earth_sim.dir/include/Engine.cpp.o
+CMakeFiles/earth_sim.dir/compiler_depend.make
+CMakeFiles/earth_sim.dir/compiler_depend.internal
+.vscode/launch.json
 earth_sim

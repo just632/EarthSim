@@ -40,7 +40,7 @@ void Engine::run()
 
 void Engine::mainLoop()
 {
-    while (!window->keyPressed(GLFW_KEY_ESCAPE) && !glfwWindowShouldClose(window->getWindow_ptr()))
+    while (!glfwWindowShouldClose(window->getWindow_ptr()))
     {
 
         timer->updateDeltaTime();

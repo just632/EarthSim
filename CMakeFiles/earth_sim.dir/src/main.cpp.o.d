@@ -413,16 +413,36 @@ CMakeFiles/earth_sim.dir/src/main.cpp.o: \
  /usr/include/freetype2/freetype/ftmoderr.h \
  /usr/include/freetype2/freetype/fterrdef.h /usr/include/c++/13/map \
  /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h \
+ /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/regex \
+ /usr/include/c++/13/bitset /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h /usr/include/c++/13/stack \
+ /usr/include/c++/13/deque /usr/include/c++/13/bits/stl_deque.h \
+ /usr/include/c++/13/bits/deque.tcc /usr/include/c++/13/bits/stl_stack.h \
+ /usr/include/c++/13/bits/shared_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr_base.h \
+ /usr/include/c++/13/bits/allocated_ptr.h \
+ /usr/include/c++/13/bits/unique_ptr.h \
+ /usr/include/c++/13/ext/concurrence.h \
+ /usr/include/c++/13/bits/regex_constants.h \
+ /usr/include/c++/13/bits/regex_error.h \
+ /usr/include/c++/13/bits/regex_automaton.h \
+ /usr/include/c++/13/bits/regex_automaton.tcc \
+ /usr/include/c++/13/bits/regex_scanner.h \
+ /usr/include/c++/13/bits/regex_scanner.tcc \
+ /usr/include/c++/13/bits/regex_compiler.h \
+ /usr/include/c++/13/bits/regex_compiler.tcc \
+ /usr/include/c++/13/bits/regex.h /usr/include/c++/13/bits/regex.tcc \
+ /usr/include/c++/13/bits/regex_executor.h \
+ /usr/include/c++/13/bits/regex_executor.tcc \
  /home/m/Code/cpp/EarthSim/include/Utils/Window.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Timer.hpp \
  /home/m/Code/cpp/EarthSim/include/Engine.hpp /usr/include/c++/13/memory \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
- /usr/include/c++/13/bits/shared_ptr.h \
- /usr/include/c++/13/bits/shared_ptr_base.h \
- /usr/include/c++/13/bits/allocated_ptr.h \
- /usr/include/c++/13/ext/concurrence.h \
+ /usr/include/c++/13/bits/align.h \
  /usr/include/c++/13/bits/shared_ptr_atomic.h \
  /usr/include/c++/13/bits/atomic_base.h \
  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
@@ -430,10 +450,10 @@ CMakeFiles/earth_sim.dir/src/main.cpp.o: \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
  /home/m/Code/cpp/EarthSim/include/Cameras/Camera.hpp \
+ /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
  /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp \
- /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Triangle.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp
