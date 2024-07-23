@@ -61,6 +61,10 @@ private:
     const float lineSize = 48.f;
     const float scale = 0.4;
 
+    float blinkTimer = 0.0f;
+    bool showIndicator = true;
+    const float blinkInterval = 0.5f; // Blinking interval in seconds
+
 
     int objectsCount=0;
     float cameraYaw=0;
@@ -73,7 +77,11 @@ private:
     Window* window = Window::getInstance();
     Utils::Timer* timer = Utils::Timer::getInstance(); 
     std::vector<std::string> lines;
+    std::vector<std::string> history;
+    std::string tempInput; // Temporary storage for current input
     std::string input;
+    int inputPos=0;
+    int historyPos=0;
 
     GLuint VAO, VBO;
     glm::mat4 projection;
@@ -81,10 +89,14 @@ private:
 
     void initFreeType();
     void addMessage(const std::string &message);
+    void addInput(int c,bool shift);
     std::string processCommand(const std::string &command);
     std::string trim(const std::string &str);
     std::string extractCommand(const std::string &str);
     void renderText(const std::string &text, float x, float y, float scale);
+    float renderCharacter(char c, float x, float y, float scale);
+    float renderCharacter(char c, float x, float y, float scale,float shiftLeft);
+    void renderTextWithIndicator(const std::string &text, float x, float y, float scale);
 
 
 

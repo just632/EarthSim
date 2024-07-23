@@ -7,6 +7,7 @@
 #include <string>
 #include "Utils/Timer.hpp"
 #include "Utils/Window.hpp"
+#include "static/wgs84.hpp"
 
 class Camera {
 public:

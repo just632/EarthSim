@@ -2,7 +2,7 @@
 
 
 FirstPersonCamera::FirstPersonCamera()
-    : FirstPersonCamera(glm::vec3(0.f, 63.569120f, 0.f), 45.f, 2.5f, 0.002f)
+    : FirstPersonCamera(glm::vec3(0.f, WGS84::A, 0.f), 45.f, 2.5f, 0.002f)
 {
 }
 
@@ -89,5 +89,5 @@ void FirstPersonCamera::computeMatrices() {
 
     // Compute the view matrix
     viewMatrix = glm::lookAt(position, lookAt, up);
-    projectionMatrix = glm::perspective(glm::radians(fieldOfView), window->getAspectRatio(), 0.1f, 100.0f);
+    projectionMatrix = glm::perspective(glm::radians(fieldOfView), window->getAspectRatio(), 0.1f, 1000.0f);
 }

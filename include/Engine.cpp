@@ -14,7 +14,7 @@ Engine::Engine() /*earth(Earth::getInstance()),*/
     console->debugInfo=true;
     loadCommands();
     cameraViews.push_back(std::make_shared<FirstPersonCamera>());
-    Objects.push_back(std::make_shared<Ellipsoid>(glm::vec3(1.f),40,40));
+    Objects.push_back(std::make_shared<Ellipsoid>(glm::vec3(0.f),100,100));
     setGlfwCallbacks();
 }
 

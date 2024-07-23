@@ -44,6 +44,7 @@ public:
             glfwTerminate();
             exit(EXIT_FAILURE);
         }
+        // monitor=glfwGetPrimaryMonitor();
         glfwMakeContextCurrent(window_ptr);
         glfwSetInputMode(window_ptr, GLFW_STICKY_KEYS, GL_TRUE);
         glfwSetInputMode(window_ptr, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -60,9 +61,6 @@ public:
         }
 
         glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LESS);
-        glEnable(GL_CULL_FACE);
-        glCullFace(GL_BACK);
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
@@ -88,6 +86,18 @@ public:
         windowAspectRatio = width / hight;
     }
 
+    // void toggleFullScreen()
+    // {
+    //     const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+    //     if(fullScreen){
+    //         fullScreen=false;
+    //         glfwSetWindowMonitor(window_ptr, NULL, 0, 0, mode->width, mode->height, mode->refreshRate);
+    //     }else{
+    //         fullScreen=true;
+    //         glfwSetWindowMonitor(window_ptr, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+    //     }
+    // }
+
 private:
     static Window *instance;
 
@@ -96,9 +106,9 @@ private:
         setWindowSize(windowWidth,windowHight);
         init();
     }
-
+    bool fullScreen=false;
     GLFWwindow *window_ptr;
-
+    GLFWmonitor* monitor;
     float windowAspectRatio;
     float windowWidth;
     float windowHight;
