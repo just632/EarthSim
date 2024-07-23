@@ -55,8 +55,6 @@ public:
 
     void drawConsole()
     {
-        if (window->keyPressed( GLFW_KEY_SLASH) == GLFW_PRESS && !console->isOpen)
-            console->isOpen = true;
         auto cam = getCurrentCamera();
         console->updateObjectCount(Objects.size());
         console->updateCameraYaw(cam->getYaw());
@@ -147,10 +145,10 @@ private:
                      oss << "Invalid number : "<<arg<<" at add command";
                      break;
                  }
-                 oss<<"add -> "<<result;
             }
              
-             return oss.str();
+            oss<<"add -> "<<result;
+            return oss.str();
          });
          console->addCommand("echo", []COMMAND_ARGS
          {

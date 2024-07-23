@@ -11,9 +11,8 @@ void Console::init(){
     initFreeType();
 }
 
-void Console::handleChar(int c, bool shift) {
-    if (!isOpen) return;
-
+void Console::handleChar(int c, bool shift) 
+{
     // Convert uppercase to lowercase if shift is not pressed
     if (c > 64 && c < 91 && !shift) c += 32;
 
@@ -72,8 +71,14 @@ void Console::handleChar(int c, bool shift) {
             inputPos = input.size();
         }
         break;
-
+    case GLFW_KEY_ESCAPE:
+        isOpen=false;
+        break;
+    case GLFW_KEY_SLASH:
+        isOpen=true;
+        break;
     default:
+        if (!isOpen) return;
         addInput(c, shift);
         break;
     }
