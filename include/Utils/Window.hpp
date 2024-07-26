@@ -44,7 +44,7 @@ public:
             glfwTerminate();
             exit(EXIT_FAILURE);
         }
-        // monitor=glfwGetPrimaryMonitor();
+        monitor=glfwGetPrimaryMonitor();
         glfwMakeContextCurrent(window_ptr);
         glfwSetInputMode(window_ptr, GLFW_STICKY_KEYS, GL_TRUE);
         glfwSetInputMode(window_ptr, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -86,17 +86,18 @@ public:
         windowAspectRatio = width / hight;
     }
 
-    // void toggleFullScreen()
-    // {
-    //     const GLFWvidmode* mode = glfwGetVideoMode(monitor);
-    //     if(fullScreen){
-    //         fullScreen=false;
-    //         glfwSetWindowMonitor(window_ptr, NULL, 0, 0, mode->width, mode->height, mode->refreshRate);
-    //     }else{
-    //         fullScreen=true;
-    //         glfwSetWindowMonitor(window_ptr, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
-    //     }
-    // }
+    void toggleFullScreen()
+    {
+        const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+        if(fullScreen){
+            fullScreen=false;
+            glfwSetWindowMonitor(window_ptr, NULL, 0, 0, mode->width, mode->height, mode->refreshRate);
+        }else{
+            fullScreen=true;
+            glfwSetWindowMonitor(window_ptr, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+            setWindowSize(mode->width, mode->height);
+        }
+    }
 
 private:
     static Window *instance;

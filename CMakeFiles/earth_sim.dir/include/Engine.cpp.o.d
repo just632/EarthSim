@@ -415,9 +415,9 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc \
- /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp \
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp \
+ /home/m/Code/cpp/EarthSim/include/Utils/Physics.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Triangle.hpp \
  /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp \
@@ -457,4 +457,5 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: \
  /usr/include/c++/13/bits/regex.h /usr/include/c++/13/bits/regex.tcc \
  /usr/include/c++/13/bits/regex_executor.h \
  /usr/include/c++/13/bits/regex_executor.tcc \
+ /home/m/Code/cpp/EarthSim/include/Objects/Rock.hpp \
  /home/m/Code/cpp/EarthSim/include/Cameras/FirstPersonCamera.hpp

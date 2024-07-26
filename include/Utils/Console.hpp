@@ -128,14 +128,38 @@ private:
         return oss.str();
     }
 
-        std::string currentTime()
-    {
-        std::ostringstream oss;
+std::string currentTime()
+        {
+            std::ostringstream oss;
+            float simTime = timer->getSimTime();
+            int years = (simTime / (60 * 60 * 24 * 365));
+            int months = (static_cast<int>(simTime / (60 * 60 * 24 * 30)) % 12);
+            int weeks = (static_cast<int>(simTime / (60 * 60 * 24 * 7)) % 4);
+            int days = (static_cast<int>(simTime / (60 * 60 * 24)) % 7);
+            int hours = (static_cast<int>(simTime / (60 * 60)) % 24);
+            int minutes = (static_cast<int>(simTime / 60) % 60);
+            float seconds = fmod(simTime, 60);  // Using fmod to include milliseconds
+            oss << "time: " << years << "y " << months << "m " << weeks << "w " << days << "d "
+                << hours << "h " << minutes << "m " << seconds << "s ";
 
-        oss << "time:" << roundToOneDecimal(timer->getTime());
+            return oss.str();
+        }
 
-        return oss.str();
-    }
+std::string currentTimeSpeed()
+{
+
+            std::ostringstream oss;
+                if (Utils::Timer::getTimeMultiplier() == 0)
+            {
+                oss << "PAUSED";
+            }
+            else
+            {
+                oss << "speed: " << roundToOneDecimal(Utils::Timer::getTimeMultiplier());
+            }
+
+            return oss.str();
+}
 
     int ShiftChar(int c) {
     switch (c) {

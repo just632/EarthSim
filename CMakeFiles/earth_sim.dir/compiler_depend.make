@@ -416,8 +416,10 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o: include/Engine.cpp \
   include/Objects/Cube.hpp \
   include/Objects/Ellipsoid.hpp \
   include/Objects/Object.hpp \
+  include/Objects/Rock.hpp \
   include/Objects/Triangle.hpp \
   include/Utils/Console.hpp \
+  include/Utils/Physics.hpp \
   include/Utils/Shader.hpp \
   include/Utils/Timer.hpp \
   include/Utils/Window.hpp \
@@ -938,8 +940,10 @@ CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o: include/Objects/Object.cp
   include/Objects/Cube.hpp \
   include/Objects/Ellipsoid.hpp \
   include/Objects/Object.hpp \
+  include/Objects/Rock.hpp \
   include/Objects/Triangle.hpp \
   include/Utils/Console.hpp \
+  include/Utils/Physics.hpp \
   include/Utils/Shader.hpp \
   include/Utils/Timer.hpp \
   include/Utils/Window.hpp \
@@ -3108,12 +3112,13 @@ CMakeFiles/earth_sim.dir/src/main.cpp.o: src/main.cpp \
   include/Objects/Cube.hpp \
   include/Objects/Ellipsoid.hpp \
   include/Objects/Object.hpp \
+  include/Objects/Rock.hpp \
   include/Objects/Triangle.hpp \
   include/Utils/Console.hpp \
+  include/Utils/Physics.hpp \
   include/Utils/Shader.hpp \
   include/Utils/Timer.hpp \
   include/Utils/Window.hpp \
-  include/common/config.h \
   include/static/wgs84.hpp \
   /usr/include/GL/gl.h \
   /usr/include/GL/glew.h \
@@ -3674,8 +3679,6 @@ include/Objects/Object.cpp:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
 
-include/common/config.h:
-
 /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
@@ -3823,6 +3826,8 @@ include/Engine.cpp:
 /usr/include/c++/13/bits/regex_automaton.tcc:
 
 /usr/local/include/glm/ext/vector_int3.hpp:
+
+include/Objects/Rock.hpp:
 
 /usr/local/include/glm/ext/vector_int2.hpp:
 
@@ -4361,6 +4366,8 @@ include/Objects/Triangle.hpp:
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
 /usr/include/c++/13/bits/ios_base.h:
+
+include/Utils/Physics.hpp:
 
 /usr/local/include/glm/ext/matrix_projection.hpp:
 

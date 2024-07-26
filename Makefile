@@ -175,6 +175,19 @@ earth_sim/fast:
 .PHONY : earth_sim/fast
 
 #=============================================================================
+# Target rules for targets named wgs_test
+
+# Build rule for target.
+wgs_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wgs_test
+.PHONY : wgs_test
+
+# fast build rule for target.
+wgs_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wgs_test.dir/build.make CMakeFiles/wgs_test.dir/build
+.PHONY : wgs_test/fast
+
+#=============================================================================
 # Target rules for targets named loader_example
 
 # Build rule for target.
@@ -374,6 +387,7 @@ include/static/wgs84.o: include/static/wgs84.cpp.o
 # target to build an object file
 include/static/wgs84.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wgs_test.dir/build.make CMakeFiles/wgs_test.dir/include/static/wgs84.cpp.o
 .PHONY : include/static/wgs84.cpp.o
 
 include/static/wgs84.i: include/static/wgs84.cpp.i
@@ -382,6 +396,7 @@ include/static/wgs84.i: include/static/wgs84.cpp.i
 # target to preprocess a source file
 include/static/wgs84.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wgs_test.dir/build.make CMakeFiles/wgs_test.dir/include/static/wgs84.cpp.i
 .PHONY : include/static/wgs84.cpp.i
 
 include/static/wgs84.s: include/static/wgs84.cpp.s
@@ -390,6 +405,7 @@ include/static/wgs84.s: include/static/wgs84.cpp.s
 # target to generate assembly for a file
 include/static/wgs84.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/include/static/wgs84.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wgs_test.dir/build.make CMakeFiles/wgs_test.dir/include/static/wgs84.cpp.s
 .PHONY : include/static/wgs84.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -416,6 +432,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/earth_sim.dir/build.make CMakeFiles/earth_sim.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/wgs_test.o: src/wgs_test.cpp.o
+.PHONY : src/wgs_test.o
+
+# target to build an object file
+src/wgs_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wgs_test.dir/build.make CMakeFiles/wgs_test.dir/src/wgs_test.cpp.o
+.PHONY : src/wgs_test.cpp.o
+
+src/wgs_test.i: src/wgs_test.cpp.i
+.PHONY : src/wgs_test.i
+
+# target to preprocess a source file
+src/wgs_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wgs_test.dir/build.make CMakeFiles/wgs_test.dir/src/wgs_test.cpp.i
+.PHONY : src/wgs_test.cpp.i
+
+src/wgs_test.s: src/wgs_test.cpp.s
+.PHONY : src/wgs_test.s
+
+# target to generate assembly for a file
+src/wgs_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wgs_test.dir/build.make CMakeFiles/wgs_test.dir/src/wgs_test.cpp.s
+.PHONY : src/wgs_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -431,6 +471,7 @@ help:
 	@echo "... earth_sim"
 	@echo "... loader_example"
 	@echo "... tinygltf"
+	@echo "... wgs_test"
 	@echo "... include/Cameras/FirstPersonCamera.o"
 	@echo "... include/Cameras/FirstPersonCamera.i"
 	@echo "... include/Cameras/FirstPersonCamera.s"
@@ -458,6 +499,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/wgs_test.o"
+	@echo "... src/wgs_test.i"
+	@echo "... src/wgs_test.s"
 .PHONY : help
 
 

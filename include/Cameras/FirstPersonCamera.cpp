@@ -36,15 +36,13 @@ void FirstPersonCamera::handleMouseMovement() {
     
     MouseLastX = xpos;
     MouseLastY = ypos;
-
-    // Constrain the pitch value
-    // if (pitch > 89.0f) pitch = 89.0f;
-    // if (pitch < -89.0f) pitch = -89.0f;
 }
 
 void FirstPersonCamera::handleUserInputs() {
     handleMouseMovement();
-    float moveStep = timer->getDeltaTime() * speed;
+    float moveStep;
+    if(timer->getDeltaSimTime()>1.f)moveStep = timer->getDeltaSimTime() * speed;
+    else moveStep = timer->getDeltaTime() * speed;
     if (window->keyPressed( GLFW_KEY_UP) || window->keyPressed( GLFW_KEY_W)) {
         position += forward * moveStep;
     }

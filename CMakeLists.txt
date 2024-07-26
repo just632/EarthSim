@@ -28,6 +28,9 @@ add_executable(earth_sim
     include/Utils/Console.hpp
     include/Utils/Window.cpp
     include/Utils/Window.hpp
+
+    include/Utils/Physics.hpp
+    include/Utils/Window.hpp
     include/static/wgs84.cpp
     include/static/wgs84.hpp
     include/Cameras/Camera.hpp  
@@ -42,3 +45,11 @@ add_executable(earth_sim
     include/tinygltf/stb_image.h
     include/tinygltf/tiny_gltf.h
 )
+
+add_executable(wgs_test
+    src/wgs_test.cpp
+    include/Utils/Physics.hpp
+    include/static/wgs84.cpp
+    include/static/wgs84.hpp
+)
+

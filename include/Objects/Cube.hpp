@@ -6,11 +6,10 @@
 class Cube : public Object {
 public:
     Cube( const glm::vec3& position)
-        :  VAO(0), VBO(0), EBO(0) {
+    {
         setPosition(position);
         loadObject();
-
-        
+        updateModelMatrix();
     }
 
     void draw() override {
@@ -37,9 +36,6 @@ public:
     }
 
 private:
-    GLuint VAO, VBO, EBO;
-    std::vector<float> vertices;
-    std::vector<unsigned int> indices;
 
     void loadObject() {
         // Define the vertices and indices for a cube

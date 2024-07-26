@@ -8,8 +8,6 @@ Engine *Engine::instance = nullptr;
 
 Engine::Engine() /*earth(Earth::getInstance()),*/
 {
-    std::cout<<"Engine Created"<<std::endl;
-
     console->init();
     console->debugInfo=true;
     loadCommands();
@@ -59,6 +57,7 @@ void Engine::mainLoop()
         glfwPollEvents();
 
     }
+    cleanup();
 }
 
 void Engine::framebufferSizeCallback(GLFWwindow *window_ptr, int width, int height)
@@ -93,6 +92,9 @@ void Engine::switchCameraView(int viewIndex)
 
 void Engine::cleanup()
 {
+    for(auto o:Objects)o.reset();
+    for(auto c:cameraViews)c.reset();
+    for(auto s:shaders)s.second.reset();
     glfwDestroyWindow(window->getWindow_ptr());
     glfwTerminate();
 }

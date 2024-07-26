@@ -17,6 +17,10 @@ void Console::handleChar(int c, bool shift)
     if (c > 64 && c < 91 && !shift) c += 32;
 
     switch (c) {
+    case GLFW_KEY_F11:
+        window->toggleFullScreen();
+        projection = glm::ortho(0.0f,window->getWidth(), 0.0f, window->getHight());
+        break;
     case GLFW_KEY_ENTER:
         // Process the command and add it to history if not empty
         if (!input.empty()) {
@@ -133,8 +137,10 @@ void Console::render() {
 
         renderText(currentObjectCount(), windowWidth-12*lineSize*scale, windowHeight-4*lineSize * scale, scale);
 
+        renderText(currentTimeSpeed(), windowWidth-12*lineSize*scale, windowHeight-6*lineSize * scale, scale);
 
-        renderText(currentTime(), windowWidth-12*lineSize*scale, windowHeight-6*lineSize * scale, scale);
+        renderText(currentTime(), windowWidth-24*lineSize*scale, lineSize * scale, scale);
+
 
     }
 

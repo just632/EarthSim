@@ -47,9 +47,19 @@ public:
         return pitch;
     }
 
+    glm::vec3 getForward() const
+    {
+        return glm::normalize(glm::vec3(
+        cos(pitch) * sin(yaw),
+        sin(pitch),
+        cos(pitch) * cos(yaw)
+    ));
+    }
+
 
     glm::mat4 getView(){return viewMatrix;};
     glm::mat4 getProjection(){return projectionMatrix;};
+
 protected:
     Utils::Timer* timer = Utils::Timer::getInstance(); 
     Window* window = Window::getInstance();
@@ -58,10 +68,12 @@ protected:
     glm::vec3 up;
     glm::vec3 right;
     glm::vec3 forward;
+    glm::vec3 look;
     glm::vec3 WorldUp;
 
     glm::mat4 viewMatrix;
     glm::mat4 projectionMatrix;
+    glm::mat4 mouseRotation = glm::mat4(1.f);
 
     float yaw;
     float pitch;

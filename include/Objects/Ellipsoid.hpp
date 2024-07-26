@@ -9,10 +9,10 @@ class Ellipsoid : public Object
 {
 public:
     Ellipsoid(const glm::vec3 &position, int stacks, int slices)
-        : VAO(0), VBO(0), EBO(0)
     {
         setPosition(position);
         loadObject(stacks, slices);
+        updateModelMatrix();
     }
 
     void draw() override
@@ -42,9 +42,6 @@ public:
     }
 
 private:
-    GLuint VAO, VBO, EBO;
-    GLsizei size;
-    std::vector<float> vertices;
 
     void loadObject(int stacks, int slices)
     {

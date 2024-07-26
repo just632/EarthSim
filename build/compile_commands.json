@@ -55,6 +55,18 @@
 },
 {
   "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/wgs_test.dir/src/wgs_test.cpp.o -c /home/m/Code/cpp/EarthSim/src/wgs_test.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/src/wgs_test.cpp",
+  "output": "CMakeFiles/wgs_test.dir/src/wgs_test.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
+  "command": "/usr/bin/c++ -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf -g -o CMakeFiles/wgs_test.dir/include/static/wgs84.cpp.o -c /home/m/Code/cpp/EarthSim/include/static/wgs84.cpp",
+  "file": "/home/m/Code/cpp/EarthSim/include/static/wgs84.cpp",
+  "output": "CMakeFiles/wgs_test.dir/include/static/wgs84.cpp.o"
+},
+{
+  "directory": "/home/m/Code/cpp/EarthSim/build",
   "command": "/usr/bin/c++ -g -std=c++11 -o include/tinygltf/CMakeFiles/loader_example.dir/loader_example.cc.o -c /home/m/Code/cpp/EarthSim/include/tinygltf/loader_example.cc",
   "file": "/home/m/Code/cpp/EarthSim/include/tinygltf/loader_example.cc",
   "output": "include/tinygltf/CMakeFiles/loader_example.dir/loader_example.cc.o"

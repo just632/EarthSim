@@ -1,47 +1,60 @@
 #include "wgs84.hpp"
 
-glm::vec3 WGS84::toCartesian(float longitude, float latitude, float height) {
-    float radLong = glm::radians(longitude);
-    float radLat = glm::radians(latitude);
+glm::vec3 WGS84::toCartesian(double latitude,double longitude, double altitude) {
+    double radLong = glm::radians(longitude);
+    double radLat = glm::radians(latitude);
 
-    float N = A / sqrt(1.0f - E2 * sin(radLat) * sin(radLat));
+    double N = A / sqrt(1.0f - E2 * sin(radLat) * sin(radLat));
 
-    float X = (N + height) * cos(radLat) * cos(radLong);
-    float Y = (N + height) * cos(radLat) * sin(radLong);
-    float Z = ((1 - E2) * N + height) * sin(radLat);
+    double X = (N + altitude) * cos(radLat) * cos(radLong);
+    double Y = (N + altitude) * cos(radLat) * sin(radLong);
+    double Z = ((1 - E2) * N + altitude) * sin(radLat);
 
     return glm::vec3(X, Y, Z);
 }
 
-glm::vec3 WGS84::surfaceNormal(float longitude, float latitude) {
-    float radLong = glm::radians(longitude);
-    float radLat = glm::radians(latitude);
+glm::vec3 WGS84::surfaceNormal(double longitude, double latitude) {
+    double radLong = glm::radians(longitude);
+    double radLat = glm::radians(latitude);
 
-    float X = cos(radLat) * cos(radLong);
-    float Y = cos(radLat) * sin(radLong);
-    float Z = (B * B / (A * A)) * sin(radLat);
+    double X = cos(radLat) * cos(radLong);
+    double Y = cos(radLat) * sin(radLong);
+    double Z = sin(radLat);
 
-    glm::vec3 normal = glm::vec3(X / (A * A), Y / (A * A), Z / (B * B));
+    glm::vec3 normal = glm::vec3(X, Y, Z);
     return glm::normalize(normal);
 }
 
 glm::vec3 WGS84::toGeodetic(const glm::vec3& position) {
-    float x = position.x;
-    float y = position.y;
-    float z = position.z;
+    double x = position.x;
+    double y = position.y;
+    double z = position.z;
 
-    float lon = std::atan2(y, x);
+    double lon = std::atan2(y, x);
 
-    float p = std::sqrt(x * x + y * y);
-    float theta = std::atan2(z * A, p * (1 - F) * A);
-    float sinTheta = std::sin(theta);
-    float cosTheta = std::cos(theta);
+    double p = std::sqrt(x * x + y * y);
+    double theta = std::atan2(z * A, p * B);
+    double e2 = E2 / (1 - E2);
 
-    float lat = std::atan2(z + E2 * (1 - F) * A * sinTheta * sinTheta * sinTheta,
-                           p - E2 * A * cosTheta * cosTheta * cosTheta);
+    double lat = std::atan2(z + e2 * B * std::sin(theta) * std::sin(theta) * std::sin(theta),
+                           p - E2 * A * std::cos(theta) * std::cos(theta) * std::cos(theta));
 
-    float N = A / std::sqrt(1 - E2 * std::sin(lat) * std::sin(lat));
-    float height = p / std::cos(lat) - N;
+    double N = A / std::sqrt(1 - E2 * std::sin(lat) * std::sin(lat));
+    double height = p / std::cos(lat) - N;
 
-    return glm::vec3(glm::degrees(lat), glm::degrees(lon), height);
+    return glm::vec3(glm::degrees(lon), glm::degrees(lat), height);
 }
+
+// Gravity on the Earth's surface as a function of latitude
+double WGS84::gravityOnSurface(double latitude) {
+    double radLat = glm::radians(latitude);
+    return 9.7803267714 * (1 + 0.00193185138639q * sin(radLat) * sin(radLat)) / 
+           sqrt(1 - E2 * sin(radLat) * sin(radLat));
+}
+
+// Gravity at a altitude above the Earth's surface
+double WGS84::gravityAtHeight(double latitude, double altitude) {
+    double g0 = gravityOnSurface(latitude);
+    return g0 * pow((A / (A + altitude)), 2);
+}
+

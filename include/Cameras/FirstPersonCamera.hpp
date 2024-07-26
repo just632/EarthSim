@@ -1,6 +1,5 @@
 #pragma once
 #include "Cameras/Camera.hpp"
-#include "static/wgs84.hpp"
 
 class FirstPersonCamera : public Camera {
 public:
@@ -13,6 +12,6 @@ public:
     void apply();
 private:
     void computeMatrices();
-    
+    void updateVectors();
     glm::mat4 modleMatrix = glm::mat4(1.0f);
 };

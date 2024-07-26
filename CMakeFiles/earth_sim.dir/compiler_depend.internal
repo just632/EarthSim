@@ -418,8 +418,10 @@ CMakeFiles/earth_sim.dir/include/Engine.cpp.o
  /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp
  /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp
  /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp
+ /home/m/Code/cpp/EarthSim/include/Objects/Rock.hpp
  /home/m/Code/cpp/EarthSim/include/Objects/Triangle.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Console.hpp
+ /home/m/Code/cpp/EarthSim/include/Utils/Physics.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Timer.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Window.hpp
@@ -941,8 +943,10 @@ CMakeFiles/earth_sim.dir/include/Objects/Object.cpp.o
  /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp
  /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp
  /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp
+ /home/m/Code/cpp/EarthSim/include/Objects/Rock.hpp
  /home/m/Code/cpp/EarthSim/include/Objects/Triangle.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Console.hpp
+ /home/m/Code/cpp/EarthSim/include/Utils/Physics.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Timer.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Window.hpp
@@ -3117,12 +3121,13 @@ CMakeFiles/earth_sim.dir/src/main.cpp.o
  /home/m/Code/cpp/EarthSim/include/Objects/Cube.hpp
  /home/m/Code/cpp/EarthSim/include/Objects/Ellipsoid.hpp
  /home/m/Code/cpp/EarthSim/include/Objects/Object.hpp
+ /home/m/Code/cpp/EarthSim/include/Objects/Rock.hpp
  /home/m/Code/cpp/EarthSim/include/Objects/Triangle.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Console.hpp
+ /home/m/Code/cpp/EarthSim/include/Utils/Physics.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Shader.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Timer.hpp
  /home/m/Code/cpp/EarthSim/include/Utils/Window.hpp
- /home/m/Code/cpp/EarthSim/include/common/config.h
  /home/m/Code/cpp/EarthSim/include/static/wgs84.hpp
  /usr/include/GL/gl.h
  /usr/include/GL/glew.h

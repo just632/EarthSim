@@ -129,6 +129,46 @@ build earth_sim: CXX_EXECUTABLE_LINKER__earth_sim_Debug CMakeFiles/earth_sim.dir
   TARGET_FILE = earth_sim
   TARGET_PDB = earth_sim.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target wgs_test
+
+
+#############################################
+# Order-only phony target for wgs_test
+
+build cmake_object_order_depends_target_wgs_test: phony || cmake_object_order_depends_target_tinygltf
+
+build CMakeFiles/wgs_test.dir/src/wgs_test.cpp.o: CXX_COMPILER__wgs_test_unscanned_Debug /home/m/Code/cpp/EarthSim/src/wgs_test.cpp || cmake_object_order_depends_target_wgs_test
+  DEP_FILE = CMakeFiles/wgs_test.dir/src/wgs_test.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/wgs_test.dir
+  OBJECT_FILE_DIR = CMakeFiles/wgs_test.dir/src
+
+build CMakeFiles/wgs_test.dir/include/static/wgs84.cpp.o: CXX_COMPILER__wgs_test_unscanned_Debug /home/m/Code/cpp/EarthSim/include/static/wgs84.cpp || cmake_object_order_depends_target_wgs_test
+  DEP_FILE = CMakeFiles/wgs_test.dir/include/static/wgs84.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/usr/include/freetype2 -I/home/m/Code/cpp/EarthSim/include -I/home/m/Code/cpp/EarthSim/include/tinygltf
+  OBJECT_DIR = CMakeFiles/wgs_test.dir
+  OBJECT_FILE_DIR = CMakeFiles/wgs_test.dir/include/static
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target wgs_test
+
+
+#############################################
+# Link the executable wgs_test
+
+build wgs_test: CXX_EXECUTABLE_LINKER__wgs_test_Debug CMakeFiles/wgs_test.dir/src/wgs_test.cpp.o CMakeFiles/wgs_test.dir/include/static/wgs84.cpp.o | /usr/lib/x86_64-linux-gnu/libGLEW.so /usr/lib/x86_64-linux-gnu/libfreetype.so include/tinygltf/libtinygltf.a /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || include/tinygltf/libtinygltf.a
+  FLAGS = -g
+  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libGLEW.so  /usr/lib/x86_64-linux-gnu/libfreetype.so  -lglfw3  include/tinygltf/libtinygltf.a  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so
+  OBJECT_DIR = CMakeFiles/wgs_test.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = wgs_test
+  TARGET_PDB = wgs_test.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -343,7 +383,7 @@ build tinygltf: phony include/tinygltf/libtinygltf.a
 #############################################
 # Folder: /home/m/Code/cpp/EarthSim/build
 
-build all: phony earth_sim include/tinygltf/all
+build all: phony earth_sim wgs_test include/tinygltf/all
 
 # =============================================================================
 

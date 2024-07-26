@@ -22,6 +22,7 @@
 #include "Utils/Console.hpp"
 #include "Utils/Window.hpp"
 #include "Utils/Timer.hpp"
+#include "Objects/Rock.hpp"
 #define COMMAND_ARGS (const std::vector<std::string> &args)
 using namespace Utils;
 
@@ -166,7 +167,7 @@ private:
                  auto pos = currentCamera->getPosition();
                  pos.z -= 5;
                  engine->addObject(std::make_shared<Cube>(pos));
-                 oss << "created cube at (x:"<<pos.x<<",y:"<<pos.y<<",z:"<<pos.z;
+                 oss << "created cube at (x:"<<pos.x<<",y:"<<pos.y<<",z:"<<pos.z<<")";
              }
              catch (const std::exception &e)
              {
@@ -174,19 +175,154 @@ private:
              }
              return oss.str();
          });
-         console->addCommand("help", []COMMAND_ARGS
+        console->addCommand("rock", []COMMAND_ARGS
+         {
+             std::ostringstream oss;
+             try
+             {
+                 Engine *engine = Engine::getInstance();
+                 std::shared_ptr<Camera> currentCamera = engine->getCurrentCamera();
+                 auto pos = currentCamera->getPosition();
+                 auto forward = currentCamera->getForward();
+                 float force = 1;
+                 if(args.size()>=1)force = std::stof(args[0]);
+                 auto val = forward*force;
+                 engine->addObject(std::make_shared<Rock>(pos,val,glm::quat(1.,0.,0.,0.)));
+                 oss << "created rock at (x:"<<pos.x<<",y:"<<pos.y<<",z:"<<pos.z<<")";
+             }
+             catch (const std::exception &e)
+             {
+                 oss << e.what() << '\n';
+             }
+             return oss.str();
+         });
+
+         console->addCommand("q",[]COMMAND_ARGS{
+            std::ostringstream oss;
+            glfwSetWindowShouldClose(Window::getInstance()->getWindow_ptr(),true);
+            oss << "exiting...";
+            return oss.str();
+         });
+
+        console->addCommand("norm",[]COMMAND_ARGS{
+            std::ostringstream oss;
+            Engine *engine = Engine::getInstance();
+            std::shared_ptr<Camera> currentCamera = engine->getCurrentCamera();
+            auto pos = currentCamera->getPosition();
+            auto geoPos = WGS84::toGeodetic(pos);
+            auto lat = geoPos.x;
+            auto lon = geoPos.y;
+            auto norm = WGS84::surfaceNormal(lat,lon);
+            oss << "norm("<<norm.x<<","<<norm.y<<","<<norm.z<<")";
+            return oss.str();
+         });
+         console->addCommand("g",[]COMMAND_ARGS{
+            std::ostringstream oss;
+            Engine *engine = Engine::getInstance();
+            std::shared_ptr<Camera> currentCamera = engine->getCurrentCamera();
+            auto pos = currentCamera->getPosition();
+            auto geoPos = WGS84::toGeodetic(pos);
+            auto lat = geoPos.x;
+            auto lon = geoPos.y;
+            auto alt = geoPos.z;
+            double g = WGS84::gravityAtHeight(lat, alt);
+            // Get the surface normal at the current geodetic position
+            glm::vec3 normal = WGS84::surfaceNormal(lat, lon);
+
+            double forceMagnitude = g * 1.f;
+
+            // The force is in the opposite direction of the normal
+            double forceX = -forceMagnitude * normal.x;
+            double forceY = -forceMagnitude * normal.y;
+            double forceZ = -forceMagnitude * normal.z;
+            oss << "g("<<forceX<<","<<forceY<<","<<forceZ<<")";
+            return oss.str();
+         });
+         console->addCommand("front",[]COMMAND_ARGS{
+            std::ostringstream oss;
+            Engine *engine = Engine::getInstance();
+            std::shared_ptr<Camera> currentCamera = engine->getCurrentCamera();
+            auto forward = currentCamera->getForward();
+            oss << "forward("<<forward.x<<","<<forward.y<<","<<forward.z<<")";
+            return oss.str();
+         });
+         console->addCommand("time",[]COMMAND_ARGS{
+            std::ostringstream oss;
+            oss << "running for : "<<glfwGetTime();
+            return oss.str();
+         });
+         console->addCommand("setSpeed",[]COMMAND_ARGS{
+             std::ostringstream oss;
+             try
+             {
+                 float timeMult = std::stof(args[0]);
+                 Timer::setTimeMultiplier(timeMult);
+                 oss << "set time multiplier";
+             }
+             catch (const std::exception &e)
+             {
+                 oss << e.what() << '\n';
+             }
+             return oss.str();
+         });
+         console->addCommand("addSpeed",[]COMMAND_ARGS{
+             std::ostringstream oss;
+             try
+             {
+                 float timeMult = std::stof(args[0]);
+                 Timer::setTimeMultiplier(Timer::getTimeMultiplier() + timeMult);
+                 oss << "added to time multiplier";
+             }
+             catch (const std::exception &e)
+             {
+                 oss << e.what() << '\n';
+             }
+             return oss.str();
+         });
+        console->addCommand("p",[]COMMAND_ARGS{
+            std::ostringstream oss;
+            if(Timer::getTimeMultiplier()==0.f){
+                Timer::setTimeMultiplier(1.f);
+
+                oss << "unpaused simulation";
+            }else{
+
+                Timer::setTimeMultiplier(0.f);
+
+                oss << "paused simulation";
+            }
+            return oss.str();
+         });
+         console->addCommand("c", []COMMAND_ARGS
+         {
+             std::ostringstream oss;
+             try
+             {
+                 Engine *engine = Engine::getInstance();
+                 for(auto o:engine->Objects)o.reset();
+                 engine->Objects.clear();
+                 engine->addObject(std::make_shared<Ellipsoid>(glm::vec3(0.f),100,100));
+                 oss << "cleared objects";
+             }
+             catch (const std::exception &e)
+             {
+                 oss << e.what() << '\n';
+             }
+             return oss.str();
+         });
+                  console->addCommand("help", []COMMAND_ARGS
          {
              std::ostringstream oss;
              oss << "add(a,b) -> adds two or more floats\n";
              oss << "echo(msg) -> returns msg\n";
              oss << "cube -> spawns cube at current position\n";
+             oss << "rock -> spawns rock at current position\n";
+             oss << "front -> prints actrive cameras forward vec\n";
+             oss << "time -> print the uptime of app in seconds\n";
+             oss << "g -> prints gravity vec at current position\n";
+             oss << "c -> clear all objects\n";
+             oss << "norm -> prints surface norm vec at current position";
              return oss.str();
-         });
-         console->addCommand("q",[]COMMAND_ARGS{
-            std::ostringstream oss;
-            glfwSetWindowShouldClose(Window::getInstance()->getWindow_ptr(),true);
-            oss << "exiting...\n";
-            return oss.str();
          });
     }
 
