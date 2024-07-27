@@ -11,7 +11,7 @@
 
 class Camera {
 public:
-    ~Camera() = default;  // Virtual destructor
+    ~Camera() = default;
 
     virtual void update() = 0;
     virtual void handleUserInputs() = 0;  
@@ -73,7 +73,6 @@ protected:
 
     glm::mat4 viewMatrix;
     glm::mat4 projectionMatrix;
-    glm::mat4 mouseRotation = glm::mat4(1.f);
 
     float yaw;
     float pitch;

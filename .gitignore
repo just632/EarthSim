@@ -94,3 +94,8 @@ CMakeFiles/earth_sim.dir/compiler_depend.make
 CMakeFiles/earth_sim.dir/compiler_depend.internal
 .vscode/launch.json
 earth_sim
+CMakeFiles/earth_sim.dir/include/Utils/Console.cpp.o
+CMakeFiles/earth_sim.dir/include/Engine.cpp.o
+build/.ninja_log
+build/.ninja_deps
+earth_sim

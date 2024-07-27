@@ -47,14 +47,12 @@ private:
     {
         // Generate ellipsoid vertices
 
-        for (int i = 0; i <= stacks; ++i)
-        {
+        for (int i = 0; i <= stacks; ++i) {
             float theta = i * M_PI / stacks;
             float sinTheta = sin(theta);
             float cosTheta = cos(theta);
 
-            for (int j = 0; j <= slices; ++j)
-            {
+            for (int j = 0; j <= slices; ++j) {
                 float phi = j * 2 * M_PI / slices;
                 float sinPhi = sin(phi);
                 float cosPhi = cos(phi);
@@ -63,15 +61,20 @@ private:
                 float y = sinPhi * sinTheta;
                 float z = cosTheta;
 
-                float xr = WGS84::A * x;
-                float yr = WGS84::A * y;
-                float zr = WGS84::B * z;
+                float xr = x;
+                float yr = -z;
+                float zr = y;
+
+                xr *= WGS84::B;
+                yr *= WGS84::A;
+                zr *= WGS84::B;
 
                 vertices.push_back(xr);
                 vertices.push_back(yr);
                 vertices.push_back(zr);
             }
         }
+
         glGenVertexArrays(1, &VAO);
         glGenBuffers(1, &VBO);
 
